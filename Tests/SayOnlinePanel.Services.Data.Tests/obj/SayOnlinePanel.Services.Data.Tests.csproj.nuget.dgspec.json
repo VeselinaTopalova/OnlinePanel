@@ -179,9 +179,6 @@
               "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Data\\SayOnlinePanel.Data.Models\\SayOnlinePanel.Data.Models.csproj": {
                 "projectPath": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Data\\SayOnlinePanel.Data.Models\\SayOnlinePanel.Data.Models.csproj"
               },
-              "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Data\\SayOnlinePanel.Services.Mapping\\SayOnlinePanel.Services.Mapping.csproj": {
-                "projectPath": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Data\\SayOnlinePanel.Services.Mapping\\SayOnlinePanel.Services.Mapping.csproj"
-              },
               "C:\\Users\\Acer\\Desktop\\MyProjectNew\\SayOnlinePanel.Common\\SayOnlinePanel.Common.csproj": {
                 "projectPath": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\SayOnlinePanel.Common\\SayOnlinePanel.Common.csproj"
               },
@@ -351,6 +348,9 @@
               },
               "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Services\\SayOnlinePanel.Services.Mapping\\SayOnlinePanel.Services.Mapping.csproj": {
                 "projectPath": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Services\\SayOnlinePanel.Services.Mapping\\SayOnlinePanel.Services.Mapping.csproj"
+              },
+              "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Web\\SayOnlinePanel.Web.ViewModels\\SayOnlinePanel.Web.ViewModels.csproj": {
+                "projectPath": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Web\\SayOnlinePanel.Web.ViewModels\\SayOnlinePanel.Web.ViewModels.csproj"
               }
             }
           }

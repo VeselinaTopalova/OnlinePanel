@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "dgSpecHash": "6kecMjEqDI4VU1umudRVyR9huY45niG10rMAFaZwnG1Owo4xjAkiwZrmp/4U/G1Y6JfDz8UOJFfsKJgbL+wLvw==",
-  "success": false,
+  "dgSpecHash": "kxYeBO3j+Io8n6EBBt4La45+hCTrgxc7Qhl8n8M3CKn9tmVzM4b+9SJArU5n/k+FiCRYyLHKXkxUB03YSYfvhg==",
+  "success": true,
   "projectFilePath": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Web\\SayOnlinePanel.Web\\SayOnlinePanel.Web.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Acer\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
@@ -30,8 +30,10 @@
     "C:\\Users\\Acer\\.nuget\\packages\\microsoft.entityframeworkcore\\3.1.9\\microsoft.entityframeworkcore.3.1.9.nupkg.sha512",
     "C:\\Users\\Acer\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\3.1.9\\microsoft.entityframeworkcore.abstractions.3.1.9.nupkg.sha512",
     "C:\\Users\\Acer\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\3.1.9\\microsoft.entityframeworkcore.analyzers.3.1.9.nupkg.sha512",
+    "C:\\Users\\Acer\\.nuget\\packages\\microsoft.entityframeworkcore.design\\3.1.9\\microsoft.entityframeworkcore.design.3.1.9.nupkg.sha512",
     "C:\\Users\\Acer\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\3.1.9\\microsoft.entityframeworkcore.relational.3.1.9.nupkg.sha512",
     "C:\\Users\\Acer\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\3.1.9\\microsoft.entityframeworkcore.sqlserver.3.1.9.nupkg.sha512",
+    "C:\\Users\\Acer\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\3.1.9\\microsoft.entityframeworkcore.tools.3.1.9.nupkg.sha512",
     "C:\\Users\\Acer\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\3.1.9\\microsoft.extensions.caching.abstractions.3.1.9.nupkg.sha512",
     "C:\\Users\\Acer\\.nuget\\packages\\microsoft.extensions.caching.memory\\3.1.9\\microsoft.extensions.caching.memory.3.1.9.nupkg.sha512",
     "C:\\Users\\Acer\\.nuget\\packages\\microsoft.extensions.configuration\\3.1.9\\microsoft.extensions.configuration.3.1.9.nupkg.sha512",
@@ -188,15 +190,5 @@
     "C:\\Users\\Acer\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
     "C:\\Users\\Acer\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1104",
-      "level": "Error",
-      "message": "Unable to find project 'C:\\Users\\Acer\\Desktop\\MyProjectNew\\Data\\SayOnlinePanel.Services.Mapping\\SayOnlinePanel.Services.Mapping.csproj'. Check that the project reference is valid and that the project file exists.",
-      "libraryId": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Data\\SayOnlinePanel.Services.Mapping\\SayOnlinePanel.Services.Mapping.csproj",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v3.1"
-      ]
-    }
-  ]
+  "logs": []
 }

@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "dgSpecHash": "hRXLo6X28gutvJ2D/r9Xe+VtmlbSo71VAtUiKwpibkrO82o9okAGjkvGLv9r583Ahy7w75prunO2TNqbCaPXlA==",
-  "success": false,
+  "dgSpecHash": "5PXhxnCEyerZsLaAHkabPKaAs5yc51LDK5/ervJMFjrH+Q3wOwhLPloNGyJxRH7MWYwj/pJnzboq9X6XRqQxSg==",
+  "success": true,
   "projectFilePath": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Tests\\SayOnlinePanel.Services.Data.Tests\\SayOnlinePanel.Services.Data.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Acer\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
@@ -166,15 +166,5 @@
     "C:\\Users\\Acer\\.nuget\\packages\\xunit.extensibility.execution\\2.4.1\\xunit.extensibility.execution.2.4.1.nupkg.sha512",
     "C:\\Users\\Acer\\.nuget\\packages\\xunit.runner.visualstudio\\2.4.3\\xunit.runner.visualstudio.2.4.3.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1104",
-      "level": "Error",
-      "message": "Unable to find project 'C:\\Users\\Acer\\Desktop\\MyProjectNew\\Data\\SayOnlinePanel.Services.Mapping\\SayOnlinePanel.Services.Mapping.csproj'. Check that the project reference is valid and that the project file exists.",
-      "libraryId": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Data\\SayOnlinePanel.Services.Mapping\\SayOnlinePanel.Services.Mapping.csproj",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v3.1"
-      ]
-    }
-  ]
+  "logs": []
 }

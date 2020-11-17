@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "dgSpecHash": "h+M0MTbSzFViMK9Z0D9Hy+Uu7jjihUMHwq16XGDxR43symqHz5KOxq2cz41TgWV2/Fw2Ca8HLYkV7ghN8hRf3Q==",
-  "success": false,
+  "dgSpecHash": "jNYkL9B8mWGbHQ2PPmwq1AugLzgWuI3RHKt4/4Xm/mJEBQnCc3EfThWE6tTcP+hYwZh6xrdCCmX9Ev8DN2rj2g==",
+  "success": true,
   "projectFilePath": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Data\\SayOnlinePanel.Data\\SayOnlinePanel.Data.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Acer\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
@@ -119,15 +119,5 @@
     "C:\\Users\\Acer\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
     "C:\\Users\\Acer\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1104",
-      "level": "Error",
-      "message": "Unable to find project 'C:\\Users\\Acer\\Desktop\\MyProjectNew\\Data\\SayOnlinePanel.Services.Mapping\\SayOnlinePanel.Services.Mapping.csproj'. Check that the project reference is valid and that the project file exists.",
-      "libraryId": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Data\\SayOnlinePanel.Services.Mapping\\SayOnlinePanel.Services.Mapping.csproj",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v3.1"
-      ]
-    }
-  ]
+  "logs": []
 }

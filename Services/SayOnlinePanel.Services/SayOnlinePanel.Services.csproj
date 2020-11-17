@@ -17,5 +17,8 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Data\SayOnlinePanel.Data.Models\SayOnlinePanel.Data.Models.csproj" />
+  </ItemGroup>
 
 </Project>

@@ -18,3 +18,7 @@ C:\Users\Acer\Desktop\MyProjectNew\Data\SayOnlinePanel.Data\obj\Debug\netcoreapp
 C:\Users\Acer\Desktop\MyProjectNew\Data\SayOnlinePanel.Data\obj\Debug\netcoreapp3.1\SayOnlinePanel.Data.dll
 C:\Users\Acer\Desktop\MyProjectNew\Data\SayOnlinePanel.Data\obj\Debug\netcoreapp3.1\SayOnlinePanel.Data.pdb
 C:\Users\Acer\Desktop\MyProjectNew\Data\SayOnlinePanel.Data\obj\Debug\netcoreapp3.1\SayOnlinePanel.Data.genruntimeconfig.cache
+C:\Users\Acer\Desktop\MyProjectNew\Data\SayOnlinePanel.Data\bin\Debug\netcoreapp3.1\SayOnlinePanel.Services.Mapping.dll
+C:\Users\Acer\Desktop\MyProjectNew\Data\SayOnlinePanel.Data\bin\Debug\netcoreapp3.1\SayOnlinePanel.Web.ViewModels.dll
+C:\Users\Acer\Desktop\MyProjectNew\Data\SayOnlinePanel.Data\bin\Debug\netcoreapp3.1\SayOnlinePanel.Web.ViewModels.pdb
+C:\Users\Acer\Desktop\MyProjectNew\Data\SayOnlinePanel.Data\bin\Debug\netcoreapp3.1\SayOnlinePanel.Services.Mapping.pdb

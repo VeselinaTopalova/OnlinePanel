@@ -436,6 +436,20 @@
         "runtime": {
           "bin/placeholder/SayOnlinePanel.Services.Mapping.dll": {}
         }
+      },
+      "SayOnlinePanel.Web.ViewModels/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "SayOnlinePanel.Data.Models": "1.0.0",
+          "SayOnlinePanel.Services.Mapping": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/SayOnlinePanel.Web.ViewModels.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SayOnlinePanel.Web.ViewModels.dll": {}
+        }
       }
     }
   },
@@ -1308,6 +1322,11 @@
       "type": "project",
       "path": "../SayOnlinePanel.Services.Mapping/SayOnlinePanel.Services.Mapping.csproj",
       "msbuildProject": "../SayOnlinePanel.Services.Mapping/SayOnlinePanel.Services.Mapping.csproj"
+    },
+    "SayOnlinePanel.Web.ViewModels/1.0.0": {
+      "type": "project",
+      "path": "../../Web/SayOnlinePanel.Web.ViewModels/SayOnlinePanel.Web.ViewModels.csproj",
+      "msbuildProject": "../../Web/SayOnlinePanel.Web.ViewModels/SayOnlinePanel.Web.ViewModels.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -1315,6 +1334,7 @@
       "SayOnlinePanel.Data.Common >= 1.0.0",
       "SayOnlinePanel.Data.Models >= 1.0.0",
       "SayOnlinePanel.Services.Mapping >= 1.0.0",
+      "SayOnlinePanel.Web.ViewModels >= 1.0.0",
       "StyleCop.Analyzers >= 1.2.0-beta.205"
     ]
   },
@@ -1357,6 +1377,9 @@
             },
             "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Services\\SayOnlinePanel.Services.Mapping\\SayOnlinePanel.Services.Mapping.csproj": {
               "projectPath": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Services\\SayOnlinePanel.Services.Mapping\\SayOnlinePanel.Services.Mapping.csproj"
+            },
+            "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Web\\SayOnlinePanel.Web.ViewModels\\SayOnlinePanel.Web.ViewModels.csproj": {
+              "projectPath": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Web\\SayOnlinePanel.Web.ViewModels\\SayOnlinePanel.Web.ViewModels.csproj"
             }
           }
         }

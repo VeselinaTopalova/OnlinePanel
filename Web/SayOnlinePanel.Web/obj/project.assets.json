@@ -515,6 +515,22 @@
           "lib/netstandard2.0/_._": {}
         }
       },
+      "Microsoft.EntityFrameworkCore.Design/3.1.9": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.CSharp": "4.7.0",
+          "Microsoft.EntityFrameworkCore.Relational": "3.1.9"
+        },
+        "compile": {
+          "lib/netstandard2.0/_._": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.EntityFrameworkCore.Design.dll": {}
+        },
+        "build": {
+          "build/netcoreapp2.0/Microsoft.EntityFrameworkCore.Design.props": {}
+        }
+      },
       "Microsoft.EntityFrameworkCore.Relational/3.1.9": {
         "type": "package",
         "dependencies": {
@@ -538,6 +554,18 @@
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.EntityFrameworkCore.SqlServer.dll": {}
+        }
+      },
+      "Microsoft.EntityFrameworkCore.Tools/3.1.9": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Design": "3.1.9"
+        },
+        "compile": {
+          "lib/netstandard2.0/_._": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/_._": {}
         }
       },
       "Microsoft.Extensions.Caching.Abstractions/3.1.9": {
@@ -2881,7 +2909,6 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
-          "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Data\\SayOnlinePanel.Services.Mapping\\SayOnlinePanel.Services.Mapping.csproj": "1.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.1.9",
           "Microsoft.EntityFrameworkCore.SqlServer": "3.1.9",
           "Microsoft.Extensions.Configuration.UserSecrets": "3.1.9",
@@ -2927,6 +2954,9 @@
       "SayOnlinePanel.Services/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "SayOnlinePanel.Data.Models": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/SayOnlinePanel.Services.dll": {}
         },
@@ -2940,7 +2970,8 @@
         "dependencies": {
           "SayOnlinePanel.Data.Common": "1.0.0",
           "SayOnlinePanel.Data.Models": "1.0.0",
-          "SayOnlinePanel.Services.Mapping": "1.0.0"
+          "SayOnlinePanel.Services.Mapping": "1.0.0",
+          "SayOnlinePanel.Web.ViewModels": "1.0.0"
         },
         "compile": {
           "bin/placeholder/SayOnlinePanel.Services.Data.dll": {}
@@ -3697,6 +3728,22 @@
         "microsoft.entityframeworkcore.analyzers.nuspec"
       ]
     },
+    "Microsoft.EntityFrameworkCore.Design/3.1.9": {
+      "sha512": "2zgP7BWcw5nqGQiT4bEtiI6ras+4pvKg5D+tA3AYvjEifzzaWvmRTb3B9nRHpIYJAhPtmWNBVnVXLbu3fS1OYA==",
+      "type": "package",
+      "path": "microsoft.entityframeworkcore.design/3.1.9",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "build/net461/Microsoft.EntityFrameworkCore.Design.props",
+        "build/netcoreapp2.0/Microsoft.EntityFrameworkCore.Design.props",
+        "lib/netstandard2.0/Microsoft.EntityFrameworkCore.Design.dll",
+        "lib/netstandard2.0/Microsoft.EntityFrameworkCore.Design.xml",
+        "microsoft.entityframeworkcore.design.3.1.9.nupkg.sha512",
+        "microsoft.entityframeworkcore.design.nuspec"
+      ]
+    },
     "Microsoft.EntityFrameworkCore.Relational/3.1.9": {
       "sha512": "7fhWuSfrCYlv/hvOX5OhbFJF/G9f8sifqTrJiYnAYLDOvNizwv7t9tFPD8JwaF3zM2S54O5/Vni2NxvwzSaW2w==",
       "type": "package",
@@ -3723,6 +3770,30 @@
         "lib/netstandard2.0/Microsoft.EntityFrameworkCore.SqlServer.xml",
         "microsoft.entityframeworkcore.sqlserver.3.1.9.nupkg.sha512",
         "microsoft.entityframeworkcore.sqlserver.nuspec"
+      ]
+    },
+    "Microsoft.EntityFrameworkCore.Tools/3.1.9": {
+      "sha512": "mSgwjp0h5iqW5V49SVijR5O+kNpI1nitcbN12n9FYx/Ga6oCEFwXR/llBDesD6ASHw3Mx16vodJYJ7CEBx5rig==",
+      "type": "package",
+      "path": "microsoft.entityframeworkcore.tools/3.1.9",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "lib/netstandard2.0/_._",
+        "microsoft.entityframeworkcore.tools.3.1.9.nupkg.sha512",
+        "microsoft.entityframeworkcore.tools.nuspec",
+        "tools/EntityFrameworkCore.PS2.psd1",
+        "tools/EntityFrameworkCore.PS2.psm1",
+        "tools/EntityFrameworkCore.psd1",
+        "tools/EntityFrameworkCore.psm1",
+        "tools/about_EntityFrameworkCore.help.txt",
+        "tools/init.ps1",
+        "tools/net461/any/ef.exe",
+        "tools/net461/win-x86/ef.exe",
+        "tools/netcoreapp2.0/any/ef.dll",
+        "tools/netcoreapp2.0/any/ef.runtimeconfig.json"
       ]
     },
     "Microsoft.Extensions.Caching.Abstractions/3.1.9": {
@@ -9540,6 +9611,7 @@
       "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore >= 3.1.9",
       "Microsoft.AspNetCore.Identity.UI >= 3.1.9",
       "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation >= 3.1.9",
+      "Microsoft.EntityFrameworkCore.Tools >= 3.1.9",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 3.1.4",
       "Microsoft.Web.LibraryManager.Build >= 2.1.113",
       "SayOnlinePanel.Common >= 1.0.0",
@@ -9547,7 +9619,6 @@
       "SayOnlinePanel.Data.Models >= 1.0.0",
       "SayOnlinePanel.Services >= 1.0.0",
       "SayOnlinePanel.Services.Data >= 1.0.0",
-      "SayOnlinePanel.Services.Mapping >= 1.0.0",
       "SayOnlinePanel.Services.Messaging >= 1.0.0",
       "SayOnlinePanel.Web.Infrastructure >= 1.0.0",
       "SayOnlinePanel.Web.ViewModels >= 1.0.0",
@@ -9597,9 +9668,6 @@
             "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Services\\SayOnlinePanel.Services.Data\\SayOnlinePanel.Services.Data.csproj": {
               "projectPath": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Services\\SayOnlinePanel.Services.Data\\SayOnlinePanel.Services.Data.csproj"
             },
-            "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Services\\SayOnlinePanel.Services.Mapping\\SayOnlinePanel.Services.Mapping.csproj": {
-              "projectPath": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Services\\SayOnlinePanel.Services.Mapping\\SayOnlinePanel.Services.Mapping.csproj"
-            },
             "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Services\\SayOnlinePanel.Services.Messaging\\SayOnlinePanel.Services.Messaging.csproj": {
               "projectPath": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Services\\SayOnlinePanel.Services.Messaging\\SayOnlinePanel.Services.Messaging.csproj"
             },
@@ -9641,6 +9709,12 @@
             "target": "Package",
             "version": "[3.1.9, )"
           },
+          "Microsoft.EntityFrameworkCore.Tools": {
+            "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+            "suppressParent": "All",
+            "target": "Package",
+            "version": "[3.1.9, )"
+          },
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
             "target": "Package",
             "version": "[3.1.4, )"
@@ -9677,16 +9751,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1104",
-      "level": "Error",
-      "message": "Unable to find project 'C:\\Users\\Acer\\Desktop\\MyProjectNew\\Data\\SayOnlinePanel.Services.Mapping\\SayOnlinePanel.Services.Mapping.csproj'. Check that the project reference is valid and that the project file exists.",
-      "libraryId": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Data\\SayOnlinePanel.Services.Mapping\\SayOnlinePanel.Services.Mapping.csproj",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v3.1"
-      ]
-    }
-  ]
+  }
 }

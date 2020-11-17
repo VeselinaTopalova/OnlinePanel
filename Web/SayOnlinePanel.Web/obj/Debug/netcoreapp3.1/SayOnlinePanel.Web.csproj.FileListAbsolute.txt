@@ -456,3 +456,4 @@ C:\Users\Acer\Desktop\MyProjectNew\Web\SayOnlinePanel.Web\obj\Debug\netcoreapp3.
 C:\Users\Acer\Desktop\MyProjectNew\Web\SayOnlinePanel.Web\obj\Debug\netcoreapp3.1\SayOnlinePanel.Web.dll
 C:\Users\Acer\Desktop\MyProjectNew\Web\SayOnlinePanel.Web\obj\Debug\netcoreapp3.1\SayOnlinePanel.Web.pdb
 C:\Users\Acer\Desktop\MyProjectNew\Web\SayOnlinePanel.Web\obj\Debug\netcoreapp3.1\SayOnlinePanel.Web.genruntimeconfig.cache
+C:\Users\Acer\Desktop\MyProjectNew\Web\SayOnlinePanel.Web\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll

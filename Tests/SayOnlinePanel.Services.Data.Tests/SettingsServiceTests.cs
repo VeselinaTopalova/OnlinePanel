@@ -4,15 +4,12 @@
     using System.Linq;
     using System.Threading.Tasks;
 
+    using Microsoft.EntityFrameworkCore;
+    using Moq;
     using SayOnlinePanel.Data;
     using SayOnlinePanel.Data.Common.Repositories;
     using SayOnlinePanel.Data.Models;
     using SayOnlinePanel.Data.Repositories;
-
-    using Microsoft.EntityFrameworkCore;
-
-    using Moq;
-
     using Xunit;
 
     public class SettingsServiceTests

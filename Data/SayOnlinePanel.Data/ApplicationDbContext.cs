@@ -26,6 +26,24 @@
 
         public DbSet<Setting> Settings { get; set; }
 
+        public DbSet<Survey> Surveys { get; set; }
+
+        public DbSet<Question> Questions { get; set; }
+
+        public DbSet<Answer> Answers { get; set; }
+
+        public DbSet<UserAnswer> UserAnswers { get; set; }
+
+        public DbSet<UserInfo> UserInfos { get; set; }
+
+        public DbSet<ImageForQuestion> ImageForQuestions { get; set; }
+
+        public DbSet<ImageForAnswer> ImageForAnswers { get; set; }
+
+        public DbSet<Voucher> Vouchers { get; set; }
+
+        public DbSet<VoucherUser> VoucherUsers { get; set; }
+
         public override int SaveChanges() => this.SaveChanges(true);
 
         public override int SaveChanges(bool acceptAllChangesOnSuccess)

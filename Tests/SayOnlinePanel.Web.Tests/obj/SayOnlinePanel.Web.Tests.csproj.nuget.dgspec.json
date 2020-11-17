@@ -179,9 +179,6 @@
               "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Data\\SayOnlinePanel.Data.Models\\SayOnlinePanel.Data.Models.csproj": {
                 "projectPath": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Data\\SayOnlinePanel.Data.Models\\SayOnlinePanel.Data.Models.csproj"
               },
-              "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Data\\SayOnlinePanel.Services.Mapping\\SayOnlinePanel.Services.Mapping.csproj": {
-                "projectPath": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Data\\SayOnlinePanel.Services.Mapping\\SayOnlinePanel.Services.Mapping.csproj"
-              },
               "C:\\Users\\Acer\\Desktop\\MyProjectNew\\SayOnlinePanel.Common\\SayOnlinePanel.Common.csproj": {
                 "projectPath": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\SayOnlinePanel.Common\\SayOnlinePanel.Common.csproj"
               },
@@ -351,6 +348,9 @@
               },
               "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Services\\SayOnlinePanel.Services.Mapping\\SayOnlinePanel.Services.Mapping.csproj": {
                 "projectPath": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Services\\SayOnlinePanel.Services.Mapping\\SayOnlinePanel.Services.Mapping.csproj"
+              },
+              "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Web\\SayOnlinePanel.Web.ViewModels\\SayOnlinePanel.Web.ViewModels.csproj": {
+                "projectPath": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Web\\SayOnlinePanel.Web.ViewModels\\SayOnlinePanel.Web.ViewModels.csproj"
               }
             }
           }
@@ -555,7 +555,11 @@
         "frameworks": {
           "netstandard2.1": {
             "targetAlias": "netstandard2.1",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Data\\SayOnlinePanel.Data.Models\\SayOnlinePanel.Data.Models.csproj": {
+                "projectPath": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Data\\SayOnlinePanel.Data.Models\\SayOnlinePanel.Data.Models.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -868,9 +872,6 @@
               "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Services\\SayOnlinePanel.Services.Data\\SayOnlinePanel.Services.Data.csproj": {
                 "projectPath": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Services\\SayOnlinePanel.Services.Data\\SayOnlinePanel.Services.Data.csproj"
               },
-              "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Services\\SayOnlinePanel.Services.Mapping\\SayOnlinePanel.Services.Mapping.csproj": {
-                "projectPath": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Services\\SayOnlinePanel.Services.Mapping\\SayOnlinePanel.Services.Mapping.csproj"
-              },
               "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Services\\SayOnlinePanel.Services.Messaging\\SayOnlinePanel.Services.Messaging.csproj": {
                 "projectPath": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Services\\SayOnlinePanel.Services.Messaging\\SayOnlinePanel.Services.Messaging.csproj"
               },
@@ -909,6 +910,12 @@
               "version": "[3.1.9, )"
             },
             "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": {
+              "target": "Package",
+              "version": "[3.1.9, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
               "version": "[3.1.9, )"
             },

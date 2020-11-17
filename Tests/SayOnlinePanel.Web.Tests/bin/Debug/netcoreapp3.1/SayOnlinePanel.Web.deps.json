@@ -28,6 +28,7 @@
           "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "3.1.9",
           "Microsoft.AspNetCore.Identity.UI": "3.1.9",
           "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": "3.1.9",
+          "Microsoft.EntityFrameworkCore.Tools": "3.1.9",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "3.1.4",
           "Microsoft.Web.LibraryManager.Build": "2.1.113",
           "SayOnlinePanel.Common": "1.0.0",
@@ -35,7 +36,6 @@
           "SayOnlinePanel.Data.Models": "1.0.0",
           "SayOnlinePanel.Services": "1.0.0",
           "SayOnlinePanel.Services.Data": "1.0.0",
-          "SayOnlinePanel.Services.Mapping": "1.0.0",
           "SayOnlinePanel.Services.Messaging": "1.0.0",
           "SayOnlinePanel.Web.Infrastructure": "1.0.0",
           "SayOnlinePanel.Web.ViewModels": "1.0.0",
@@ -799,6 +799,18 @@
         }
       },
       "Microsoft.EntityFrameworkCore.Analyzers/3.1.9": {},
+      "Microsoft.EntityFrameworkCore.Design/3.1.9": {
+        "dependencies": {
+          "Microsoft.CSharp": "4.7.0",
+          "Microsoft.EntityFrameworkCore.Relational": "3.1.9"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.EntityFrameworkCore.Design.dll": {
+            "assemblyVersion": "3.1.9.0",
+            "fileVersion": "3.100.920.47303"
+          }
+        }
+      },
       "Microsoft.EntityFrameworkCore.Relational/3.1.9": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "3.1.9"
@@ -826,6 +838,11 @@
         },
         "compile": {
           "lib/netstandard2.0/Microsoft.EntityFrameworkCore.SqlServer.dll": {}
+        }
+      },
+      "Microsoft.EntityFrameworkCore.Tools/3.1.9": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Design": "3.1.9"
         }
       },
       "Microsoft.Extensions.Caching.Abstractions/3.1.9": {
@@ -2515,7 +2532,8 @@
           "Microsoft.Extensions.Configuration.UserSecrets": "3.1.9",
           "SayOnlinePanel.Common": "1.0.0",
           "SayOnlinePanel.Data.Common": "1.0.0",
-          "SayOnlinePanel.Data.Models": "1.0.0"
+          "SayOnlinePanel.Data.Models": "1.0.0",
+          "SayOnlinePanel.Web.ViewModels": "1.0.0"
         },
         "runtime": {
           "SayOnlinePanel.Data.dll": {}
@@ -2548,6 +2566,9 @@
         }
       },
       "SayOnlinePanel.Services/1.0.0": {
+        "dependencies": {
+          "SayOnlinePanel.Data.Models": "1.0.0"
+        },
         "runtime": {
           "SayOnlinePanel.Services.dll": {}
         },
@@ -2559,7 +2580,8 @@
         "dependencies": {
           "SayOnlinePanel.Data.Common": "1.0.0",
           "SayOnlinePanel.Data.Models": "1.0.0",
-          "SayOnlinePanel.Services.Mapping": "1.0.0"
+          "SayOnlinePanel.Services.Mapping": "1.0.0",
+          "SayOnlinePanel.Web.ViewModels": "1.0.0"
         },
         "runtime": {
           "SayOnlinePanel.Services.Data.dll": {}
@@ -4342,6 +4364,13 @@
       "path": "microsoft.entityframeworkcore.analyzers/3.1.9",
       "hashPath": "microsoft.entityframeworkcore.analyzers.3.1.9.nupkg.sha512"
     },
+    "Microsoft.EntityFrameworkCore.Design/3.1.9": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-2zgP7BWcw5nqGQiT4bEtiI6ras+4pvKg5D+tA3AYvjEifzzaWvmRTb3B9nRHpIYJAhPtmWNBVnVXLbu3fS1OYA==",
+      "path": "microsoft.entityframeworkcore.design/3.1.9",
+      "hashPath": "microsoft.entityframeworkcore.design.3.1.9.nupkg.sha512"
+    },
     "Microsoft.EntityFrameworkCore.Relational/3.1.9": {
       "type": "package",
       "serviceable": true,
@@ -4355,6 +4384,13 @@
       "sha512": "sha512-w0ybfzcNfSr5r7Ng/o3QN4EqOIxQCFVJ0p8BPlWlcqTXY2mTuq9E6P1UOj2tAfjlG0RgSfLjJG3j+aUApw3sTg==",
       "path": "microsoft.entityframeworkcore.sqlserver/3.1.9",
       "hashPath": "microsoft.entityframeworkcore.sqlserver.3.1.9.nupkg.sha512"
+    },
+    "Microsoft.EntityFrameworkCore.Tools/3.1.9": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-mSgwjp0h5iqW5V49SVijR5O+kNpI1nitcbN12n9FYx/Ga6oCEFwXR/llBDesD6ASHw3Mx16vodJYJ7CEBx5rig==",
+      "path": "microsoft.entityframeworkcore.tools/3.1.9",
+      "hashPath": "microsoft.entityframeworkcore.tools.3.1.9.nupkg.sha512"
     },
     "Microsoft.Extensions.Caching.Abstractions/3.1.9": {
       "type": "package",

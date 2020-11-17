@@ -7,3 +7,8 @@ C:\Users\Acer\Desktop\MyProjectNew\Services\SayOnlinePanel.Services\obj\Debug\ne
 C:\Users\Acer\Desktop\MyProjectNew\Services\SayOnlinePanel.Services\obj\Debug\netstandard2.1\SayOnlinePanel.Services.csproj.CoreCompileInputs.cache
 C:\Users\Acer\Desktop\MyProjectNew\Services\SayOnlinePanel.Services\obj\Debug\netstandard2.1\SayOnlinePanel.Services.dll
 C:\Users\Acer\Desktop\MyProjectNew\Services\SayOnlinePanel.Services\obj\Debug\netstandard2.1\SayOnlinePanel.Services.pdb
+C:\Users\Acer\Desktop\MyProjectNew\Services\SayOnlinePanel.Services\bin\Debug\netstandard2.1\SayOnlinePanel.Data.Common.dll
+C:\Users\Acer\Desktop\MyProjectNew\Services\SayOnlinePanel.Services\bin\Debug\netstandard2.1\SayOnlinePanel.Data.Models.dll
+C:\Users\Acer\Desktop\MyProjectNew\Services\SayOnlinePanel.Services\bin\Debug\netstandard2.1\SayOnlinePanel.Data.Models.pdb
+C:\Users\Acer\Desktop\MyProjectNew\Services\SayOnlinePanel.Services\bin\Debug\netstandard2.1\SayOnlinePanel.Data.Common.pdb
+C:\Users\Acer\Desktop\MyProjectNew\Services\SayOnlinePanel.Services\obj\Debug\netstandard2.1\SayOnlinePanel.Services.csproj.CopyComplete

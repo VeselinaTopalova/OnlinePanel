@@ -12,6 +12,7 @@
           "SayOnlinePanel.Data.Common": "1.0.0",
           "SayOnlinePanel.Data.Models": "1.0.0",
           "SayOnlinePanel.Services.Mapping": "1.0.0",
+          "SayOnlinePanel.Web.ViewModels": "1.0.0",
           "StyleCop.Analyzers": "1.2.0-beta.205"
         },
         "runtime": {
@@ -387,6 +388,15 @@
         "runtime": {
           "SayOnlinePanel.Services.Mapping.dll": {}
         }
+      },
+      "SayOnlinePanel.Web.ViewModels/1.0.0": {
+        "dependencies": {
+          "SayOnlinePanel.Data.Models": "1.0.0",
+          "SayOnlinePanel.Services.Mapping": "1.0.0"
+        },
+        "runtime": {
+          "SayOnlinePanel.Web.ViewModels.dll": {}
+        }
       }
     }
   },
@@ -652,6 +662,11 @@
       "sha512": ""
     },
     "SayOnlinePanel.Services.Mapping/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SayOnlinePanel.Web.ViewModels/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

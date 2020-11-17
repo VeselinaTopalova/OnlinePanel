@@ -6,6 +6,7 @@
     using SayOnlinePanel.Data.Common.Repositories;
     using SayOnlinePanel.Data.Models;
     using SayOnlinePanel.Services.Mapping;
+    using SayOnlinePanel.Web.ViewModels.Settings;
 
     public class SettingsService : ISettingsService
     {

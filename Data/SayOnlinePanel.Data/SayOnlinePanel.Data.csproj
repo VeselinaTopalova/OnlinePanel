@@ -43,7 +43,6 @@
     <ProjectReference Include="..\SayOnlinePanel.Data.Common\SayOnlinePanel.Data.Common.csproj" />
     <ProjectReference Include="..\SayOnlinePanel.Data.Models\SayOnlinePanel.Data.Models.csproj" />
     <ProjectReference Include="..\..\Web\SayOnlinePanel.Web.ViewModels\SayOnlinePanel.Web.ViewModels.csproj" />
-    <ProjectReference Include="..\SayOnlinePanel.Services.Mapping\SayOnlinePanel.Services.Mapping.csproj" />
   </ItemGroup>
 
 </Project>
