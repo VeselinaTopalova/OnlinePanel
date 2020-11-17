@@ -1,0 +1,9 @@
+C:\Users\Acer\Desktop\MyProjectNew\Services\SayOnlinePanel.Services.Messaging\bin\Debug\netstandard2.1\SayOnlinePanel.Services.Messaging.deps.json
+C:\Users\Acer\Desktop\MyProjectNew\Services\SayOnlinePanel.Services.Messaging\bin\Debug\netstandard2.1\SayOnlinePanel.Services.Messaging.dll
+C:\Users\Acer\Desktop\MyProjectNew\Services\SayOnlinePanel.Services.Messaging\bin\Debug\netstandard2.1\SayOnlinePanel.Services.Messaging.pdb
+C:\Users\Acer\Desktop\MyProjectNew\Services\SayOnlinePanel.Services.Messaging\obj\Debug\netstandard2.1\SayOnlinePanel.Services.Messaging.csprojAssemblyReference.cache
+C:\Users\Acer\Desktop\MyProjectNew\Services\SayOnlinePanel.Services.Messaging\obj\Debug\netstandard2.1\SayOnlinePanel.Services.Messaging.AssemblyInfoInputs.cache
+C:\Users\Acer\Desktop\MyProjectNew\Services\SayOnlinePanel.Services.Messaging\obj\Debug\netstandard2.1\SayOnlinePanel.Services.Messaging.AssemblyInfo.cs
+C:\Users\Acer\Desktop\MyProjectNew\Services\SayOnlinePanel.Services.Messaging\obj\Debug\netstandard2.1\SayOnlinePanel.Services.Messaging.csproj.CoreCompileInputs.cache
+C:\Users\Acer\Desktop\MyProjectNew\Services\SayOnlinePanel.Services.Messaging\obj\Debug\netstandard2.1\SayOnlinePanel.Services.Messaging.dll
+C:\Users\Acer\Desktop\MyProjectNew\Services\SayOnlinePanel.Services.Messaging\obj\Debug\netstandard2.1\SayOnlinePanel.Services.Messaging.pdb

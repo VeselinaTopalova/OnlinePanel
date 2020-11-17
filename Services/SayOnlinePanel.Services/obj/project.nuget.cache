@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "cYOWRqcoSErVKcv62hcrNEqswL/QStCe4W6SdmSPd4W0uFayrlj3l8RLodzcP6eYPCyEeboXpM7LLWdK7xb6vw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Services\\SayOnlinePanel.Services\\SayOnlinePanel.Services.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Acer\\.nuget\\packages\\stylecop.analyzers\\1.2.0-beta.205\\stylecop.analyzers.1.2.0-beta.205.nupkg.sha512",
+    "C:\\Users\\Acer\\.nuget\\packages\\stylecop.analyzers.unstable\\1.2.0.205\\stylecop.analyzers.unstable.1.2.0.205.nupkg.sha512"
+  ],
+  "logs": []
+}

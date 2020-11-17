@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "jzSngbOr7sHkoYzlfxJHNz50v55ZGJ1jq6QPgPH53EGC1A1KaD4h3PXIf65z209x80VRsCBkMG11v1trVu1UPQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Data\\SayOnlinePanel.Data.Common\\SayOnlinePanel.Data.Common.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Acer\\.nuget\\packages\\stylecop.analyzers\\1.2.0-beta.205\\stylecop.analyzers.1.2.0-beta.205.nupkg.sha512",
+    "C:\\Users\\Acer\\.nuget\\packages\\stylecop.analyzers.unstable\\1.2.0.205\\stylecop.analyzers.unstable.1.2.0.205.nupkg.sha512",
+    "C:\\Users\\Acer\\.nuget\\packages\\system.componentmodel.annotations\\4.7.0\\system.componentmodel.annotations.4.7.0.nupkg.sha512"
+  ],
+  "logs": []
+}

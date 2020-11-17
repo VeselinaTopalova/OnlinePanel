@@ -1,0 +1,855 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Web\\SayOnlinePanel.Web\\SayOnlinePanel.Web.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Data\\SayOnlinePanel.Data.Common\\SayOnlinePanel.Data.Common.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Data\\SayOnlinePanel.Data.Common\\SayOnlinePanel.Data.Common.csproj",
+        "projectName": "SayOnlinePanel.Data.Common",
+        "projectPath": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Data\\SayOnlinePanel.Data.Common\\SayOnlinePanel.Data.Common.csproj",
+        "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Data\\SayOnlinePanel.Data.Common\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "dependencies": {
+            "StyleCop.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.2.0-beta.205, )"
+            },
+            "System.ComponentModel.Annotations": {
+              "target": "Package",
+              "version": "[4.7.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Data\\SayOnlinePanel.Data.Models\\SayOnlinePanel.Data.Models.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Data\\SayOnlinePanel.Data.Models\\SayOnlinePanel.Data.Models.csproj",
+        "projectName": "SayOnlinePanel.Data.Models",
+        "projectPath": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Data\\SayOnlinePanel.Data.Models\\SayOnlinePanel.Data.Models.csproj",
+        "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Data\\SayOnlinePanel.Data.Models\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {
+              "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Data\\SayOnlinePanel.Data.Common\\SayOnlinePanel.Data.Common.csproj": {
+                "projectPath": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Data\\SayOnlinePanel.Data.Common\\SayOnlinePanel.Data.Common.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.9, )"
+            },
+            "StyleCop.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.2.0-beta.205, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Data\\SayOnlinePanel.Data\\SayOnlinePanel.Data.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Data\\SayOnlinePanel.Data\\SayOnlinePanel.Data.csproj",
+        "projectName": "SayOnlinePanel.Data",
+        "projectPath": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Data\\SayOnlinePanel.Data\\SayOnlinePanel.Data.csproj",
+        "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Data\\SayOnlinePanel.Data\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Data\\SayOnlinePanel.Data.Common\\SayOnlinePanel.Data.Common.csproj": {
+                "projectPath": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Data\\SayOnlinePanel.Data.Common\\SayOnlinePanel.Data.Common.csproj"
+              },
+              "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Data\\SayOnlinePanel.Data.Models\\SayOnlinePanel.Data.Models.csproj": {
+                "projectPath": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Data\\SayOnlinePanel.Data.Models\\SayOnlinePanel.Data.Models.csproj"
+              },
+              "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Data\\SayOnlinePanel.Services.Mapping\\SayOnlinePanel.Services.Mapping.csproj": {
+                "projectPath": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Data\\SayOnlinePanel.Services.Mapping\\SayOnlinePanel.Services.Mapping.csproj"
+              },
+              "C:\\Users\\Acer\\Desktop\\MyProjectNew\\SayOnlinePanel.Common\\SayOnlinePanel.Common.csproj": {
+                "projectPath": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\SayOnlinePanel.Common\\SayOnlinePanel.Common.csproj"
+              },
+              "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Web\\SayOnlinePanel.Web.ViewModels\\SayOnlinePanel.Web.ViewModels.csproj": {
+                "projectPath": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Web\\SayOnlinePanel.Web.ViewModels\\SayOnlinePanel.Web.ViewModels.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.9, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.9, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.9, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.9, )"
+            },
+            "Microsoft.Extensions.Configuration.UserSecrets": {
+              "target": "Package",
+              "version": "[3.1.9, )"
+            },
+            "StyleCop.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.2.0-beta.205, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Acer\\Desktop\\MyProjectNew\\SayOnlinePanel.Common\\SayOnlinePanel.Common.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\SayOnlinePanel.Common\\SayOnlinePanel.Common.csproj",
+        "projectName": "SayOnlinePanel.Common",
+        "projectPath": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\SayOnlinePanel.Common\\SayOnlinePanel.Common.csproj",
+        "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\SayOnlinePanel.Common\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "dependencies": {
+            "StyleCop.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.2.0-beta.205, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Services\\SayOnlinePanel.Services.Data\\SayOnlinePanel.Services.Data.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Services\\SayOnlinePanel.Services.Data\\SayOnlinePanel.Services.Data.csproj",
+        "projectName": "SayOnlinePanel.Services.Data",
+        "projectPath": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Services\\SayOnlinePanel.Services.Data\\SayOnlinePanel.Services.Data.csproj",
+        "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Services\\SayOnlinePanel.Services.Data\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {
+              "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Data\\SayOnlinePanel.Data.Common\\SayOnlinePanel.Data.Common.csproj": {
+                "projectPath": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Data\\SayOnlinePanel.Data.Common\\SayOnlinePanel.Data.Common.csproj"
+              },
+              "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Data\\SayOnlinePanel.Data.Models\\SayOnlinePanel.Data.Models.csproj": {
+                "projectPath": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Data\\SayOnlinePanel.Data.Models\\SayOnlinePanel.Data.Models.csproj"
+              },
+              "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Services\\SayOnlinePanel.Services.Mapping\\SayOnlinePanel.Services.Mapping.csproj": {
+                "projectPath": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Services\\SayOnlinePanel.Services.Mapping\\SayOnlinePanel.Services.Mapping.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "dependencies": {
+            "StyleCop.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.2.0-beta.205, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Services\\SayOnlinePanel.Services.Mapping\\SayOnlinePanel.Services.Mapping.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Services\\SayOnlinePanel.Services.Mapping\\SayOnlinePanel.Services.Mapping.csproj",
+        "projectName": "SayOnlinePanel.Services.Mapping",
+        "projectPath": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Services\\SayOnlinePanel.Services.Mapping\\SayOnlinePanel.Services.Mapping.csproj",
+        "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Services\\SayOnlinePanel.Services.Mapping\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[10.1.1, )"
+            },
+            "StyleCop.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.2.0-beta.205, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Services\\SayOnlinePanel.Services.Messaging\\SayOnlinePanel.Services.Messaging.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Services\\SayOnlinePanel.Services.Messaging\\SayOnlinePanel.Services.Messaging.csproj",
+        "projectName": "SayOnlinePanel.Services.Messaging",
+        "projectPath": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Services\\SayOnlinePanel.Services.Messaging\\SayOnlinePanel.Services.Messaging.csproj",
+        "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Services\\SayOnlinePanel.Services.Messaging\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "dependencies": {
+            "Sendgrid": {
+              "target": "Package",
+              "version": "[9.21.0, )"
+            },
+            "StyleCop.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.2.0-beta.205, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Services\\SayOnlinePanel.Services\\SayOnlinePanel.Services.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Services\\SayOnlinePanel.Services\\SayOnlinePanel.Services.csproj",
+        "projectName": "SayOnlinePanel.Services",
+        "projectPath": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Services\\SayOnlinePanel.Services\\SayOnlinePanel.Services.csproj",
+        "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Services\\SayOnlinePanel.Services\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "dependencies": {
+            "StyleCop.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.2.0-beta.205, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Web\\SayOnlinePanel.Web.Infrastructure\\SayOnlinePanel.Web.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Web\\SayOnlinePanel.Web.Infrastructure\\SayOnlinePanel.Web.Infrastructure.csproj",
+        "projectName": "SayOnlinePanel.Web.Infrastructure",
+        "projectPath": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Web\\SayOnlinePanel.Web.Infrastructure\\SayOnlinePanel.Web.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Web\\SayOnlinePanel.Web.Infrastructure\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "dependencies": {
+            "StyleCop.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.2.0-beta.205, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Web\\SayOnlinePanel.Web.ViewModels\\SayOnlinePanel.Web.ViewModels.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Web\\SayOnlinePanel.Web.ViewModels\\SayOnlinePanel.Web.ViewModels.csproj",
+        "projectName": "SayOnlinePanel.Web.ViewModels",
+        "projectPath": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Web\\SayOnlinePanel.Web.ViewModels\\SayOnlinePanel.Web.ViewModels.csproj",
+        "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Web\\SayOnlinePanel.Web.ViewModels\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {
+              "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Data\\SayOnlinePanel.Data.Models\\SayOnlinePanel.Data.Models.csproj": {
+                "projectPath": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Data\\SayOnlinePanel.Data.Models\\SayOnlinePanel.Data.Models.csproj"
+              },
+              "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Services\\SayOnlinePanel.Services.Mapping\\SayOnlinePanel.Services.Mapping.csproj": {
+                "projectPath": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Services\\SayOnlinePanel.Services.Mapping\\SayOnlinePanel.Services.Mapping.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "dependencies": {
+            "StyleCop.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.2.0-beta.205, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Web\\SayOnlinePanel.Web\\SayOnlinePanel.Web.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Web\\SayOnlinePanel.Web\\SayOnlinePanel.Web.csproj",
+        "projectName": "SayOnlinePanel.Web",
+        "projectPath": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Web\\SayOnlinePanel.Web\\SayOnlinePanel.Web.csproj",
+        "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Web\\SayOnlinePanel.Web\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Data\\SayOnlinePanel.Data.Models\\SayOnlinePanel.Data.Models.csproj": {
+                "projectPath": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Data\\SayOnlinePanel.Data.Models\\SayOnlinePanel.Data.Models.csproj"
+              },
+              "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Data\\SayOnlinePanel.Data\\SayOnlinePanel.Data.csproj": {
+                "projectPath": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Data\\SayOnlinePanel.Data\\SayOnlinePanel.Data.csproj"
+              },
+              "C:\\Users\\Acer\\Desktop\\MyProjectNew\\SayOnlinePanel.Common\\SayOnlinePanel.Common.csproj": {
+                "projectPath": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\SayOnlinePanel.Common\\SayOnlinePanel.Common.csproj"
+              },
+              "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Services\\SayOnlinePanel.Services.Data\\SayOnlinePanel.Services.Data.csproj": {
+                "projectPath": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Services\\SayOnlinePanel.Services.Data\\SayOnlinePanel.Services.Data.csproj"
+              },
+              "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Services\\SayOnlinePanel.Services.Mapping\\SayOnlinePanel.Services.Mapping.csproj": {
+                "projectPath": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Services\\SayOnlinePanel.Services.Mapping\\SayOnlinePanel.Services.Mapping.csproj"
+              },
+              "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Services\\SayOnlinePanel.Services.Messaging\\SayOnlinePanel.Services.Messaging.csproj": {
+                "projectPath": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Services\\SayOnlinePanel.Services.Messaging\\SayOnlinePanel.Services.Messaging.csproj"
+              },
+              "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Services\\SayOnlinePanel.Services\\SayOnlinePanel.Services.csproj": {
+                "projectPath": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Services\\SayOnlinePanel.Services\\SayOnlinePanel.Services.csproj"
+              },
+              "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Web\\SayOnlinePanel.Web.Infrastructure\\SayOnlinePanel.Web.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Web\\SayOnlinePanel.Web.Infrastructure\\SayOnlinePanel.Web.Infrastructure.csproj"
+              },
+              "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Web\\SayOnlinePanel.Web.ViewModels\\SayOnlinePanel.Web.ViewModels.csproj": {
+                "projectPath": "C:\\Users\\Acer\\Desktop\\MyProjectNew\\Web\\SayOnlinePanel.Web.ViewModels\\SayOnlinePanel.Web.ViewModels.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "BuildBundlerMinifier": {
+              "target": "Package",
+              "version": "[3.2.449, )"
+            },
+            "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.9, )"
+            },
+            "Microsoft.AspNetCore.Identity.UI": {
+              "target": "Package",
+              "version": "[3.1.9, )"
+            },
+            "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": {
+              "target": "Package",
+              "version": "[3.1.9, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[3.1.4, )"
+            },
+            "Microsoft.Web.LibraryManager.Build": {
+              "target": "Package",
+              "version": "[2.1.113, )"
+            },
+            "StyleCop.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.2.0-beta.205, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

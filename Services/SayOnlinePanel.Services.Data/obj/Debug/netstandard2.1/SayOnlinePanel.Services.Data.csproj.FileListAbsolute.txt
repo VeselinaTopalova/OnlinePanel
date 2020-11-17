@@ -1,0 +1,16 @@
+C:\Users\Acer\Desktop\MyProjectNew\Services\SayOnlinePanel.Services.Data\bin\Debug\netstandard2.1\SayOnlinePanel.Services.Data.deps.json
+C:\Users\Acer\Desktop\MyProjectNew\Services\SayOnlinePanel.Services.Data\bin\Debug\netstandard2.1\SayOnlinePanel.Services.Data.dll
+C:\Users\Acer\Desktop\MyProjectNew\Services\SayOnlinePanel.Services.Data\bin\Debug\netstandard2.1\SayOnlinePanel.Services.Data.pdb
+C:\Users\Acer\Desktop\MyProjectNew\Services\SayOnlinePanel.Services.Data\bin\Debug\netstandard2.1\SayOnlinePanel.Data.Common.dll
+C:\Users\Acer\Desktop\MyProjectNew\Services\SayOnlinePanel.Services.Data\bin\Debug\netstandard2.1\SayOnlinePanel.Data.Models.dll
+C:\Users\Acer\Desktop\MyProjectNew\Services\SayOnlinePanel.Services.Data\bin\Debug\netstandard2.1\SayOnlinePanel.Services.Mapping.dll
+C:\Users\Acer\Desktop\MyProjectNew\Services\SayOnlinePanel.Services.Data\bin\Debug\netstandard2.1\SayOnlinePanel.Data.Common.pdb
+C:\Users\Acer\Desktop\MyProjectNew\Services\SayOnlinePanel.Services.Data\bin\Debug\netstandard2.1\SayOnlinePanel.Data.Models.pdb
+C:\Users\Acer\Desktop\MyProjectNew\Services\SayOnlinePanel.Services.Data\bin\Debug\netstandard2.1\SayOnlinePanel.Services.Mapping.pdb
+C:\Users\Acer\Desktop\MyProjectNew\Services\SayOnlinePanel.Services.Data\obj\Debug\netstandard2.1\SayOnlinePanel.Services.Data.csprojAssemblyReference.cache
+C:\Users\Acer\Desktop\MyProjectNew\Services\SayOnlinePanel.Services.Data\obj\Debug\netstandard2.1\SayOnlinePanel.Services.Data.AssemblyInfoInputs.cache
+C:\Users\Acer\Desktop\MyProjectNew\Services\SayOnlinePanel.Services.Data\obj\Debug\netstandard2.1\SayOnlinePanel.Services.Data.AssemblyInfo.cs
+C:\Users\Acer\Desktop\MyProjectNew\Services\SayOnlinePanel.Services.Data\obj\Debug\netstandard2.1\SayOnlinePanel.Services.Data.csproj.CoreCompileInputs.cache
+C:\Users\Acer\Desktop\MyProjectNew\Services\SayOnlinePanel.Services.Data\obj\Debug\netstandard2.1\SayOnlinePanel.Services.Data.csproj.CopyComplete
+C:\Users\Acer\Desktop\MyProjectNew\Services\SayOnlinePanel.Services.Data\obj\Debug\netstandard2.1\SayOnlinePanel.Services.Data.dll
+C:\Users\Acer\Desktop\MyProjectNew\Services\SayOnlinePanel.Services.Data\obj\Debug\netstandard2.1\SayOnlinePanel.Services.Data.pdb

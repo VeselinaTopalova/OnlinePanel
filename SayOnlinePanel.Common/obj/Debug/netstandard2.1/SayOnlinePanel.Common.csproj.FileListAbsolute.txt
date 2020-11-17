@@ -1,0 +1,9 @@
+C:\Users\Acer\Desktop\MyProjectNew\SayOnlinePanel.Common\bin\Debug\netstandard2.1\SayOnlinePanel.Common.deps.json
+C:\Users\Acer\Desktop\MyProjectNew\SayOnlinePanel.Common\bin\Debug\netstandard2.1\SayOnlinePanel.Common.dll
+C:\Users\Acer\Desktop\MyProjectNew\SayOnlinePanel.Common\bin\Debug\netstandard2.1\SayOnlinePanel.Common.pdb
+C:\Users\Acer\Desktop\MyProjectNew\SayOnlinePanel.Common\obj\Debug\netstandard2.1\SayOnlinePanel.Common.csprojAssemblyReference.cache
+C:\Users\Acer\Desktop\MyProjectNew\SayOnlinePanel.Common\obj\Debug\netstandard2.1\SayOnlinePanel.Common.AssemblyInfoInputs.cache
+C:\Users\Acer\Desktop\MyProjectNew\SayOnlinePanel.Common\obj\Debug\netstandard2.1\SayOnlinePanel.Common.AssemblyInfo.cs
+C:\Users\Acer\Desktop\MyProjectNew\SayOnlinePanel.Common\obj\Debug\netstandard2.1\SayOnlinePanel.Common.csproj.CoreCompileInputs.cache
+C:\Users\Acer\Desktop\MyProjectNew\SayOnlinePanel.Common\obj\Debug\netstandard2.1\SayOnlinePanel.Common.dll
+C:\Users\Acer\Desktop\MyProjectNew\SayOnlinePanel.Common\obj\Debug\netstandard2.1\SayOnlinePanel.Common.pdb
