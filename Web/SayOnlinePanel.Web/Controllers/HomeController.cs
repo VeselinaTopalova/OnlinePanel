@@ -5,12 +5,23 @@
     using SayOnlinePanel.Web.ViewModels;
 
     using Microsoft.AspNetCore.Mvc;
+    using SayOnlinePanel.Services.Data;
+    using SayOnlinePanel.Web.ViewModels.Home;
 
     public class HomeController : BaseController
     {
+        private readonly IVouchersService vouchersService;
+
+        public HomeController(IVouchersService vouchersService)
+        {
+            this.vouchersService = vouchersService;
+        }
+
         public IActionResult Index()
         {
-            return this.View();
+            var viewModel = new IndexViewModel();
+            viewModel.Vouchers = this.vouchersService.GetAll<IndexVoucherViewModel>();
+            return this.View(viewModel);
         }
 
         public IActionResult Privacy()

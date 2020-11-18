@@ -1,0 +1,29 @@
+﻿@model SayOnlinePanel.Web.ViewModels.Vouchers.VoucherViewModel
+
+<section class="py-5">
+    <div class="container">
+
+        <div>
+            <div class="form-group text-center">
+                <img src="@Model.Image" class="img-fluid">
+            </div>
+
+            <div>
+                <h6 class="mt-0">@Model.Name</h6>
+            </div>
+            <div>
+                <h6 class="mt-0">Points: @Model.Points</h6>
+            </div>
+            <div>
+                <h6 class="mt-0">Leva: @Model.Leva</h6>
+            </div>
+            <div>
+                <h6 class="mt-0">Company: @Model.Company</h6>
+            </div>
+            <div>
+                <h6 class="mt-0">Description: @Model.Description</h6>
+            </div>            
+        </div>
+    </div>
+</section>
+

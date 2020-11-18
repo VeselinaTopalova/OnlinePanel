@@ -1,9 +1,30 @@
 ﻿@using SayOnlinePanel.Common
+@model SayOnlinePanel.Web.ViewModels.Home.IndexViewModel
 @{
     this.ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
     <h1 class="display-4">Welcome to @GlobalConstants.SystemName!</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
 </div>
+<p>&nbsp;</p>
+<strong class="intro-title">Vouchers</strong>
+<div class="row">
+    @foreach (var v in Model.Vouchers)
+    {
+        <div class="col-md-4 media">
+            @*<img src="@company.Logo" width="80" class="mr-3" alt="@company.Name">
+                <div class="media-body">
+                    <h5 class="mt-0">
+                        <a href="@company.Url">
+                            @company.Name
+                        </a>
+                    </h5>
+                </div>*@
+            @*<a href="/Store/Browse?genre=@company.Name">@company.Name</a>*@
+            @*<h6 class="media-heading"><a asp-controller="Companies" asp-action="ById" asp-route-id="@Model.CompanyId">@Model.CompanyName</a></h6>*@
+            <a asp-controller="Vouchers" asp-action="ById" asp-route-id="@v.Id"><img src="@v.Image" width="80" class="mr-3" alt="@v.Name"></a>
+        </div>}
+</div>
+<p>&nbsp;</p>
