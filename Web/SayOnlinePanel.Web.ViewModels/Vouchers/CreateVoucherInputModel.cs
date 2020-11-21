@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Text;
-
-namespace SayOnlinePanel.Web.ViewModels.Vouchers
+﻿namespace SayOnlinePanel.Web.ViewModels.Vouchers
 {
+    using System.ComponentModel.DataAnnotations;
+
     public class CreateVoucherInputModel
     {
         [Required]

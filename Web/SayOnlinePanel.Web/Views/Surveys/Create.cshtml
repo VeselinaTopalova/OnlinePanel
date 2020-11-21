@@ -1,0 +1,126 @@
+﻿@model SayOnlinePanel.Web.ViewModels.Surveys.CreateSurveyInputModel
+@{ this.ViewData["Title"] = "Add new survey";
+                //var categoryItems = this.Model.CategoriesItems.Select(x => new SelectListItem(x.Value, x.Key)); 
+    }
+<form method="post">
+
+    @*<form method="post" class="col-md-6 offset-md-3">*@
+    <h1>@this.ViewData["Title"]</h1>
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Description"></label>
+        <textarea asp-for="Description" class="form-control" rows="5"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="StartDate"></label>
+        <input asp-for="StartDate" class="form-control" />
+        <span asp-validation-for="StartDate" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="EndDate"></label>
+        <input asp-for="EndDate" class="form-control" />
+        <span asp-validation-for="EndDate" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="PointsStart"></label>
+        <input asp-for="PointsStart" class="form-control" />
+        <span asp-validation-for="PointsStart" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="PointsTotal"></label>
+        <input asp-for="PointsTotal" class="form-control" />
+        <span asp-validation-for="PointsTotal" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="SampleTotal"></label>
+        <input asp-for="SampleTotal" class="form-control" />
+        <span asp-validation-for="SampleTotal" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="SampleFemale"></label>
+        <input asp-for="SampleFemale" class="form-control" />
+        <span asp-validation-for="SampleFemale" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="SampleMale"></label>
+        <input asp-for="SampleMale" class="form-control" />
+        <span asp-validation-for="SampleMale" class="text-danger"></span>
+    </div>
+   
+<div id="QuestionsContainer">
+    <div id="QuestionsContainer">
+        <label asp-for="Questions"></label>
+        <a id="addQ" class="btn btn-success">Add Question</a>
+        <div id="Q"></div>
+    </div>
+</div>
+    
+    <input type="submit" class="btn btn-primary" />
+</form>
+
+    @section Scripts {
+        <script>
+            let btnQ = document.querySelector("#addQ");
+            let divQ = document.querySelector("#Q");
+            btnQ.addEventListener("click", AddQuestion);
+            let questionIndex = 0;
+            function AddQuestion() {
+                let p = createHTMLElement("p", `${questionIndex + 1}`);
+                let nameQ = createHTMLElement("textarea", null, null, [{ k: "placeholder", v: "Question description" }]);
+                nameQ.name = `Questions[${questionIndex}].Name`;
+                let typeQ = createHTMLElement("select", null, null, [{ k: "placeholder", v: "Question type" }]); 
+                let options = ["SingleAnswer", "MultipleAnswer", "RatingScale", "LikertScales", "Quantitative", "Dichotomous", "OpenEnded", "ImageChoice"];
+                for (let index = 0; index < options.length; index++) {
+                    let opt = options[index];
+                    let el = document.createElement('option');
+                    el.textContent = String(opt);
+                    el.value = String(opt);
+                    typeQ.appendChild(el);
+                }
+                typeQ.name = `Questions[${questionIndex}].QuestionType`;
+
+                let AddABtn = createHTMLElement("a", "Add Answer", "btn");
+                AddABtn.classList.add('btn-success');
+                let divA = document.createElement('div');
+                divQ.appendChild(p);
+                divQ.appendChild(nameQ);
+                divQ.appendChild(typeQ);
+                divQ.appendChild(AddABtn);
+                divQ.appendChild(divA);
+                let answerIndex = 0;
+
+                AddABtn.addEventListener("click", () => {
+                    let nameA = createHTMLElement("textarea");
+                    //nameA.name = `Answers[${answerIndex}].Name`;
+                    nameA.name = `Questions[${questionIndex-1}].Answers[${answerIndex}].Name`;
+                    divA.appendChild(nameA);
+                    divA.appendChild(btnQ)
+                    answerIndex++;
+                })
+                questionIndex++;
+            }
+
+            function createHTMLElement(tagName, textContent, className, attributes, event) {
+                let elm = document.createElement(tagName);
+                if (className) {
+                    elm.classList.add(className);
+                }
+                if (textContent) {
+                    elm.textContent = textContent;
+                }
+                if (attributes) {
+                    attributes.forEach((a) => elm.setAttribute(a.k, a.v));
+                }
+                if (event) {
+                    elm.addEventListener(event.name, event.func)
+                }
+                return elm;
+            }
+        </script>
+    }

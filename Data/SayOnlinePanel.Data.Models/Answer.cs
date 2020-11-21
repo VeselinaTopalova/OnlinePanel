@@ -21,6 +21,10 @@
 
         public virtual Question Question { get; set; }
 
+        //public int SurveyId { get; set; }
+
+        //public virtual Survey Survey { get; set; }
+
         public virtual ICollection<ImageForAnswer> Images { get; set; }
 
         public virtual ICollection<ApplicationUser> Users { get; set; }

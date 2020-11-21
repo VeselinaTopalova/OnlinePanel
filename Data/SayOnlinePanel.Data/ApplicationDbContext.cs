@@ -6,11 +6,10 @@
     using System.Threading;
     using System.Threading.Tasks;
 
-    using SayOnlinePanel.Data.Common.Models;
-    using SayOnlinePanel.Data.Models;
-
     using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;
+    using SayOnlinePanel.Data.Common.Models;
+    using SayOnlinePanel.Data.Models;
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, string>
     {
