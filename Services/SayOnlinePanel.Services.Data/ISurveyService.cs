@@ -1,5 +1,6 @@
 ﻿namespace SayOnlinePanel.Services.Data
 {
+    using System.Collections.Generic;
     using System.Threading.Tasks;
 
     using SayOnlinePanel.Web.ViewModels.Surveys;
@@ -8,6 +9,12 @@
     {
         Task CreateAsync(CreateSurveyInputModel input);
 
-        Task CreateAsyncQuestions(CreateQuestionInputModel input);
+        //IEnumerable<T> GetAll<T>(int? count = null);
+
+        IEnumerable<T> GetAll<T>(int page, int itemsPerPage = 12);
+
+        int GetCount();
+
+        T GetById<T>(int id);
     }
 }

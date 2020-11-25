@@ -1,7 +1,6 @@
 ﻿@model SayOnlinePanel.Web.ViewModels.Surveys.CreateSurveyInputModel
 @{ this.ViewData["Title"] = "Add new survey";
-                //var categoryItems = this.Model.CategoriesItems.Select(x => new SelectListItem(x.Value, x.Key)); 
-    }
+}
 <form method="post">
 
     @*<form method="post" class="col-md-6 offset-md-3">*@
@@ -52,75 +51,78 @@
         <input asp-for="SampleMale" class="form-control" />
         <span asp-validation-for="SampleMale" class="text-danger"></span>
     </div>
-   
-<div id="QuestionsContainer">
+
     <div id="QuestionsContainer">
-        <label asp-for="Questions"></label>
-        <a id="addQ" class="btn btn-success">Add Question</a>
-        <div id="Q"></div>
+        <div id="QuestionsContainer">
+            <label asp-for="Questions"></label>
+            <a id="addQ" class="btn btn-outline-secondary">Add Question</a>
+            <div id="Q"></div>
+        </div>
     </div>
-</div>
-    
+
     <input type="submit" class="btn btn-primary" />
 </form>
+<hr />
+<hr />
+<hr />
 
-    @section Scripts {
-        <script>
-            let btnQ = document.querySelector("#addQ");
-            let divQ = document.querySelector("#Q");
-            btnQ.addEventListener("click", AddQuestion);
-            let questionIndex = 0;
-            function AddQuestion() {
-                let p = createHTMLElement("p", `${questionIndex + 1}`);
-                let nameQ = createHTMLElement("textarea", null, null, [{ k: "placeholder", v: "Question description" }]);
-                nameQ.name = `Questions[${questionIndex}].Name`;
-                let typeQ = createHTMLElement("select", null, null, [{ k: "placeholder", v: "Question type" }]); 
-                let options = ["SingleAnswer", "MultipleAnswer", "RatingScale", "LikertScales", "Quantitative", "Dichotomous", "OpenEnded", "ImageChoice"];
-                for (let index = 0; index < options.length; index++) {
-                    let opt = options[index];
-                    let el = document.createElement('option');
-                    el.textContent = String(opt);
-                    el.value = String(opt);
-                    typeQ.appendChild(el);
-                }
-                typeQ.name = `Questions[${questionIndex}].QuestionType`;
-
-                let AddABtn = createHTMLElement("a", "Add Answer", "btn");
-                AddABtn.classList.add('btn-success');
-                let divA = document.createElement('div');
-                divQ.appendChild(p);
-                divQ.appendChild(nameQ);
-                divQ.appendChild(typeQ);
-                divQ.appendChild(AddABtn);
-                divQ.appendChild(divA);
-                let answerIndex = 0;
-
-                AddABtn.addEventListener("click", () => {
-                    let nameA = createHTMLElement("textarea");
-                    //nameA.name = `Answers[${answerIndex}].Name`;
-                    nameA.name = `Questions[${questionIndex-1}].Answers[${answerIndex}].Name`;
-                    divA.appendChild(nameA);
-                    divA.appendChild(btnQ)
-                    answerIndex++;
-                })
-                questionIndex++;
+@section Scripts {
+    <script>
+        let btnQ = document.querySelector("#addQ");
+        let divQ = document.querySelector("#Q");
+        btnQ.addEventListener("click", AddQuestion);
+        let questionIndex = 0;
+        function AddQuestion() {
+            let p = createHTMLElement("p", `${questionIndex + 1}`);
+            let nameQ = createHTMLElement("textarea", null, null, [{ k: "placeholder", v: "Question description" }]);
+            nameQ.name = `Questions[${questionIndex}].Name`;
+            let typeQ = createHTMLElement("select", null, null, [{ k: "placeholder", v: "Question type" }]);
+            let options = ["SingleAnswer", "MultipleAnswer", "RatingScale", "LikertScales", "Quantitative", "Dichotomous", "OpenEnded", "ImageChoice"];
+            for (let index = 0; index < options.length; index++) {
+                let opt = options[index];
+                let el = document.createElement('option');
+                el.textContent = String(opt);
+                el.value = String(opt);
+                typeQ.appendChild(el);
             }
+            typeQ.name = `Questions[${questionIndex}].QuestionType`;
 
-            function createHTMLElement(tagName, textContent, className, attributes, event) {
-                let elm = document.createElement(tagName);
-                if (className) {
-                    elm.classList.add(className);
-                }
-                if (textContent) {
-                    elm.textContent = textContent;
-                }
-                if (attributes) {
-                    attributes.forEach((a) => elm.setAttribute(a.k, a.v));
-                }
-                if (event) {
-                    elm.addEventListener(event.name, event.func)
-                }
-                return elm;
+            let AddABtn = createHTMLElement("a", "Add Answer", "btn");
+            AddABtn.classList.add('btn-outline-success');
+            let divA = document.createElement('div');
+            divQ.appendChild(p);
+            divQ.appendChild(nameQ);
+            divQ.appendChild(typeQ);
+            divQ.appendChild(AddABtn);
+            divQ.appendChild(divA);
+            let answerIndex = 0;
+
+            AddABtn.addEventListener("click", () => {
+                let nameA = createHTMLElement("textarea");
+                //nameA.name = `Answers[${answerIndex}].Name`;
+                nameA.name = `Questions[${questionIndex - 1}].Answers[${answerIndex}].Name`;
+                divA.appendChild(nameA);
+                divA.appendChild(btnQ)
+                answerIndex++;
+            })
+            questionIndex++;
+        }
+
+        function createHTMLElement(tagName, textContent, className, attributes, event) {
+            let elm = document.createElement(tagName);
+            if (className) {
+                elm.classList.add(className);
             }
-        </script>
-    }
+            if (textContent) {
+                elm.textContent = textContent;
+            }
+            if (attributes) {
+                attributes.forEach((a) => elm.setAttribute(a.k, a.v));
+            }
+            if (event) {
+                elm.addEventListener(event.name, event.func)
+            }
+            return elm;
+        }
+    </script>
+}

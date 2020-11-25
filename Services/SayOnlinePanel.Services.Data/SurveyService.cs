@@ -1,11 +1,13 @@
 ﻿namespace SayOnlinePanel.Services.Data
 {
     using System;
+    using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
 
     using SayOnlinePanel.Data.Common.Repositories;
     using SayOnlinePanel.Data.Models;
+    using SayOnlinePanel.Services.Mapping;
     using SayOnlinePanel.Web.ViewModels.Surveys;
 
     public class SurveyService : ISurveyService
@@ -58,9 +60,40 @@
             await this.surveysRepository.SaveChangesAsync();
         }
 
-        public async Task CreateAsyncQuestions(CreateQuestionInputModel input)
-        {
+        //public IEnumerable<T> GetAll<T>(int? count = null)
+        //{
+        //    IQueryable<Survey> query =
+        //        this.surveysRepository.All().OrderBy(x => x.Name);
+        //    if (count.HasValue)
+        //    {
+        //        query = query.Take(count.Value);
+        //    }
 
+        //    return query.To<T>().ToList();
+
+
+        //}
+        public IEnumerable<T> GetAll<T>(int page, int itemsPerPage = 12)
+        {
+            var survey = this.surveysRepository.AllAsNoTracking()
+                .OrderByDescending(x => x.Id)
+                .Skip((page - 1) * itemsPerPage).Take(itemsPerPage)
+                .To<T>().ToList();
+            return survey;
+        }
+
+        public T GetById<T>(int id)
+        {
+            var recipe = this.surveysRepository.AllAsNoTracking()
+                .Where(x => x.Id == id)
+                .To<T>().FirstOrDefault();
+
+            return recipe;
+        }
+
+        public int GetCount()
+        {
+            return this.surveysRepository.All().Count();
         }
     }
 }

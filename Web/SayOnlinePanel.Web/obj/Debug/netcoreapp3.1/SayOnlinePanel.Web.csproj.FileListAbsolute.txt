@@ -459,4 +459,6 @@ C:\Users\Acer\Desktop\MyProjectNew\Web\SayOnlinePanel.Web\obj\Debug\netcoreapp3.
 C:\Users\Acer\Desktop\MyProjectNew\Web\SayOnlinePanel.Web\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
 C:\Users\Acer\Desktop\MyProjectNew\Web\SayOnlinePanel.Web\obj\Debug\netcoreapp3.1\Razor\Views\Vouchers\Create.cshtml.g.cs
 C:\Users\Acer\Desktop\MyProjectNew\Web\SayOnlinePanel.Web\obj\Debug\netcoreapp3.1\Razor\Views\Surveys\Create.cshtml.g.cs
-C:\Users\Acer\Desktop\MyProjectNew\Web\SayOnlinePanel.Web\obj\Debug\netcoreapp3.1\Razor\Views\Surveys\CreateQuestions.cshtml.g.cs
+C:\Users\Acer\Desktop\MyProjectNew\Web\SayOnlinePanel.Web\obj\Debug\netcoreapp3.1\Razor\Views\Surveys\Surveys.cshtml.g.cs
+C:\Users\Acer\Desktop\MyProjectNew\Web\SayOnlinePanel.Web\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_PagingPartial.cshtml.g.cs
+C:\Users\Acer\Desktop\MyProjectNew\Web\SayOnlinePanel.Web\obj\Debug\netcoreapp3.1\Razor\Views\Surveys\ById.cshtml.g.cs

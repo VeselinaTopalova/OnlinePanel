@@ -33,27 +33,35 @@
             await this.surveyService.CreateAsync(input);
 
             // TODO: Redirect to ???
-            return this.Redirect("CreateQuestions");
+            return this.Redirect("Surveys");
         }
 
-        public IActionResult CreateQuestions()
+        public IActionResult Surveys(int id = 1)
         {
-            var viewModel = new CreateQuestionInputModel();
+            //var viewModel = new SyrveysListViewModel();
+            //viewModel.Surveys = this.surveyService.GetAll<SurveysName>();
+            //return this.View(viewModel);
+
+            if (id <= 0)
+            {
+                return this.NotFound();
+            }
+
+            const int ItemsPerPage = 12;
+            var viewModel = new SyrveysListViewModel
+            {
+                ItemsPerPage = ItemsPerPage,
+                PageNumber = id,
+                RecipesCount = this.surveyService.GetCount(),
+                Surveys = this.surveyService.GetAll<SurveyInListViewModel>(id, ItemsPerPage),
+            };
             return this.View(viewModel);
         }
 
-        [HttpPost]
-        public async Task<IActionResult> CreateQuestions(CreateQuestionInputModel input)
+        public IActionResult ById(int id)
         {
-            if (!this.ModelState.IsValid)
-            {
-                return this.View(input);
-            }
-
-            await this.surveyService.CreateAsyncQuestions(input);
-
-            // TODO: Redirect to ???
-            return this.Redirect("/");
+            var survey = this.surveyService.GetById<SingleSurveyViewModel>(id);
+            return this.View(survey);
         }
     }
 }

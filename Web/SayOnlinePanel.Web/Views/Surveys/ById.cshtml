@@ -1,0 +1,74 @@
+﻿@model SayOnlinePanel.Web.ViewModels.Surveys.SingleSurveyViewModel
+@{ this.ViewData["Title"] = "New survey"; }
+<form>
+    <fieldset>
+        @foreach (var question in Model.Questions)
+        {
+<label class="col-sm-2 col-form-label">@question.Name</label>
+
+                @if (question.QuestionType.ToString() == "SingleAnswer")
+                {
+@foreach (var answer in question.Answers)
+{
+<div class="form-check">
+    <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
+        @answer.Name
+    </label>
+</div>}         }
+                                @if (question.QuestionType.ToString() == "MultipleAnswer")
+                                {
+                @foreach (var answer in question.Answers)
+                {
+<div class="form-check">
+    <label class="form-check-label">
+        <input class="form-check-input" type="checkbox" value="">
+        @answer.Name
+    </label>
+</div>}         }
+                                                @if (question.QuestionType.ToString() == "LikertScales")
+                                                {
+                                <div class="wrap">
+                                    <ul class='likert'>
+                                        @foreach (var answer in question.Answers)
+                                        {
+                    <li>
+                        <input type="radio" name="likert" value="strong_agree">
+                        <label>@answer.Name</label>
+                    </li>
+}
+                                    </ul>
+                                </div>}
+                                                                @if (question.QuestionType.ToString() == "Dichotomous")
+                                                                {
+                                                <div class="form-group">
+                                                    <label for="exampleSelect1">Example select</label>
+                                                    <select class="form-control" id="exampleSelect1">
+                                                        @foreach (var answer in question.Answers)
+                                                        {
+                                    <option>@answer.Name</option>
+}
+                                                    </select>
+                                                </div>}
+                                                                                @if (question.QuestionType.ToString() == "OpenEnded")
+                                                                                {
+                                                                <div class="form-group">
+                                                                    <label for="exampleTextarea"></label>
+                                                                    <textarea class="form-control" id="exampleTextarea" rows="2"></textarea>
+                                                                </div>}
+                                                                                                @if (question.QuestionType.ToString() == "Quantitative")
+                                                                                                {
+                                                                                <div class="form-group">
+                                                                                    <label for="exampleTextarea"></label>
+                                                                                    <input class="form-control" type="number" id="exampleTextarea" rows="3"></input>
+                                                                                </div>}
+                                                                                                                <hr />}
+        @*<button type="submit" class="btn btn-primary">Submit</button>*@
+    </fieldset>
+    <a asp-controller="Home" asp-action="Index" ><button type="button" class="btn btn-primary disabled">Home</button></a>
+    <button type="button" class="btn btn-warning disabled">Edit</button>
+    <button type="button" class="btn btn-danger disabled">Delete</button>
+</form>
+<hr />
+<p>&nbsp;</p>
+<p>&nbsp;</p>
