@@ -1,9 +1,8 @@
 ﻿namespace SayOnlinePanel.Web.ViewModels.Settings
 {
+    using AutoMapper;
     using SayOnlinePanel.Data.Models;
     using SayOnlinePanel.Services.Mapping;
-
-    using AutoMapper;
 
     public class SettingViewModel : IMapFrom<Setting>, IHaveCustomMappings
     {

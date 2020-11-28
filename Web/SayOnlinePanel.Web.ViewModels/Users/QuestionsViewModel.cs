@@ -1,4 +1,4 @@
-﻿namespace SayOnlinePanel.Web.ViewModels.UserAnser
+﻿namespace SayOnlinePanel.Web.ViewModels.Users
 {
     using System.Collections.Generic;
 

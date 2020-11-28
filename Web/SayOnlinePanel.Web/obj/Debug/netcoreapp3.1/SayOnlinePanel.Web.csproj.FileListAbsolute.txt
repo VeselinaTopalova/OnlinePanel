@@ -462,3 +462,7 @@ C:\Users\Acer\Desktop\MyProjectNew\Web\SayOnlinePanel.Web\obj\Debug\netcoreapp3.
 C:\Users\Acer\Desktop\MyProjectNew\Web\SayOnlinePanel.Web\obj\Debug\netcoreapp3.1\Razor\Views\Surveys\Surveys.cshtml.g.cs
 C:\Users\Acer\Desktop\MyProjectNew\Web\SayOnlinePanel.Web\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_PagingPartial.cshtml.g.cs
 C:\Users\Acer\Desktop\MyProjectNew\Web\SayOnlinePanel.Web\obj\Debug\netcoreapp3.1\Razor\Views\Surveys\ById.cshtml.g.cs
+C:\Users\Acer\Desktop\MyProjectNew\Web\SayOnlinePanel.Web\obj\Debug\netcoreapp3.1\Razor\Views\Users\SurveysForUser.cshtml.g.cs
+C:\Users\Acer\Desktop\MyProjectNew\Web\SayOnlinePanel.Web\obj\Debug\netcoreapp3.1\Razor\Views\Users\CompleteSurvey.cshtml.g.cs
+C:\Users\Acer\Desktop\MyProjectNew\Web\SayOnlinePanel.Web\obj\Debug\netcoreapp3.1\Razor\Views\Users\AddAnswers.cshtml.g.cs
+C:\Users\Acer\Desktop\MyProjectNew\Web\SayOnlinePanel.Web\obj\Debug\netcoreapp3.1\Razor\Views\Users\SelectPersonEditorViewModel.cshtml.g.cs

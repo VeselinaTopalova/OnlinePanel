@@ -2,7 +2,7 @@
 {
     using System.Collections.Generic;
     using System.Threading.Tasks;
-
+    using SayOnlinePanel.Data.Models;
     using SayOnlinePanel.Web.ViewModels.Surveys;
 
     public interface ISurveyService
@@ -16,5 +16,7 @@
         int GetCount();
 
         T GetById<T>(int id);
+
+        Survey GetSurvey(int id);
     }
 }

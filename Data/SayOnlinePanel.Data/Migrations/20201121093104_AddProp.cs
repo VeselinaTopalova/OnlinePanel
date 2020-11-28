@@ -1,7 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
-
-namespace SayOnlinePanel.Data.Migrations
+﻿namespace SayOnlinePanel.Data.Migrations
 {
+    using Microsoft.EntityFrameworkCore.Migrations;
+
     public partial class AddProp : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)

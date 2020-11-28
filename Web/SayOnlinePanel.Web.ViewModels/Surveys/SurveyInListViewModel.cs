@@ -1,6 +1,7 @@
 ﻿namespace SayOnlinePanel.Web.ViewModels.Surveys
 {
     using System;
+
     using SayOnlinePanel.Data.Models;
     using SayOnlinePanel.Services.Mapping;
 

@@ -2,9 +2,8 @@
 {
     using System.Linq;
 
-    using SayOnlinePanel.Data.Common.Models;
-
     using Microsoft.EntityFrameworkCore;
+    using SayOnlinePanel.Data.Common.Models;
 
     internal static class EntityIndexesConfiguration
     {

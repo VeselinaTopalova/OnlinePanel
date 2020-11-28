@@ -1,8 +1,9 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
-
-namespace SayOnlinePanel.Data.Migrations
+﻿namespace SayOnlinePanel.Data.Migrations
 {
+    using System;
+
+    using Microsoft.EntityFrameworkCore.Migrations;
+
     public partial class CreateDatabase : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)

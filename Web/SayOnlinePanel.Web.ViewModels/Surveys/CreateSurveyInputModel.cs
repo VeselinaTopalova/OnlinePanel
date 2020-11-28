@@ -8,6 +8,7 @@
     {
         [Required]
         [MinLength(3)]
+        [Display(Name = "SurveyName")]
         public string Name { get; set; }
 
         public string Description { get; set; }
@@ -27,7 +28,5 @@
         public int SampleMale { get; set; }
 
         public IEnumerable<CreateQuestionInputModel> Questions { get; set; }
-
-        //public IEnumerable<SQAnswerInputModel> Answers { get; set; }
     }
 }

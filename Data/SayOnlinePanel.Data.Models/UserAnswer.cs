@@ -12,6 +12,10 @@
 
         public virtual Answer Answer { get; set; }
 
+        public int SurveyId { get; set; }
+
+        public virtual Survey Survey { get; set; }
+
         //public int QuestionId { get; set; }
 
         //public virtual Question Question { get; set; }

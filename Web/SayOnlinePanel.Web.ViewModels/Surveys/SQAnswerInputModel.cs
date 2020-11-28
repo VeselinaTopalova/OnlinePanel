@@ -4,7 +4,8 @@
 
     public class SQAnswerInputModel
     {
-        [Required]
+        //[Required]
+        [Display(Name = "AnswerName")]
         public string Name { get; set; }
     }
 }

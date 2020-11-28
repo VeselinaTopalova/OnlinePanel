@@ -84,16 +84,23 @@
 
         public T GetById<T>(int id)
         {
-            var recipe = this.surveysRepository.AllAsNoTracking()
+            var survey = this.surveysRepository.AllAsNoTracking()
                 .Where(x => x.Id == id)
                 .To<T>().FirstOrDefault();
 
-            return recipe;
+            return survey;
         }
 
         public int GetCount()
         {
             return this.surveysRepository.All().Count();
+        }
+
+        public Survey GetSurvey(int id)
+        {
+            var survey = this.surveysRepository.All()
+                .Where(x => x.Id == id).FirstOrDefault();
+            return survey;
         }
     }
 }

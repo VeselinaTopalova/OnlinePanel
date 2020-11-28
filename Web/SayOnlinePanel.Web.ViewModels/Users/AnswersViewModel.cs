@@ -1,4 +1,4 @@
-﻿namespace SayOnlinePanel.Web.ViewModels.UserAnser
+﻿namespace SayOnlinePanel.Web.ViewModels.Users
 {
     using SayOnlinePanel.Data.Models;
     using SayOnlinePanel.Services.Mapping;

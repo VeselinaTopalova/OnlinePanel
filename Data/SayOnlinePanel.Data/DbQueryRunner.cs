@@ -3,9 +3,8 @@
     using System;
     using System.Threading.Tasks;
 
-    using SayOnlinePanel.Data.Common;
-
     using Microsoft.EntityFrameworkCore;
+    using SayOnlinePanel.Data.Common;
 
     public class DbQueryRunner : IDbQueryRunner
     {

@@ -1,0 +1,16 @@
+﻿@using SayOnlinePanel.Common
+@model SayOnlinePanel.Web.ViewModels.Users.SyrveysListViewModel
+@{
+    this.ViewData["Title"] = "All Surveys, page " + Model.PageNumber;
+}
+
+<h3>@this.ViewData["Title"]</h3>
+<hr />
+<div class="list-group">
+    @foreach (var sv in Model.Surveys)
+    {
+        <a asp-action="AddAnswers" asp-route-id="@sv.Id" class="list-group-item list-group-item-action flex-column align-items-start active"><h5 class="mb-1">@sv.Name</h5> </a>
+    }
+</div>
+<hr />
+<partial name="_PagingPartial" model="@Model" />
