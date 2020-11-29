@@ -1,23 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace SayOnlinePanel.Web.ViewModels.Users
+﻿namespace SayOnlinePanel.Web.ViewModels.Users
 {
+    using System.Collections.Generic;
+
     public class PeopleSelectionViewModel
     {
-        public List<SelectAnswerEditorViewModel> Answers { get; set; }
+        public SingleSurveyViewModel Survey;
+
+        public List<int> Answers { get; set; }
+
+        public List<AnswersInput> AnswersInput { get; set; }
+
+        public List<int> AreChecked { get; set; }
+
         public PeopleSelectionViewModel()
         {
-            this.Answers = new List<SelectAnswerEditorViewModel>();
-        }
+            this.Answers = new List<int>();
+            this.AreChecked = new List<int>();
 
-
-        public IEnumerable<int> getSelectedIds()
-        {
-            // Return an Enumerable containing the Id's of the selected people:
-            return (from p in this.Answers where p.Selected select p.Id).ToList();
         }
+    }
+    public class AnswersInput
+    {
+        public int QId { get; set; }
+
+        public string Text { get; set; }
     }
 }

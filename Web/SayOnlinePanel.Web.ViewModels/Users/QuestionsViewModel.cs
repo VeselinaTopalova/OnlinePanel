@@ -7,6 +7,8 @@
 
     public class QuestionsViewModel : IMapFrom<Question>
     {
+        public int Id { get; set; } 
+
         public string Name { get; set; }
 
         public QuestionType QuestionType { get; set; }

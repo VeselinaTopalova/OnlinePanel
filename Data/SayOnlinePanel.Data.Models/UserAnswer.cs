@@ -16,10 +16,6 @@
 
         public virtual Survey Survey { get; set; }
 
-        //public int QuestionId { get; set; }
-
-        //public virtual Question Question { get; set; }
-
         public string AnswerInput { get; set; }
     }
 }

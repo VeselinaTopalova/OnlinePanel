@@ -11,5 +11,14 @@ namespace SayOnlinePanel.Web.ViewModels.Users
         public int Id { get; set; }
 
         public string Name { get; set; }
+
+        public int Qid { get; set; }
     }
 }
+
+//public class SelectPersonEditorViewModel
+//{
+//    public bool Selected { get; set; }
+//    public int Id { get; set; }
+//    public string Name { get; set; }
+//}

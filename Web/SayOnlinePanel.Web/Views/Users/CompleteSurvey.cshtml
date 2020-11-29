@@ -1,91 +1,102 @@
-﻿@model SayOnlinePanel.Web.ViewModels.Users.SingleSurveyViewModel
+﻿@using SayOnlinePanel.Web.ViewModels.Users
+@model SayOnlinePanel.Web.ViewModels.Users.PeopleSelectionViewModel
 
-<form method="post">
-        <div asp-validation-summary="All" class="text-danger"></div>
-    <fieldset>
-        @foreach (var question in Model.Questions)
+@{ ViewBag.Title = Model.Survey.Name; }
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @foreach (QuestionsViewModel question in Model.Survey.Questions)
+    {
+
+        <div class="row">
+            @question.Name
+        </div>
+        @if (question.QuestionType.ToString() == "SingleAnswer")
         {
-                <label class="col-sm-2 col-form-label" asp-for="@question.Name">@question.Name</label>
-                @*<label asp-for="PreparationTime"></label>*@
-                @*<span asp-validation-for="@question.Name" class="text-danger"></span>*@
-                 @if (question.QuestionType.ToString() == "SingleAnswer")
-                 {
-                    @foreach (var answer in question.Answers)
-                     {
-                        <div class="form-check">
+            @foreach (var answer in question.Answers)
+            {
+                <div class="form-check">
+                    <label class="form-check-label">
+                        @*<input type="radio" class="form-check-input" name="Answers" id="optionsRadios2" value=@answer.Id>*@
+                        <input type="radio" class="form-check-input" name="model.Answers[]" @answer.Id value=@answer.Id>
+                        @answer.Name
+                    </label>
+                </div>
+              }             
+          }
+        else if (question.QuestionType.ToString() == "MultipleAnswer")
+        {
+                @foreach (var answer in question.Answers)
+                {
+                    <div class="form-check">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" value="@answer.Name" name="AreChecked">
-                            @*<input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
-                            <input asp-for="PreparationTime" class="form-control" />*@
+                            @*<input class="form-check-input" type="checkbox" name="model.Answers[]" value=@answer.Id>*@
+                            <input class="form-check-input" type="checkbox" name="model.AreChecked[]" value=@answer.Id>
                             @answer.Name
                         </label>
-                        </div>
-                     }         
-                 }
-                else if (question.QuestionType.ToString() == "MultipleAnswer")
-                 {
-                    @foreach (var answer in question.Answers)
-                     {
-                        <div class="form-check">
-                            <label class="form-check-label">
-                                @*<asp:CheckBox ID="@answer" runat="server" Text="@answer" /><br />*@
-                                <input name="AreChecked" type="checkbox" value="@answer" />@answer<br />
-                                @*<input asp-for="@answer"/>*@
-                                @*<input asp-for="@answer" class="form-check-input" type="checkbox" value="" checked="">*@
-                                @answer.Name
-                            </label>
-                        </div>
-                     }         
-                 }
-                else if (question.QuestionType.ToString() == "LikertScales")
-                 {
-                         <div class="wrap">
-                         <ul class='likert'>
-                        @foreach (var answer in question.Answers)
-                         {
-                            <li>
-                                <input type="radio" name="likert" asp-for="@answer.Name" value="strong_agree">
-                                <label>@answer.Name</label>
-                            </li>
-                         }
-                         </ul>
-                         </div>
-                }
-                else if (question.QuestionType.ToString() == "Dichotomous")
-                {
-                         <div class="form-group">
-                         @*<label for="exampleSelect1">Example select</label>*@
-                         <select class="form-control" id="exampleSelect1">
-                         @foreach (var answer in question.Answers)
-                          {
-                          <option asp-for="@answer.Name">@answer.Name</option>
-                          }
-                         </select>
-                         </div>
-                }
-                else if (question.QuestionType.ToString() == "OpenEnded")
-                {
-                         <div class="form-group">
-                          <label for="exampleTextarea"></label>
-                          <input asp-for="@question.Answers" class="form-control" type="text" id="input"/>
-                          </div>
-                }
-                else if (question.QuestionType.ToString() == "Quantitative")
-                {
-                          <div class="form-group">
-                          <label for="exampleInput"></label>
-                          @*<input asp-for="@question.Answers" class="form-control" type="number" id="input"/>*@
-                          <input class="form-control" />
-                          </div>
-                 }
-         <hr />}
-         @for (var i = 1; i <= 4; i++)
-    {
-        <input name="AreChecked" type="checkbox" value="@i" /> @i<br />
-    }
-    <input type="submit" class="btn btn-primary">
-    </fieldset>
-</form>
-<hr />
+                    </div>
+                 }         
+        }
+        else if (question.QuestionType.ToString() == "LikertScales")
+        {
+                  <div class="wrap">
+                  <ul class='likert'>
+                  @foreach (var answer in question.Answers)
+                  {
+                      <li>
+                          @*<input type="radio" name="Answers" value="strong_agree">*@
+                          <input type="radio" name="model.Answers[]" @answer.Id value="@answer.Id">
+                          <label>@answer.Name</label>
+                      </li>
+                  }
+                  </ul>
+                  </div>
+        }
+        else if (question.QuestionType.ToString() == "Dichotomous")
+        {
+                  <div class="form-group">
+                  <label for="exampleSelect1">Example select</label>
+                  <select class="form-control"  id="exampleSelect1">
+                  @foreach (var answer in question.Answers)
+                  {
+                      <option name="AreChecked" value=@answer.Id>@answer.Name</option>
+                  }
+                  </select>
+                  </div>
+        }
+        else if (question.QuestionType.ToString() == "OpenEnded")
+        {
+            foreach (var answer in question.Answers)
+            {
+                <div class="form-group">
+                  <label for="exampleTextarea"></label>
+                  <textarea class="form-control" name="AnswersInput" value="" id="exampleTextarea" rows="2"></textarea>
+                  </div>
+            }
+                  
+        }
+        @if (question.QuestionType.ToString() == "Quantitative")
+         {
+                  <div class="form-group">
+                  <label for="exampleTextarea"></label>
+                  <input class="form-control" name="AnswersInput" asp-for="AnswersInput" type="number" id="exampleTextarea" rows="3"></input>
+                  </div>
+         }
+     <hr />
+     }
+        @*@foreach (AnswersViewModel answer in question.Answers)
+        {
+            @answer.Name
+            <input type="checkbox" name="model.Answers[]" value=@answer.Id>
+        }*@
+ 
+
+    <div class="row">
+        <input type="submit" class="btn btn-primary" />
+    </div>
+ }
 <p>&nbsp;</p>
 <p>&nbsp;</p>
