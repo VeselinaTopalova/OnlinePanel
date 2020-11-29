@@ -6,23 +6,43 @@
     {
         public SingleSurveyViewModel Survey;
 
-        public List<int> Answers { get; set; }
+        public List<AnsweredQuestion> AnsweredQuestions { get; set; }
 
-        public List<AnswersInput> AnswersInput { get; set; }
-
-        public List<int> AreChecked { get; set; }
 
         public PeopleSelectionViewModel()
         {
-            this.Answers = new List<int>();
-            this.AreChecked = new List<int>();
+            this.AnsweredQuestions = new List<AnsweredQuestion>();
 
         }
     }
-    public class AnswersInput
-    {
-        public int QId { get; set; }
 
-        public string Text { get; set; }
+    public class InputAnswer
+    {
+        public int Id { get; set; }
+
+        public string Input { get; set; }
+
+        public InputAnswer()
+        {
+            this.Id = 0;
+            this.Input = "";
+        }
+    }
+
+    public class AnsweredQuestion
+    {
+        public int Id { get; set; }
+
+        public List<InputAnswer> InputAnswers { get; set; }
+
+        public List<int> SelectedAnswerIds { get; set; }
+
+        public AnsweredQuestion()
+        {
+            this.InputAnswers = new List<InputAnswer>();
+            this.SelectedAnswerIds = new List<int>();
+
+        }
+
     }
 }

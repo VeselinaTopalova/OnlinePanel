@@ -8,95 +8,101 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
+    int index = 0;
     @foreach (QuestionsViewModel question in Model.Survey.Questions)
     {
+        int answerIndex = 0;
+        int answersCount = question.Answers.ToArray().Length;
+        int width = 100 / answersCount;
 
         <div class="row">
             @question.Name
         </div>
-        @if (question.QuestionType.ToString() == "SingleAnswer")
+        <input type="hidden" name="model.AnsweredQuestions[@index].Id" value=@question.Id />
+        @if (question.QuestionType.ToString() == "LikertScales")
         {
-            @foreach (var answer in question.Answers)
-            {
-                <div class="form-check">
-                    <label class="form-check-label">
-                        @*<input type="radio" class="form-check-input" name="Answers" id="optionsRadios2" value=@answer.Id>*@
-                        <input type="radio" class="form-check-input" name="model.Answers[]" @answer.Id value=@answer.Id>
-                        @answer.Name
-                    </label>
-                </div>
-              }             
-          }
-        else if (question.QuestionType.ToString() == "MultipleAnswer")
-        {
-                @foreach (var answer in question.Answers)
-                {
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            @*<input class="form-check-input" type="checkbox" name="model.Answers[]" value=@answer.Id>*@
-                            <input class="form-check-input" type="checkbox" name="model.AreChecked[]" value=@answer.Id>
-                            @answer.Name
-                        </label>
-                    </div>
-                 }         
-        }
-        else if (question.QuestionType.ToString() == "LikertScales")
-        {
-                  <div class="wrap">
-                  <ul class='likert'>
-                  @foreach (var answer in question.Answers)
-                  {
-                      <li>
-                          @*<input type="radio" name="Answers" value="strong_agree">*@
-                          <input type="radio" name="model.Answers[]" @answer.Id value="@answer.Id">
-                          <label>@answer.Name</label>
-                      </li>
-                  }
-                  </ul>
-                  </div>
+            @Html.Raw("<div> <ul class='likert'>")
         }
         else if (question.QuestionType.ToString() == "Dichotomous")
         {
-                  <div class="form-group">
-                  <label for="exampleSelect1">Example select</label>
-                  <select class="form-control"  id="exampleSelect1">
-                  @foreach (var answer in question.Answers)
-                  {
-                      <option name="AreChecked" value=@answer.Id>@answer.Name</option>
-                  }
-                  </select>
-                  </div>
+            @Html.Raw("<div class=\"form-group\"> <select  name=\"model.AnsweredQuestions[" + @index + "].SelectedAnswerIds[0]\" class=\"form-control\">")
         }
-        else if (question.QuestionType.ToString() == "OpenEnded")
+        @foreach (var answer in question.Answers)
         {
-            foreach (var answer in question.Answers)
+            @if (question.QuestionType.ToString() == "SingleAnswer")
+            {
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="model.AnsweredQuestions[@index].SelectedAnswerIds[0]" value=@answer.Id>
+                        @answer.Name
+                    </label>
+                </div>
+            }
+
+            else if (question.QuestionType.ToString() == "MultipleAnswer")
+            {
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" name="model.AnsweredQuestions[@index].SelectedAnswerIds[]" value=@answer.Id>
+                        @answer.Name
+                    </label>
+                </div>
+
+            }
+            else if (question.QuestionType.ToString() == "LikertScales")
+            {
+                <li style="width:calc(@width% - 6px)">
+                    <input type="radio" name="model.AnsweredQuestions[@index].SelectedAnswerIds[0]" value="@answer.Id">
+                    <label>@answer.Name</label>
+                </li>
+            }
+            else if (question.QuestionType.ToString() == "Dichotomous")
+            {
+                <option value="@answer.Id">@answer.Name</option>
+            }
+            else if (question.QuestionType.ToString() == "OpenEnded")
             {
                 <div class="form-group">
-                  <label for="exampleTextarea"></label>
-                  <textarea class="form-control" name="AnswersInput" value="" id="exampleTextarea" rows="2"></textarea>
-                  </div>
+                    <input type="hidden" name="model.AnsweredQuestions[@index].InputAnswers[@answerIndex].Id" value=@answer.Id />
+                    <label for="exampleTextarea"></label>
+                    <textarea class="form-control" name="model.AnsweredQuestions[@index].InputAnswers[@answerIndex].Input" value="" rows="2"></textarea>
+                </div>
+
+
             }
-                  
+            @if (question.QuestionType.ToString() == "Quantitative")
+            {
+                <div class="form-group">
+                    <input type="hidden" name="model.AnsweredQuestions[@index].InputAnswers[@answerIndex].Id" value=@answer.Id />
+                    <label for="exampleTextarea-@index"></label>
+                    <input class="form-control" name="model.AnsweredQuestions[@index].InputAnswers[@answerIndex].Input" type="number" id="exampleTextarea-@index" rows="3"></input>
+                </div>
+
+            }
+            answerIndex++;
         }
-        @if (question.QuestionType.ToString() == "Quantitative")
-         {
-                  <div class="form-group">
-                  <label for="exampleTextarea"></label>
-                  <input class="form-control" name="AnswersInput" asp-for="AnswersInput" type="number" id="exampleTextarea" rows="3"></input>
-                  </div>
-         }
-     <hr />
-     }
-        @*@foreach (AnswersViewModel answer in question.Answers)
+        <hr />
+
+        @if (question.QuestionType.ToString() == "LikertScales")
+        {
+            @Html.Raw(" </ul> </ div > ")
+        }
+        else if (question.QuestionType.ToString() == "Dichotomous")
+        {
+            @Html.Raw("</select></div>")
+        }
+        index++;
+    }
+    @*@foreach (AnswersViewModel answer in question.Answers)
         {
             @answer.Name
             <input type="checkbox" name="model.Answers[]" value=@answer.Id>
         }*@
- 
+
 
     <div class="row">
         <input type="submit" class="btn btn-primary" />
     </div>
- }
+}
 <p>&nbsp;</p>
 <p>&nbsp;</p>

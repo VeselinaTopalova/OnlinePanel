@@ -63,22 +63,36 @@
         [HttpPost]
         public async Task<IActionResult> CompleteSurvey(PeopleSelectionViewModel model, int id)
         {
-            var user = await this.userManager.GetUserAsync(this.User);            ;
+            var user = await this.userManager.GetUserAsync(this.User);
             // get the ids of the items selected:
-            var selectedIds = model.Answers;
-            var textIds = model.AnswersInput;
-            ;
+            var answeredQuestions = model.AnsweredQuestions;
 
-            foreach (var ansChId in selectedIds)
+            foreach (var answeredQuestion in answeredQuestions)
             {
-                var s = new UserAnswer
+                foreach (var selectedAnswerId in answeredQuestion.SelectedAnswerIds)
                 {
-                    SurveyId = id,
-                    UserId = user.Id,
-                    AnswerId = ansChId,
-                };
-                await this.db.UserAnswers.AddAsync(s);
+                    var s = new UserAnswer
+                    {
+                        SurveyId = id,
+                        UserId = user.Id,
+                        AnswerId = selectedAnswerId,
+                    };
+                    await this.db.UserAnswers.AddAsync(s);
+                }
+
+                foreach (var answer in answeredQuestion.InputAnswers)
+                {
+                    var s = new UserAnswer
+                    {
+                        SurveyId = id,
+                        UserId = user.Id,
+                        AnswerId = answer.Id,
+                        AnswerInput = answer.Input,
+                    };
+                    await this.db.UserAnswers.AddAsync(s);
+                }
             }
+            ;
             await this.db.SaveChangesAsync();
             return this.Redirect("/");
         }
