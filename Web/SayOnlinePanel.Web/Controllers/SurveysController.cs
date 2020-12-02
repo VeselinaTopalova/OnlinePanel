@@ -14,11 +14,10 @@
         {
             this.surveyService = surveyService;
         }
-        
+
         public IActionResult Create()
         {
             var viewModel = new CreateSurveyInputModel();
-            //viewModel.CategoriesItems = this.categoriesService.GetAllAsKeyValuePairs();
             return this.View(viewModel);
         }
 
@@ -52,7 +51,7 @@
             {
                 ItemsPerPage = ItemsPerPage,
                 PageNumber = id,
-                RecipesCount = this.surveyService.GetCount(),
+                SurveysCount = this.surveyService.GetCount(),
                 Surveys = this.surveyService.GetAll<SurveyInListViewModel>(id, ItemsPerPage),
             };
             return this.View(viewModel);

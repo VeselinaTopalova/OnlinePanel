@@ -1,0 +1,160 @@
+﻿@*@using SayOnlinePanel.Web.ViewModels.Statictics
+    @model SayOnlinePanel.Web.ViewModels.Statictics.SingleSurveyViewModel
+
+    @{ ViewBag.Title = Model.Name; }
+
+    <h2>@ViewBag.Title</h2>
+
+
+        @foreach (QuestionsViewModel question in Model.Questions)
+        {
+
+            <div class="row">
+                @question.Name
+            </div>
+            @foreach (AnswersViewModel answer in question.Answers)
+            {
+                <p>@answer.Name  :  @answer.Count</p>
+            }
+        }*@
+@*@using SayOnlinePanel.Web.ViewModels.Statictics
+
+
+
+    @foreach (var question in @ViewBag.d)
+    {
+
+        <div class="row">
+            @question
+        </div>
+        
+            <ejs-accumulationchart id="container">
+                <e-accumulation-series-collection>
+                    <e-accumulation-series Label="Label" Y="Y">
+                    </e-accumulation-series>
+                </e-accumulation-series-collection>
+            </ejs-accumulationchart>
+        
+    }*@
+
+
+@*<!DOCTYPE HTML>
+<html>
+<head>
+    @Html.Raw(ViewBag.d)
+    <br />
+    @for (int index = 0; index < ViewBag.d.Count; index++) {
+    var item = ViewBag.d.ElementAt(index);
+    var itemKey = item.Key;
+    var itemValue = item.Value;
+    }
+    <br />
+    @Html.Raw(ViewBag.DataPoints1)
+    <script>
+window.onload = function () {
+    foreach(var kvp in @Html.Raw(ViewBag.d)) {
+
+    var chart = new CanvasJS.Chart("chartContainer", {
+    animationEnabled: true,
+	title: {text: `${kvp.Key}`},
+	axisY: {
+        title: "Number of Nobel Prizes",
+		gridThickness: 0
+    },
+	data: [{
+        type: "bar",
+        indexLabel: "{y}",
+		dataPoints:kvp.Value
+    }]
+});
+chart.render();
+    }
+
+
+}
+    </script>
+</head>
+<body>
+    <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</body>
+</html>*@
+
+<html>
+<head>
+    <script type="text/javascript" src="jquery-2.1.1.js"></script>
+    <script type="text/javascript" src="CanvasJS.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            var dataPointsTemp = [];
+            var dataPointsHumidity = [];
+
+            // Ajax request for getting JSON data
+
+            $.getJSON("data.json", function (data) {
+                for (var i = 0; i < data.length; i++) {
+                    dataPointsTemp.push({ label: data[i].label, y: data[i].y });
+                    dataPointsHumidity.push({ label: data[i].label, y: data[i].y2 });
+                }
+
+                // Chart with label + y values
+
+                var chart = new CanvasJS.Chart("chartContainer1",
+                    {
+                        title: {
+                            text: "Chart with y value"
+                        },
+                        data: [
+                            {
+                                dataPoints: dataPointsTemp
+                            }]
+                    });
+                chart.render();
+
+                // Chart with label + y2 values
+
+                var chart = new CanvasJS.Chart("chartContainer2",
+                    {
+                        title: {
+                            text: "Chart with y2 value"
+                        },
+                        data: [
+                            {
+                                dataPoints: dataPointsHumidity
+                            }]
+                    });
+                chart.render();
+
+                // Chart with label + y and y2 values or multiSeries Chart
+
+                var chart = new CanvasJS.Chart("multiChart",
+                    {
+                        title: {
+                            text: "Chart with y and y2 values"
+                        },
+                        data: [
+                            {
+                                type: "line",
+                                dataPoints: dataPointsTemp
+                            },
+                            {
+                                type: "line",
+                                dataPoints: dataPointsHumidity
+                            }
+                        ]
+                    });
+                chart.render();
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="chartContainer1" style="width: 50%; height: 300px;></div>
+    <div id="chartContainer2" style="width: 40%; height: 300px;></div>
+    <div id="multiChart" style="width: 80%; height: 300px;></div>
+</body>
+</html>
+
+
+

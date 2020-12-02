@@ -3,6 +3,7 @@
     using System;
     using System.Linq;
     using System.Threading.Tasks;
+    using Microsoft.AspNetCore.Identity;
     using SayOnlinePanel.Data.Common.Repositories;
     using SayOnlinePanel.Data.Models;
     using SayOnlinePanel.Web.ViewModels.Users;
@@ -16,28 +17,38 @@
             this.surveysRepository = surveysRepository;
         }
 
-        public async Task CreateAsync(SQAnswerInputModel input, int id, string userId)
+        public async Task CompleteAsync(PeopleSelectionViewModel model, int id, string userId)
         {
-            var survey = this.surveysRepository.All().FirstOrDefault(x => x.Id == id);
-            var s = new UserAnswer
+            // get the ids of the items selected:
+            var answeredQuestions = model.AnsweredQuestions;
+
+            foreach (var answeredQuestion in answeredQuestions)
             {
-                SurveyId = id,
-                UserId = userId,
-            };
+                foreach (var selectedAnswerId in answeredQuestion.SelectedAnswerIds)
+                {
+                    var s = new UserAnswer
+                    {
+                        SurveyId = id,
+                        UserId = userId,
+                        AnswerId = selectedAnswerId,
+                    };
+                    //await this.db.UserAnswers.AddAsync(s);
+                }
 
-            //foreach (var inputAnswer in input.Answers)
-            //{
-            //    var question = new Question
-            //    {
-            //        Id = inputAnswer.id,
-            //    };
-                
-
-            //    //survey.Questions.Add(question);
-            //}
-
-            await this.surveysRepository.AddAsync(survey);
-            await this.surveysRepository.SaveChangesAsync();
+                foreach (var answer in answeredQuestion.InputAnswers)
+                {
+                    var s = new UserAnswer
+                    {
+                        SurveyId = id,
+                        UserId = userId,
+                        AnswerId = answer.Id,
+                        AnswerInput = answer.Input,
+                    };
+                    //await this.db.UserAnswers.AddAsync(s);
+                }
+            }
+            ;
+            //await this.db.SaveChangesAsync();
         }
 
         public T GetById<T>(int id)

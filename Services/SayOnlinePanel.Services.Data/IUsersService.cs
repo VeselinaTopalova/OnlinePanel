@@ -8,6 +8,6 @@
     {
         T GetById<T>(int id);
 
-        Task CreateAsync(SQAnswerInputModel input, int id, string userId);
+        Task CompleteAsync(PeopleSelectionViewModel input, int id, string userId);
     }
 }

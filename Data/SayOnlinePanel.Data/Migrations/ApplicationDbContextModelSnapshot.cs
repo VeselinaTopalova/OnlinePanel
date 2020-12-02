@@ -451,9 +451,14 @@ namespace SayOnlinePanel.Data.Migrations
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<int?>("UserInfoId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("IsDeleted");
+
+                    b.HasIndex("UserInfoId");
 
                     b.ToTable("Surveys");
                 });
@@ -471,7 +476,7 @@ namespace SayOnlinePanel.Data.Migrations
                     b.Property<string>("AnswerInput")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("SurveyId")
+                    b.Property<int>("SurveyId")
                         .HasColumnType("int");
 
                     b.Property<string>("UserId")
@@ -517,6 +522,9 @@ namespace SayOnlinePanel.Data.Migrations
 
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
+
+                    b.Property<int>("Points")
+                        .HasColumnType("int");
 
                     b.Property<string>("Town")
                         .HasColumnType("nvarchar(max)");
@@ -706,6 +714,13 @@ namespace SayOnlinePanel.Data.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("SayOnlinePanel.Data.Models.Survey", b =>
+                {
+                    b.HasOne("SayOnlinePanel.Data.Models.UserInfo", null)
+                        .WithMany("Surveys")
+                        .HasForeignKey("UserInfoId");
+                });
+
             modelBuilder.Entity("SayOnlinePanel.Data.Models.UserAnswer", b =>
                 {
                     b.HasOne("SayOnlinePanel.Data.Models.Answer", "Answer")
@@ -714,9 +729,11 @@ namespace SayOnlinePanel.Data.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("SayOnlinePanel.Data.Models.Survey", null)
+                    b.HasOne("SayOnlinePanel.Data.Models.Survey", "Survey")
                         .WithMany("UserAnswers")
-                        .HasForeignKey("SurveyId");
+                        .HasForeignKey("SurveyId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
 
                     b.HasOne("SayOnlinePanel.Data.Models.ApplicationUser", "User")
                         .WithMany()

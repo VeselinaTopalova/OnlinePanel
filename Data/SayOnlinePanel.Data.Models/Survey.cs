@@ -30,6 +30,12 @@
 
         public int SampleMale { get; set; }
 
+        //public int SampleTotalComplete { get; set; } = 0;
+
+        //public int SampleFemaleComplete { get; set; } = 0;
+
+        //public int SampleMaleComplete { get; set; } = 0;
+
         public virtual ICollection<Question> Questions { get; set; }
 
         //public virtual ICollection<Answer> Answers { get; set; }

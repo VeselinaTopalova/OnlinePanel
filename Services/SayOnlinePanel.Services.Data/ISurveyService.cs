@@ -16,7 +16,5 @@
         int GetCount();
 
         T GetById<T>(int id);
-
-        Survey GetSurvey(int id);
     }
 }

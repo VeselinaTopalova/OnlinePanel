@@ -39,7 +39,7 @@
             {
                 ItemsPerPage = ItemsPerPage,
                 PageNumber = id,
-                RecipesCount = this.surveyService.GetCount(),
+                SurveysCount = this.surveyService.GetCount(),
                 Surveys = this.surveyService.GetAll<SurveyInListViewModel>(id, ItemsPerPage),
             };
             return this.View(viewModel);
@@ -64,6 +64,8 @@
         public async Task<IActionResult> CompleteSurvey(PeopleSelectionViewModel model, int id)
         {
             var user = await this.userManager.GetUserAsync(this.User);
+
+            //this.usersService.CompleteAsync(model, id, user.Id);
             // get the ids of the items selected:
             var answeredQuestions = model.AnsweredQuestions;
 
@@ -92,7 +94,46 @@
                     await this.db.UserAnswers.AddAsync(s);
                 }
             }
+
+            var survey = db.Surveys.FirstOrDefault(x => x.Id == id);
+            survey.Users.Add(user);
+
+            //add survey to Survey's list of user
+            var userInfo = db.UserInfos.FirstOrDefault(x => x.UserId == user.Id);
             ;
+            ;
+            if(userInfo != null)
+            {
+                userInfo.Surveys.Add(survey);
+                userInfo.Points += survey.PointsTotal;
+            }
+            else
+            {
+                var ui = new UserInfo
+                {
+                    UserId = user.Id,
+                };
+                ui.Surveys.Add(survey);
+
+                //add points of user
+                ui.Points = survey.PointsTotal;
+
+                await this.db.UserInfos.AddAsync(ui);
+            }
+
+            //add user to User's list of survey
+            survey.Users.Add(user);
+            //Sample
+            //survey.SampleTotalComplete += 1;
+            //if(userInfo.Gender == "Male")
+            //{
+            //    survey.SampleMaleComplete += 1;
+            //}
+            //else
+            //{
+            //    survey.SampleFemaleComplete += 1;
+            //}
+
             await this.db.SaveChangesAsync();
             return this.Redirect("/");
         }
