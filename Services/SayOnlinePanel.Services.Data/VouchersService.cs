@@ -19,13 +19,11 @@
 
         public IEnumerable<T> GetAll<T>(int? count = null)
         {
-            IQueryable<Voucher> query =
-                this.voucherRepository.All().OrderBy(x => x.Name);
+            IQueryable<Voucher> query = this.voucherRepository.All().OrderBy(x => x.Name);
             if (count.HasValue)
             {
                 query = query.Take(count.Value);
             }
-
             return query.To<T>().ToList();
         }
 

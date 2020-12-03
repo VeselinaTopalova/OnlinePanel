@@ -13,6 +13,8 @@
 
         IEnumerable<T> GetAll<T>(int page, int itemsPerPage = 12);
 
+        IEnumerable<T> GetAllOnePage<T>(string id);
+
         int GetCount();
 
         T GetById<T>(int id);

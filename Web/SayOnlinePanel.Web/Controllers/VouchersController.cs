@@ -15,6 +15,16 @@
             this.vouchersService = vouchersService;
         }
 
+        public IActionResult All()
+        {
+            var viewModel = new AllVouchersViewModel();
+
+            var vouchers = this.vouchersService.GetAll<VoucherViewModel>();
+            viewModel.Vouchers = vouchers;
+
+            return this.View(viewModel);
+        }
+
         public IActionResult ByName(string name)
         {
             var viewModel = this.vouchersService.GetByName<VoucherViewModel>(name);

@@ -6,6 +6,8 @@
 
     using Microsoft.AspNetCore.Mvc;
     using SayOnlinePanel.Services.Data;
+    using Microsoft.AspNetCore.Mvc.Rendering;
+    using System.Collections.Generic;
     using SayOnlinePanel.Web.ViewModels.Home;
 
     public class HomeController : BaseController
@@ -25,9 +27,9 @@
         }
 
         public IActionResult Privacy()
-        {
-            return this.View();
-        }
+            {
+                return this.View();
+            }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

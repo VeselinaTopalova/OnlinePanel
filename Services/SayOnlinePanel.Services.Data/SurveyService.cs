@@ -79,6 +79,14 @@
             return surveys;
         }
 
+        public IEnumerable<T> GetAllOnePage<T>(string id)
+        {
+            var surveys = this.surveysRepository.AllAsNoTracking()
+                .OrderByDescending(x => x.Id)
+                .To<T>().ToList();
+            return surveys;
+        }
+
         public T GetById<T>(int id)
         {
             var survey = this.surveysRepository.AllAsNoTracking()

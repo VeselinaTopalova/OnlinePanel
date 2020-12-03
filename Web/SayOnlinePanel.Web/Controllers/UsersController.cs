@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     using System.Linq;
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Identity;
@@ -27,23 +28,15 @@
             this.db = db;
         }
 
-        public IActionResult SurveysForUser(int id = 1)
-        {
-            if (id <= 0)
-            {
-                return this.NotFound();
-            }
-
-            const int ItemsPerPage = 12;
-            var viewModel = new SyrveysListViewModel
-            {
-                ItemsPerPage = ItemsPerPage,
-                PageNumber = id,
-                SurveysCount = this.surveyService.GetCount(),
-                Surveys = this.surveyService.GetAll<SurveyInListViewModel>(id, ItemsPerPage),
-            };
-            return this.View(viewModel);
-        }
+        
+        //public IActionResult CollectPoints()
+        //{            
+        //    var viewModel = new SyrveysListViewModel
+        //    {
+        //        Surveys = this.surveyService.GetAllOnePage<SurveyInListViewModel>(id),
+        //    };
+        //    return this.View(viewModel);
+        //}
 
         public IActionResult ById(int id)
         {

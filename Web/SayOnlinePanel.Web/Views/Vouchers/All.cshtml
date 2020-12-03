@@ -1,0 +1,21 @@
+﻿@using SayOnlinePanel.Common
+@model SayOnlinePanel.Web.ViewModels.Vouchers.AllVouchersViewModel
+<p>&nbsp;</p>
+<h3 class="text-muted">Награди</h3>
+<p>&nbsp;</p>
+<div class="row">
+    @foreach (var v in Model.Vouchers)
+    {
+        <div class="col-md-4 media">
+            <div class="card">
+                <a asp-controller="Vouchers" asp-action="ById" asp-route-id="@v.Id"><img src="@v.Image" class="card-img-top" alt="@v.Name"></a>
+                <div class="card-body">
+                    <a asp-controller="Vouchers" asp-action="ById" asp-route-id="@v.Id"><h5 class="text-muted">@v.Name</h5></a>
+                    <p class="card-text">@v.Points точки</p>
+                    @*<h6 class="media-heading"><a asp-controller="Tours" asp-action="ById" asp-route-id="@tour.Id">LEARN MORE</a></h6>*@
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<p>&nbsp;</p>

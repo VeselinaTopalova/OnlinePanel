@@ -12,33 +12,6 @@
 </head>
 <body>
     <header>
-        @*<nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">@GlobalConstants.SystemName</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <partial name="_LoginPartial" />
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Settings" asp-action="Index">Settings</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Vouchers" asp-action="Create">Create Vouchers</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Surveys" asp-action="Create">Create Surveys</a>
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Surveys" asp-action="Surveys">Surveys</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>*@
         <nav class="navbar navbar-expand-sm navbar-dark bg-primary border-bottom box-shadow mb-3">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">@GlobalConstants.SystemName</a>
@@ -48,13 +21,10 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse" id="navbarColor01">
                     <partial name="_LoginPartial" />
-                    <ul class="navbar-nav flex-grow-1">
-                        @*<li class="nav-item active">
-            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-        </li>
-        <li class="nav-item active">
-            <a class="nav-link text-dark" asp-area="" asp-controller="Settings" asp-action="Index">Settings</a>
-        </li>*@
+                    <ul class="navbar-nav flex-grow-1">  
+                        <li class="nav-item active">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Vouchers" asp-action="All">Награди</a>
+                        </li>
                         <li class="nav-item active">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Vouchers" asp-action="Create">Create Vouchers</a>
                         </li>
@@ -68,10 +38,10 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Statictics" asp-action="Surveys">Surveys</a>
                         </li>*@
                         <li class="nav-item active">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Users" asp-action="SurveysForUser">SurveysForUser</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="UserInfos" asp-action="CollectPoints">Събери точки</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="UserInfos" asp-action="MyPoints">MyPoints</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="UserInfos" asp-action="MyPoints">Моите точки</a>
                         </li>
                     </ul>
                 </div>
