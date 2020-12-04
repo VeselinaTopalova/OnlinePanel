@@ -2,12 +2,9 @@
 {
     using System.Diagnostics;
 
-    using SayOnlinePanel.Web.ViewModels;
-
     using Microsoft.AspNetCore.Mvc;
     using SayOnlinePanel.Services.Data;
-    using Microsoft.AspNetCore.Mvc.Rendering;
-    using System.Collections.Generic;
+    using SayOnlinePanel.Web.ViewModels;
     using SayOnlinePanel.Web.ViewModels.Home;
 
     public class HomeController : BaseController

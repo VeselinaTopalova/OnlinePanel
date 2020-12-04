@@ -20,10 +20,9 @@
 
         public virtual ApplicationUser User { get; set; }
 
-        public string Gender { get; set; }
-        //public Gender Gender { get; set; }
+        public Gender Gender { get; set; }
 
-        public string Town { get; set; }
+        public Town Town { get; set; }
 
         public DateTime Birthday { get; set; }
 
@@ -35,9 +34,4 @@
 
         public ICollection<VoucherUser> VoucherUsers { get; set; }
     }
-    //public enum Gender
-    //{
-    //    Male,
-    //    Female
-    //}
 }

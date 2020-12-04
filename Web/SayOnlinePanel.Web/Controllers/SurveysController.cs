@@ -37,10 +37,6 @@
 
         public IActionResult Surveys(int id = 1)
         {
-            //var viewModel = new SyrveysListViewModel();
-            //viewModel.Surveys = this.surveyService.GetAll<SurveysName>();
-            //return this.View(viewModel);
-
             if (id <= 0)
             {
                 return this.NotFound();

@@ -1,6 +1,5 @@
 ﻿namespace SayOnlinePanel.Web.Controllers
 {
-    using System;
     using System.Globalization;
     using System.Linq;
     using System.Threading.Tasks;
@@ -76,7 +75,6 @@
             {
                 return this.View(input);
             }
-
             await this.userInfosService.CreateAsync(input, userId);
 
             return this.Redirect("MyPoints");

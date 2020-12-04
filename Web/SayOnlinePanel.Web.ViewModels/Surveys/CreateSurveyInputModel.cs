@@ -13,14 +13,19 @@
 
         public string Description { get; set; }
 
+        [Required]
+        [DataType(DataType.Date)]
         public DateTime StartDate { get; set; }
 
+        [Required]
+        [DataType(DataType.Date)]
         public DateTime EndDate { get; set; }
 
         public int PointsStart { get; set; }
 
         public int PointsTotal { get; set; }
 
+        [Range(typeof(int), "1", "10000")]
         public int SampleTotal { get; set; }
 
         public int SampleFemale { get; set; }

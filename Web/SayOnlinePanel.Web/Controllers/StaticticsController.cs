@@ -28,94 +28,68 @@ namespace SayOnlinePanel.Web.Controllers
             this.userManager = userManager;
             this.db = db;
         }
-        public IActionResult ByIdStatistics(int id)
+        //[HttpPost]
+        //public JsonResult AjaxMethod(string name)
+        //{
+        //    PersonModel person = new PersonModel
+        //    {
+        //        Name = name,
+        //        DateTime = DateTime.Now.ToString()
+        //    };
+        //    return Json(person);
+        //}
+
+        //public IActionResult ByIdStatistics(int id)
+        //public JsonResult ByIdStatistics(int id)
+        public string ByIdStatistics(int id)
         {
             //var survey = this.surveyService.GetById<SingleSurveyViewModel>(id);
-            //return this.View(survey);
-            //var survey = this.db.UserAnswers.Where(x => x.SurveyId == id).Select(x => new SingleSurveyViewModel
-            //{
-            //    Name = x.Survey.Name,
-            //    Questions = x.Survey.Questions.Select(s => new QuestionsViewModel
-            //    {
-            //        Name = s.Name,
-            //        QuestionType = s.QuestionType,
-            //        Answers = s.Answers.Select(a=> new AnswersViewModel 
-            //        { 
-            //            Name = a.Name,
-            //            Count = a.UserAnswers.Count(),
-            //        }).ToList(),
-            //    }).ToList(),
-            //}).FirstOrDefault();
-            //;
-            //;
-            //return this.View(survey);
-            List<DataPoint> dataPoints = new List<DataPoint>();
-            var d = new Dictionary<string, List<DataPoint>>();
-            var survey = this.db.UserAnswers.Where(x => x.SurveyId == id).Select(x => new 
+            var survey = this.db.UserAnswers.Where(x => x.SurveyId == id).Select(x => new SingleSurveyViewModel
             {
                 Name = x.Survey.Name,
-                Questions = x.Survey.Questions.Select(s => new 
+                Questions = x.Survey.Questions.Select(s => new QuestionsViewModel
                 {
                     Name = s.Name,
                     QuestionType = s.QuestionType,
-                    Answers = s.Answers.Select(a => new 
+                    Answers = s.Answers.Select(a => new AnswersViewModel
                     {
                         Name = a.Name,
-                        Count = a.UserAnswers.Count() 
+                        Count = a.UserAnswers.Count(),
                     }).ToList(),
                 }).ToList(),
             }).FirstOrDefault();
             ;
             ;
+            //return this.View(survey);
+            var jsonResult = JsonConvert.SerializeObject(survey, Formatting.Indented);
 
-            foreach (var item in survey.Questions)
+            return jsonResult;
+            //return Json(survey);
+        }
+
+        public IActionResult SampleComplete(int id)
+        {
+            var survey = this.db.UserAnswers.Where(x => x.SurveyId == id).Select(x => new CompleteModel
             {
-                d[item.Name] = new List<DataPoint>();
-                foreach (var a in item.Answers)
-                {
-                    var n = new DataPoint(a.Name, a.Count);
-                    d[item.Name].Add(n);
-                }
-            }
-            ViewBag.d = JsonConvert.SerializeObject(d);
+                Name = x.Survey.Name,
+                SampleTotalComplete = x.Survey.SampleTotalComplete,
+                SampleTotalCompletePercent = (x.Survey.SampleTotal != 0) ? (x.Survey.SampleTotalComplete / x.Survey.SampleTotal) * 100 : 0,
+                SampleMaleComplete = x.Survey.SampleMaleComplete,
+                SampleMale = x.Survey.SampleMale,
+                SampleMaleCompletePercent = x.Survey.SampleMale != 0 ? (x.Survey.SampleMaleComplete / x.Survey.SampleMale) * 100 : 0,
+                SampleFemaleComplete = x.Survey.SampleFemaleComplete,
+                SampleFemaleCompletePercent = x.Survey.SampleFemale != 0 ? (x.Survey.SampleFemaleComplete / x.Survey.SampleFemale) * 100 : 0,
+                SampleFemale = x.Survey.SampleFemale,
+            }).FirstOrDefault();
             ;
             ;
-            List<DataPoint> dataPoints1 = new List<DataPoint>();
 
-            dataPoints1.Add(new DataPoint("Economics", 1));
-            dataPoints1.Add(new DataPoint("Physics", 2));
-            dataPoints1.Add(new DataPoint("Literature", 4));
-            dataPoints1.Add(new DataPoint("Chemistry", 4));
-            dataPoints1.Add(new DataPoint("Literature", 9));
-            dataPoints1.Add(new DataPoint("Physiology or Medicine", 11));
-            dataPoints1.Add(new DataPoint("Peace", 13));
+            int completeTotal = this.db.UserAnswers.Where(x => x.SurveyId == id).Select(x => x.Survey.SampleTotalComplete).FirstOrDefault();
+            int sampleTotal = this.db.UserAnswers.Where(x => x.SurveyId == id).Select(x => x.Survey.SampleTotal).FirstOrDefault();
 
-            ViewBag.DataPoints1 = JsonConvert.SerializeObject(dataPoints1);
-            return View();
+
+            return this.View(survey);
         }
 
-        public class PieChartData
-        {
-            public string xValue;
-            public double yValue;
-        }
-
-    }
-    [DataContract]
-    public class DataPoint
-    {
-        public DataPoint(string label, double y)
-        {
-            this.Label = label;
-            this.Y = y;
-        }
-
-        //Explicitly setting the name to be used while serializing to JSON.
-        [DataMember(Name = "label")]
-        public string Label = "";
-
-        //Explicitly setting the name to be used while serializing to JSON.
-        [DataMember(Name = "y")]
-        public Nullable<double> Y = null;
     }
 }

@@ -8,6 +8,8 @@
     using SayOnlinePanel.Data.Models;
     using SayOnlinePanel.Services.Mapping;
     using SayOnlinePanel.Web.ViewModels.UserInfos;
+    using Gender = SayOnlinePanel.Data.Models.Gender;
+    using Town = SayOnlinePanel.Data.Models.Town;
 
     public class UserInfosService : IUserInfosService
     {
@@ -51,15 +53,26 @@
 
         public async Task CreateAsync(CreateUserInfoInputModel input, string id)
         {
+            bool isValidEnum = true;
+
+            var g = Enum.TryParse<Gender>(input.Gender.ToString(), out Gender test);
+
+            if (!g)
+            {
+                isValidEnum = false;
+                //???
+                
+            }
             var userInfo = new UserInfo
             {
                 UserId = id,
-                Gender = input.Gender,
+                Gender = Enum.Parse<Gender>(input.Gender.ToString()),
                 Birthday = input.Birthday,
-                Town = input.Town,
+                Town = Enum.Parse<Town>(input.Town.ToString()),
             };
             await this.userInfosRepository.AddAsync(userInfo);
             await this.userInfosRepository.SaveChangesAsync();
         }
+
     }
 }

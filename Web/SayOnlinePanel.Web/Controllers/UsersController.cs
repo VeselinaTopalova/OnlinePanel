@@ -1,13 +1,9 @@
 ﻿namespace SayOnlinePanel.Web.Controllers
 {
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
     using System.Linq;
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
-    using Microsoft.EntityFrameworkCore;
     using SayOnlinePanel.Data;
     using SayOnlinePanel.Data.Models;
     using SayOnlinePanel.Services.Data;
@@ -89,8 +85,6 @@
             }
 
             var survey = db.Surveys.FirstOrDefault(x => x.Id == id);
-            survey.Users.Add(user);
-
             //add survey to Survey's list of user
             var userInfo = db.UserInfos.FirstOrDefault(x => x.UserId == user.Id);
             ;
@@ -115,17 +109,26 @@
             }
 
             //add user to User's list of survey
-            survey.Users.Add(user);
+            if (survey.Users.Contains(user))
+            {
+                //?????????
+            }
+            else
+            {
+                survey.Users.Add(user);
+            }
+
             //Sample
-            //survey.SampleTotalComplete += 1;
-            //if(userInfo.Gender == "Male")
-            //{
-            //    survey.SampleMaleComplete += 1;
-            //}
-            //else
-            //{
-            //    survey.SampleFemaleComplete += 1;
-            //}
+            survey.SampleTotalComplete += 1;
+
+            if(userInfo.Gender == Gender.Male)
+            {
+                survey.SampleMaleComplete += 1;
+            }
+            else
+            {
+                survey.SampleFemaleComplete += 1;
+            }
 
             await this.db.SaveChangesAsync();
             return this.Redirect("/");

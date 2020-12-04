@@ -442,10 +442,19 @@ namespace SayOnlinePanel.Data.Migrations
                     b.Property<int>("SampleFemale")
                         .HasColumnType("int");
 
+                    b.Property<int>("SampleFemaleComplete")
+                        .HasColumnType("int");
+
                     b.Property<int>("SampleMale")
                         .HasColumnType("int");
 
+                    b.Property<int>("SampleMaleComplete")
+                        .HasColumnType("int");
+
                     b.Property<int>("SampleTotal")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SampleTotalComplete")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("StartDate")
@@ -514,8 +523,8 @@ namespace SayOnlinePanel.Data.Migrations
                     b.Property<DateTime?>("DeletedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Gender")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Gender")
+                        .HasColumnType("int");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
@@ -526,8 +535,8 @@ namespace SayOnlinePanel.Data.Migrations
                     b.Property<int>("Points")
                         .HasColumnType("int");
 
-                    b.Property<string>("Town")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Town")
+                        .HasColumnType("int");
 
                     b.Property<string>("UserId")
                         .IsRequired()

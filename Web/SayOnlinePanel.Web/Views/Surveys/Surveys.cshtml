@@ -23,11 +23,12 @@
         <div class="list-group-item list-group-item-action flex-column align-items-start active"><h5 class="mb-1">@sv.Name</div>
         <p>
             <a asp-action="ById" asp-route-id="@sv.Id"><button class="btn btn-outline-primary">View</button></a>
-            <a asp-controller="Statictics" asp-action="ByIdStatistics" asp-route-id="@sv.Id"><button class="btn btn-outline-primary">Statictics</button></a>
+            <a asp-controller="Statictics" asp-action="SampleComplete" asp-route-id="@sv.Id"><button class="btn btn-outline-primary">CompleteSample</button></a>
+            <a asp-controller="Statictics" asp-action="ByIdStatistics" asp-route-id="@sv.Id"><button class="btn btn-outline-primary">Charts</button></a>
         </p>
         <div class="d-flex w-100 justify-content-between">
-            <small>Start: @sv.StartDate</small>
-            <small>End: @sv.EndDate</small>
+            <small>Start: @sv.StartDate.Date</small>
+            <small>End: @sv.EndDate.Date</small>
         </div>
     }
 </div>

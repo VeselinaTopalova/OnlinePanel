@@ -1,0 +1,58 @@
+﻿@*<ejs-accumulationchart id="container">
+        <e-accumulation-series-collection>
+            <e-accumulation-series dataSource="ViewBag.dataSource" xName="xValue" yName="yValue">
+            </e-accumulation-series>
+        </e-accumulation-series-collection>
+    </ejs-accumulationchart>*@
+
+
+@model SayOnlinePanel.Web.ViewModels.Statictics.CompleteModel
+
+<div>
+    <p>@Model.Name</p>
+    <p>Percent Total Sample Completed: @Model.SampleTotalCompletePercent</p>
+    <p>Percent Male Sample Completed: @Model.SampleMaleCompletePercent</p>
+    <p>Percent Female Sample Completed: @Model.SampleFemaleCompletePercent</p>
+</div>
+
+@section Scripts {
+<a id="addC" class="btn btn-outline-info">Add Chart</a>
+<script>
+        let btnC = document.querySelector("#addC");
+        btnC.addEventListener("click", AddChart);
+        let a = @Model.SampleTotalCompletePercent;
+        let b = @Model.SampleMaleCompletePercent;
+        let c = @Model.SampleFemaleCompletePercent;
+        function AddChart() {
+            const chart = Highcharts.chart('container', {
+                chart: {
+                    type: 'bar'
+                },
+                title: {
+                    text: 'Completed Sample'
+                },
+                xAxis: {
+                    categories: ['Complete All Sample', 'Complete Male Sample', 'Complete Female Sample']
+                },
+                yAxis: {
+                    title: {
+                        text: 'Complete'
+                    }
+                },
+                series: [{
+                    name: 'Completed %',
+                    data: [a, b, c]
+                }
+                    // , {
+                    //     name: 'No',
+                    //     data: [80, 70, 50 ]
+                    // }
+                ]
+            });
+
+        }
+
+</script>
+
+    <div id="container" style="width:100%; height:400px;"></div>
+}
