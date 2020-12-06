@@ -58,5 +58,29 @@
             var survey = this.surveyService.GetById<SingleSurveyViewModel>(id);
             return this.View(survey);
         }
+
+        public IActionResult Edit(int id)
+        {
+            var inputModel = this.surveyService.GetById<EditSurveyInputModel>(id);
+            //inputModel.EditedQuestions = this.surveyService.GetById<EditSurveyInputModel>(id).EditedQuestions;
+            return this.View(inputModel);
+            //var model = new PeopleSelectionViewModel();
+
+            //model.Survey = this.surveyService.GetById<SingleSurveyViewModel>(id);
+
+            //return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(int id, EditSurveyInputModel input)
+        {
+            if (!this.ModelState.IsValid)
+            {
+                return this.View(input);
+            }
+
+            await this.surveyService.UpdateAsync(id, input);
+            return this.RedirectToAction(nameof(this.ById), new { id });
+        }
     }
 }

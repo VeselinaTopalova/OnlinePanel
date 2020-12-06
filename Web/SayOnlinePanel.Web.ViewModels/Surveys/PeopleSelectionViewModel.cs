@@ -1,4 +1,4 @@
-﻿namespace SayOnlinePanel.Web.ViewModels.Users
+﻿namespace SayOnlinePanel.Web.ViewModels.Surveys
 {
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;

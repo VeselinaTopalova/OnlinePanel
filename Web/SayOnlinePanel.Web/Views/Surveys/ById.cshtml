@@ -65,8 +65,8 @@
                                                                                                                 <hr />}
         @*<button type="submit" class="btn btn-primary">Submit</button>*@
     </fieldset>
-    <a asp-controller="Home" asp-action="Index" ><button type="button" class="btn btn-primary disabled">Home</button></a>
-    <button type="button" class="btn btn-warning disabled">Edit</button>
+    <a asp-controller="Home" asp-action="Index"><button type="button" class="btn btn-primary disabled">Home</button></a>
+    <a asp-controller="Surveys" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-outline-primary">Edit</a>
     <button type="button" class="btn btn-danger disabled">Delete</button>
 </form>
 <hr />

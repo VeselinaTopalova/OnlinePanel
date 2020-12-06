@@ -52,6 +52,10 @@
         [HttpPost]
         public async Task<IActionResult> CompleteSurvey(PeopleSelectionViewModel model, int id)
         {
+            if (!this.ModelState.IsValid)
+            {
+                return this.View(model);
+            }
             var user = await this.userManager.GetUserAsync(this.User);
 
             //this.usersService.CompleteAsync(model, id, user.Id);

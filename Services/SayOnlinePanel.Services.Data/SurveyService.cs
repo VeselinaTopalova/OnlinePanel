@@ -86,7 +86,7 @@
                 .To<T>().ToList();
             return surveys;
         }
-
+        
         public T GetById<T>(int id)
         {
             var survey = this.surveysRepository.AllAsNoTracking()
@@ -99,6 +99,39 @@
         public int GetCount()
         {
             return this.surveysRepository.All().Count();
+        }
+
+        public async Task UpdateAsync(int id, EditSurveyInputModel input)
+        {
+            var survey = this.surveysRepository.All().FirstOrDefault(x => x.Id == id);
+            survey.Name = input.Name;
+            survey.Description = input.Description;
+            survey.PointsStart = input.PointsStart;
+            survey.PointsTotal = input.PointsTotal;
+            survey.StartDate = input.StartDate;
+            survey.EndDate = input.EndDate;
+            survey.SampleTotal = input.SampleTotal;
+            survey.SampleMale = input.SampleMale;
+            survey.SampleFemale = input.SampleFemale;
+            ;
+            ;
+
+            if(input.Questions == null)
+            {
+                foreach (var inputQuestion in survey.Questions)
+                {
+                    var currQ = survey.Questions.FirstOrDefault(x => x.Id == inputQuestion.Id);
+                    currQ.Name = inputQuestion.Name;
+                    currQ.QuestionType = Enum.Parse<QuestionType>(inputQuestion.QuestionType.ToString());  //???????
+                    foreach (var inputAnswer in inputQuestion.Answers)
+                    {
+                        var currA = currQ.Answers.Where(x => x.Id == inputAnswer.Id).FirstOrDefault();
+                        currA.Name = inputAnswer.Name;
+                    }
+                }
+            }
+
+            await this.surveysRepository.SaveChangesAsync();
         }
     }
 }

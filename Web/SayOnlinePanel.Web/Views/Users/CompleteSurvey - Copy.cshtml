@@ -33,7 +33,7 @@
             {
                 <div class="form-check">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="model.AnsweredQuestions[@index].SelectedAnswerIds[0]" value=@answer.Id class="form-control validate" required>
+                        <input type="radio" class="form-check-input" name="model.AnsweredQuestions[@index].SelectedAnswerIds[0]" value=@answer.Id>
                         @answer.Name
                     </label>
                 </div>
@@ -52,7 +52,7 @@
             else if (question.QuestionType.ToString() == "LikertScales")
             {
                 <li style="width:calc(@width% - 6px)">
-                    <input type="radio" name="model.AnsweredQuestions[@index].SelectedAnswerIds[0]" value="@answer.Id"class="form-control validate" required>
+                    <input type="radio" name="model.AnsweredQuestions[@index].SelectedAnswerIds[0]" value="@answer.Id">
                     <label>@answer.Name</label>
                 </li>
             }
@@ -65,7 +65,7 @@
                 <div class="form-group">
                     <input type="hidden" name="model.AnsweredQuestions[@index].InputAnswers[@answerIndex].Id" value=@answer.Id />
                     <label for="exampleTextarea"></label>
-                    <textarea class="form-control" name="model.AnsweredQuestions[@index].InputAnswers[@answerIndex].Input" value="" rows="2" class="form-control validate" required></textarea>
+                    <textarea class="form-control" name="model.AnsweredQuestions[@index].InputAnswers[@answerIndex].Input" value="" rows="2"></textarea>
                 </div>
 
 
@@ -75,7 +75,7 @@
                 <div class="form-group">
                     <input type="hidden" name="model.AnsweredQuestions[@index].InputAnswers[@answerIndex].Id" value=@answer.Id />
                     <label for="exampleTextarea-@index"></label>
-                    <input class="form-control" name="model.AnsweredQuestions[@index].InputAnswers[@answerIndex].Input" type="number" id="exampleTextarea-@index" rows="3" class="form-control validate" required></input>
+                    <input class="form-control" name="model.AnsweredQuestions[@index].InputAnswers[@answerIndex].Input" type="number" id="exampleTextarea-@index" rows="3"></input>
                 </div>
 
             }
