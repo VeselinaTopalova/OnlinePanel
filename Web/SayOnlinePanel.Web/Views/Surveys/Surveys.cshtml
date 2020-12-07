@@ -22,9 +22,9 @@
         @*<a asp-action="ById" asp-route-id="@sv.Id" class="list-group-item list-group-item-action flex-column align-items-start active"><h5 class="mb-1">@sv.Name</h5> </a>*@
         <div class="list-group-item list-group-item-action flex-column align-items-start active"><h5 class="mb-1">@sv.Name</div>
         <p>
-            <a asp-action="ById" asp-route-id="@sv.Id"><button class="btn btn-outline-primary">View</button></a>
-            <a asp-controller="Statictics" asp-action="SampleComplete" asp-route-id="@sv.Id"><button class="btn btn-outline-primary">CompleteSample</button></a>
-            <a asp-controller="Statictics" asp-action="ByIdStatistics" asp-route-id="@sv.Id"><button class="btn btn-outline-primary">Charts</button></a>
+            <a asp-action="ById" asp-route-id="@sv.Id" class="btn btn-outline-primary">View</a>
+            <a asp-controller="Statictics" asp-action="SampleComplete" asp-route-id="@sv.Id" class="btn btn-outline-secondary">Complete Sample</a>
+            <a asp-controller="Statictics" asp-action="ByIdStatistics" asp-route-id="@sv.Id" class="btn btn-outline-info">Charts</a>
         </p>
         <div class="d-flex w-100 justify-content-between">
             <small>Start: @sv.StartDate.Date</small>
@@ -32,5 +32,9 @@
         </div>
     }
 </div>
+
 <hr />
+<p>&nbsp;</p>
+
+
 <partial name="_PagingPartial" model="@Model" />

@@ -73,12 +73,13 @@ namespace SayOnlinePanel.Web.Controllers
             {
                 Name = x.Survey.Name,
                 SampleTotalComplete = x.Survey.SampleTotalComplete,
-                SampleTotalCompletePercent = (x.Survey.SampleTotal != 0) ? (x.Survey.SampleTotalComplete / x.Survey.SampleTotal) * 100 : 0,
+                SampleTotal = x.Survey.SampleTotal,
+                SampleTotalCompletePercent = ((double)x.Survey.SampleTotalComplete / (double)x.Survey.SampleTotal) * 100,
                 SampleMaleComplete = x.Survey.SampleMaleComplete,
                 SampleMale = x.Survey.SampleMale,
-                SampleMaleCompletePercent = x.Survey.SampleMale != 0 ? (x.Survey.SampleMaleComplete / x.Survey.SampleMale) * 100 : 0,
+                SampleMaleCompletePercent = x.Survey.SampleMale > 0 ? ((double)x.Survey.SampleMaleComplete / (double)x.Survey.SampleMale) * 100 : 0,
                 SampleFemaleComplete = x.Survey.SampleFemaleComplete,
-                SampleFemaleCompletePercent = x.Survey.SampleFemale != 0 ? (x.Survey.SampleFemaleComplete / x.Survey.SampleFemale) * 100 : 0,
+                SampleFemaleCompletePercent = x.Survey.SampleFemale > 0 ? ((double)x.Survey.SampleFemaleComplete / (double)x.Survey.SampleFemale) * 100 : 0,
                 SampleFemale = x.Survey.SampleFemale,
             }).FirstOrDefault();
             ;

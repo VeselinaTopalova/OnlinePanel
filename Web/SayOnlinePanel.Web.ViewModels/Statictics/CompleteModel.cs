@@ -14,6 +14,8 @@
 
         public double SampleFemaleCompletePercent { get; set; }
 
+        public double SampleTotal { get; set; }
+
         public double SampleTotalComplete { get; set; }
 
         public double SampleMaleComplete { get; set; }

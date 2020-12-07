@@ -13,10 +13,17 @@
     public class SurveyService : ISurveyService
     {
         private readonly IDeletableEntityRepository<Survey> surveysRepository;
+        private readonly IDeletableEntityRepository<Question> questionsRepository;
+        private readonly IDeletableEntityRepository<Answer> answersRepository;
 
-        public SurveyService(IDeletableEntityRepository<Survey> surveysRepository)
+        public SurveyService(
+            IDeletableEntityRepository<Survey> surveysRepository,
+            IDeletableEntityRepository<Question> questionsRepository,
+            IDeletableEntityRepository<Answer> answersRepository)
         {
             this.surveysRepository = surveysRepository;
+            this.questionsRepository = questionsRepository;
+            this.answersRepository = answersRepository;
         }
 
         public async Task CreateAsync(CreateSurveyInputModel input)
@@ -98,7 +105,7 @@
 
         public int GetCount()
         {
-            return this.surveysRepository.All().Count();
+            return this.surveysRepository.AllAsNoTracking().Count();
         }
 
         public async Task UpdateAsync(int id, EditSurveyInputModel input)
@@ -116,21 +123,33 @@
             ;
             ;
 
-            if(input.Questions == null)
+            if (input.Questions.Count() > 0)
             {
-                foreach (var inputQuestion in survey.Questions)
+                foreach (var inputQuestion in input.Questions)
                 {
-                    var currQ = survey.Questions.FirstOrDefault(x => x.Id == inputQuestion.Id);
+                    //var currQ = survey.Questions.FirstOrDefault(x => x.Id == inputQuestion.Id);
+                    var currQ = this.questionsRepository.All().FirstOrDefault(x => x.Id == inputQuestion.Id);
                     currQ.Name = inputQuestion.Name;
-                    currQ.QuestionType = Enum.Parse<QuestionType>(inputQuestion.QuestionType.ToString());  //???????
+                    //currQ.QuestionType = Enum.Parse<QuestionType>(inputQuestion.QuestionType.ToString());  //???????
+                    currQ.QuestionType = inputQuestion.QuestionType;  //???????
+                    //await this.questionsRepository.SaveChangesAsync();
                     foreach (var inputAnswer in inputQuestion.Answers)
                     {
-                        var currA = currQ.Answers.Where(x => x.Id == inputAnswer.Id).FirstOrDefault();
+                        var currA = this.answersRepository.All().FirstOrDefault(x => x.Id == inputAnswer.Id);
                         currA.Name = inputAnswer.Name;
                     }
                 }
             }
 
+            await this.surveysRepository.SaveChangesAsync();
+            await this.questionsRepository.SaveChangesAsync();
+            await this.answersRepository.SaveChangesAsync();
+        }
+
+        public async Task DeleteAsync(int id)
+        {
+            var survey = this.surveysRepository.All().FirstOrDefault(x => x.Id == id);
+            this.surveysRepository.Delete(survey);
             await this.surveysRepository.SaveChangesAsync();
         }
     }

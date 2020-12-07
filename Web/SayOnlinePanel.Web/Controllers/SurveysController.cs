@@ -82,5 +82,12 @@
             await this.surveyService.UpdateAsync(id, input);
             return this.RedirectToAction(nameof(this.ById), new { id });
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(int id)
+        {
+            await this.surveyService.DeleteAsync(id);
+            return this.RedirectToAction(nameof(this.Surveys));
+        }
     }
 }

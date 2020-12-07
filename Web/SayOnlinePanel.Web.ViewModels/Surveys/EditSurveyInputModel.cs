@@ -37,7 +37,7 @@
 
         public int SampleMale { get; set; }
 
-        public IEnumerable<EditQuestionInputModel> Questions { get; set; }
+        public List<EditQuestionInputModel> Questions { get; set; }
     }
 
     public class EditQuestionInputModel : IMapFrom<Question>
@@ -50,7 +50,7 @@
         [Required]
         public QuestionType QuestionType { get; set; }
 
-        public IEnumerable<EditAnswerInputModel> Answers { get; set; }
+        public List<EditAnswerInputModel> Answers { get; set; }
     }
 
     public class EditAnswerInputModel : IMapFrom<Answer>

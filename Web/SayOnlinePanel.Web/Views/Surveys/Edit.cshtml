@@ -47,40 +47,43 @@
         <span asp-validation-for="SampleFemale" class="text-danger"></span>
     </div>
     <div class="form-group">
-        @foreach (var question in Model.Questions)
+        <hr />
+        @for (var i = 0; i < Model.Questions.Count(); i++)
         {
-        <div class="form-group">
-            <label asp-for="@question.Name"></label>
-            <input asp-for="@question.Name" class="form-control" />
-            <span asp-validation-for="@question.Id" class="text-danger"></span>
-        </div>
-        <div class="form-group">
-            <label asp-for="@question.QuestionType"></label>
-            <input asp-for="@question.QuestionType" class="form-control" />
-            <span asp-validation-for="@question.QuestionType" class="text-danger"></span>
-        </div>
-            @*<input type="hidden" asp-for="@question.Id" />*@
-            <input type="hidden" name ="Questions[].name" value=@question.Id/>
-            foreach (var answer in question.Answers)
-            {
-                <div class="form-group">
-                <label asp-for="@answer.Name"></label>
-                <input asp-for="@answer.Name" class="form-control" />
-                <span asp-validation-for="@answer.Name" class="text-danger"></span>
-                </div>
-                <input type="hidden" asp-for="@answer.Id" />
-            }
+
+            @Html.HiddenFor(x => Model.Questions[i].Id)
+            <div class="form-group">
+                @Html.LabelFor(x => Model.Questions[i].Name, "Question Text:")
+                @Html.TextBoxFor(x => Model.Questions[i].Name, new { @class = "form-control" })
+
+                @Html.LabelFor(x => Model.Questions[i].QuestionType)
+                @*@Html.TextBoxFor(x => Model.Questions[i].QuestionType, new { @class = "form-control", @readonly = "readonly" })*@
+                @Html.TextBoxFor(x => Model.Questions[i].QuestionType, new { @class = "form-control" })
+
+                @for (var j = 0; j < Model.Questions[i].Answers.Count(); j++)
+                {
+
+                    @Html.HiddenFor(x => Model.Questions[i].Answers[j].Id)
+                    <div class="form-group">
+                        @Html.LabelFor(x => Model.Questions[i].Answers[j].Name, "Answer Text:")
+                        @Html.TextBoxFor(x => Model.Questions[i].Answers[j].Name, new { @class = "form-control" })
+
+                    </div>
+                }
+            </div>
+            <hr />
         }
     </div>
-   
     <hr />
     <input type="hidden" asp-for="Id" />
 </form>
 
 <button type="submit" class="btn btn-success" data-toggle="modal" data-target="#modalEdit">Save changes</button>
+
 <hr />
-<hr />
-<hr />
+<p>&nbsp;</p>
+
+
 
 
 <!-- Modal -->

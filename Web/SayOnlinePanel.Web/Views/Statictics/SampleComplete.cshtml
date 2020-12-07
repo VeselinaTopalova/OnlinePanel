@@ -16,14 +16,12 @@
 </div>
 
 @section Scripts {
-<a id="addC" class="btn btn-outline-info">Add Chart</a>
+@*<a id="addC" class="btn btn-outline-info">Add Chart</a>*@
 <script>
-        let btnC = document.querySelector("#addC");
-        btnC.addEventListener("click", AddChart);
-        let a = @Model.SampleTotalCompletePercent;
-        let b = @Model.SampleMaleCompletePercent;
-        let c = @Model.SampleFemaleCompletePercent;
-        function AddChart() {
+        //let btnC = document.querySelector("#addC");
+        //btnC.addEventListener("click", AddChart);
+
+        function AddChart(a, b, c) {
             const chart = Highcharts.chart('container', {
                 chart: {
                     type: 'bar'
@@ -43,15 +41,18 @@
                     name: 'Completed %',
                     data: [a, b, c]
                 }
-                    // , {
-                    //     name: 'No',
-                    //     data: [80, 70, 50 ]
-                    // }
                 ]
             });
 
+    }
+    document.addEventListener('DOMContentLoaded',
+        function () {
+             let a = @Model.SampleTotalCompletePercent;
+             let b = @Model.SampleMaleCompletePercent;
+             let c = @Model.SampleFemaleCompletePercent;
+            AddChart(a, b, c);
         }
-
+    );
 </script>
 
     <div id="container" style="width:100%; height:400px;"></div>
