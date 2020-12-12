@@ -12,7 +12,8 @@
         {
             this.VoucherUsers = new HashSet<VoucherUser>();
             this.UserAnswers = new HashSet<UserAnswer>();
-            this.Surveys = new HashSet<Survey>();
+            this.TargetSyrveyUserInfo = new HashSet<TargetSyrveyUserInfo>();
+            this.SurveyUserInfos = new HashSet<SurveyUserInfo>();
         }
 
         [Required]
@@ -26,7 +27,9 @@
 
         public DateTime Birthday { get; set; }
 
-        public ICollection<Survey> Surveys { get; set; }
+        public ICollection<SurveyUserInfo> SurveyUserInfos { get; set; }
+
+        public ICollection<TargetSyrveyUserInfo> TargetSyrveyUserInfo { get; set; }
 
         public ICollection<UserAnswer> UserAnswers { get; set; }
 

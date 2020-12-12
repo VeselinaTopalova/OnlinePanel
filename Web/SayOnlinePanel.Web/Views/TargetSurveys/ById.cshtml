@@ -1,0 +1,62 @@
+﻿@model SayOnlinePanel.Web.ViewModels.TargetSurveys.SingleSurveyViewModel
+
+<h3>@Model.Name</h3>
+<div class="single-survey-layout1">
+    @foreach (var question in Model.TargetQuestions)
+    {
+        <label class="col-sm-2 col-form-label">@question.Name</label>
+
+        @if (question.TargetQuestionType.ToString() == "SingleAnswer")
+        {
+            @foreach (var answer in question.TargetAnswers)
+            {
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
+                        @answer.Name
+                    </label>
+                </div>
+             }
+        }
+        @if (question.TargetQuestionType.ToString() == "MultipleAnswer")
+        {
+            @foreach (var answer in question.TargetAnswers)
+            {
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" value="">
+                        @answer.Name
+                    </label>
+                </div>
+             }
+        }
+       
+        <hr />
+     }
+</div>
+<hr />
+<div class="row">
+    <a asp-controller="TargetSurveys" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-outline-warning">Edit</a>
+    <form method="post" asp-controller="TargetSurveys" asp-action="Delete" id="deleteForm" asp-route-id="@Model.Id">
+    </form>
+    <button class="btn btn-outline-danger" data-toggle="modal" data-target="#deleteModal">Delete</button>
+    <a asp-controller="Surveys" asp-action="Create" asp-route-id="@Model.Id" class="btn btn-outline-primary">Create New Survey</a>
+</div>
+
+<hr />
+<p>&nbsp;</p>
+
+
+<div class="modal" tabindex="-1" role="dialog" id="deleteModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <p>Do you want to delete "@Model.Name"?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" onclick="deleteForm.submit()">Yes</button>
+                <button type="button" class="btn btn-success" data-dismiss="modal">No</button>
+            </div>
+        </div>
+    </div>
+</div>

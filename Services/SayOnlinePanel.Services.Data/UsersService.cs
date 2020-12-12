@@ -19,7 +19,6 @@
 
         public async Task CompleteAsync(PeopleSelectionViewModel model, int id, string userId)
         {
-            // get the ids of the items selected:
             var answeredQuestions = model.AnsweredQuestions;
 
             foreach (var answeredQuestion in answeredQuestions)
@@ -32,7 +31,6 @@
                         UserId = userId,
                         AnswerId = selectedAnswerId,
                     };
-                    //await this.db.UserAnswers.AddAsync(s);
                 }
 
                 foreach (var answer in answeredQuestion.InputAnswers)
@@ -44,11 +42,8 @@
                         AnswerId = answer.Id,
                         AnswerInput = answer.Input,
                     };
-                    //await this.db.UserAnswers.AddAsync(s);
                 }
             }
-            ;
-            //await this.db.SaveChangesAsync();
         }
 
         public T GetById<T>(int id)

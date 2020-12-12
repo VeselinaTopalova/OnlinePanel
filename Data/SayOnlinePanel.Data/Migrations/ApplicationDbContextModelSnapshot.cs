@@ -261,6 +261,12 @@ namespace SayOnlinePanel.Data.Migrations
                     b.Property<int?>("SurveyId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("TargetAnswerId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("TargetSurveyId")
+                        .HasColumnType("int");
+
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");
 
@@ -283,6 +289,10 @@ namespace SayOnlinePanel.Data.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.HasIndex("SurveyId");
+
+                    b.HasIndex("TargetAnswerId");
+
+                    b.HasIndex("TargetSurveyId");
 
                     b.ToTable("AspNetUsers");
                 });
@@ -330,7 +340,8 @@ namespace SayOnlinePanel.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("QuestionId");
+                    b.HasIndex("QuestionId")
+                        .IsUnique();
 
                     b.ToTable("ImageForQuestions");
                 });
@@ -460,16 +471,221 @@ namespace SayOnlinePanel.Data.Migrations
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("UserInfoId")
+                    b.Property<int>("TargetSurveyId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("IsDeleted");
 
-                    b.HasIndex("UserInfoId");
+                    b.HasIndex("TargetSurveyId");
 
                     b.ToTable("Surveys");
+                });
+
+            modelBuilder.Entity("SayOnlinePanel.Data.Models.SurveyUserInfo", b =>
+                {
+                    b.Property<int>("SurveyId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserInfoId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("isComplete")
+                        .HasColumnType("bit");
+
+                    b.HasKey("SurveyId", "UserInfoId");
+
+                    b.HasIndex("UserInfoId");
+
+                    b.ToTable("SurveyUserInfos");
+                });
+
+            modelBuilder.Entity("SayOnlinePanel.Data.Models.TargetAnswer", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("TargetQuestionId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("TargetSelectedAnswerId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IsDeleted");
+
+                    b.HasIndex("TargetQuestionId");
+
+                    b.HasIndex("TargetSelectedAnswerId");
+
+                    b.ToTable("TargetAnswers");
+                });
+
+            modelBuilder.Entity("SayOnlinePanel.Data.Models.TargetQuestion", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("TargetQuestionType")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TargetSurveyId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IsDeleted");
+
+                    b.HasIndex("TargetSurveyId");
+
+                    b.ToTable("TargetQuestions");
+                });
+
+            modelBuilder.Entity("SayOnlinePanel.Data.Models.TargetSelectedAnswer", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("TargetQuestionId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TargetSurveyId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TargetQuestionId");
+
+                    b.HasIndex("TargetSurveyId");
+
+                    b.ToTable("TargetSelectedAnswers");
+                });
+
+            modelBuilder.Entity("SayOnlinePanel.Data.Models.TargetSurvey", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("EndDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("PointsStart")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("StartDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IsDeleted");
+
+                    b.ToTable("TargetSurveys");
+                });
+
+            modelBuilder.Entity("SayOnlinePanel.Data.Models.TargetSyrveyUserInfo", b =>
+                {
+                    b.Property<int>("TargetSurveyId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserInfoId")
+                        .HasColumnType("int");
+
+                    b.HasKey("TargetSurveyId", "UserInfoId");
+
+                    b.HasIndex("UserInfoId");
+
+                    b.ToTable("TargetSyrveyUserInfos");
+                });
+
+            modelBuilder.Entity("SayOnlinePanel.Data.Models.TargetUserAnswer", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("TargetAnswerId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TargetQuestionId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TargetSurveyId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TargetAnswerId");
+
+                    b.HasIndex("TargetQuestionId");
+
+                    b.HasIndex("TargetSurveyId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("TargetUserAnswers");
                 });
 
             modelBuilder.Entity("SayOnlinePanel.Data.Models.UserAnswer", b =>
@@ -694,12 +910,20 @@ namespace SayOnlinePanel.Data.Migrations
                     b.HasOne("SayOnlinePanel.Data.Models.Survey", null)
                         .WithMany("Users")
                         .HasForeignKey("SurveyId");
+
+                    b.HasOne("SayOnlinePanel.Data.Models.TargetAnswer", null)
+                        .WithMany("Users")
+                        .HasForeignKey("TargetAnswerId");
+
+                    b.HasOne("SayOnlinePanel.Data.Models.TargetSurvey", null)
+                        .WithMany("Users")
+                        .HasForeignKey("TargetSurveyId");
                 });
 
             modelBuilder.Entity("SayOnlinePanel.Data.Models.ImageForAnswer", b =>
                 {
                     b.HasOne("SayOnlinePanel.Data.Models.Answer", "Answer")
-                        .WithMany("Images")
+                        .WithMany()
                         .HasForeignKey("AnswerId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
@@ -708,8 +932,8 @@ namespace SayOnlinePanel.Data.Migrations
             modelBuilder.Entity("SayOnlinePanel.Data.Models.ImageForQuestion", b =>
                 {
                     b.HasOne("SayOnlinePanel.Data.Models.Question", "Question")
-                        .WithMany("Images")
-                        .HasForeignKey("QuestionId")
+                        .WithOne("Image")
+                        .HasForeignKey("SayOnlinePanel.Data.Models.ImageForQuestion", "QuestionId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
@@ -725,9 +949,103 @@ namespace SayOnlinePanel.Data.Migrations
 
             modelBuilder.Entity("SayOnlinePanel.Data.Models.Survey", b =>
                 {
-                    b.HasOne("SayOnlinePanel.Data.Models.UserInfo", null)
-                        .WithMany("Surveys")
-                        .HasForeignKey("UserInfoId");
+                    b.HasOne("SayOnlinePanel.Data.Models.TargetSurvey", "TargetSurvey")
+                        .WithMany()
+                        .HasForeignKey("TargetSurveyId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("SayOnlinePanel.Data.Models.SurveyUserInfo", b =>
+                {
+                    b.HasOne("SayOnlinePanel.Data.Models.Survey", "Survey")
+                        .WithMany("SurveyUserInfos")
+                        .HasForeignKey("SurveyId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("SayOnlinePanel.Data.Models.UserInfo", "UserInfo")
+                        .WithMany("SurveyUserInfos")
+                        .HasForeignKey("UserInfoId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("SayOnlinePanel.Data.Models.TargetAnswer", b =>
+                {
+                    b.HasOne("SayOnlinePanel.Data.Models.TargetQuestion", "TargetQuestion")
+                        .WithMany("TargetAnswers")
+                        .HasForeignKey("TargetQuestionId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("SayOnlinePanel.Data.Models.TargetSelectedAnswer", null)
+                        .WithMany("TargetAnswersHaveChecked")
+                        .HasForeignKey("TargetSelectedAnswerId");
+                });
+
+            modelBuilder.Entity("SayOnlinePanel.Data.Models.TargetQuestion", b =>
+                {
+                    b.HasOne("SayOnlinePanel.Data.Models.TargetSurvey", "TargetSurvey")
+                        .WithMany("TargetQuestions")
+                        .HasForeignKey("TargetSurveyId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("SayOnlinePanel.Data.Models.TargetSelectedAnswer", b =>
+                {
+                    b.HasOne("SayOnlinePanel.Data.Models.TargetQuestion", "TargetQuestion")
+                        .WithMany()
+                        .HasForeignKey("TargetQuestionId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("SayOnlinePanel.Data.Models.TargetSurvey", "TargetSurvey")
+                        .WithMany()
+                        .HasForeignKey("TargetSurveyId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("SayOnlinePanel.Data.Models.TargetSyrveyUserInfo", b =>
+                {
+                    b.HasOne("SayOnlinePanel.Data.Models.TargetSurvey", "TargetSurvey")
+                        .WithMany("TargetSyrveyUserInfos")
+                        .HasForeignKey("TargetSurveyId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("SayOnlinePanel.Data.Models.UserInfo", "UserInfo")
+                        .WithMany("TargetSyrveyUserInfo")
+                        .HasForeignKey("UserInfoId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("SayOnlinePanel.Data.Models.TargetUserAnswer", b =>
+                {
+                    b.HasOne("SayOnlinePanel.Data.Models.TargetAnswer", "TargetAnswer")
+                        .WithMany("TargetUserAnswers")
+                        .HasForeignKey("TargetAnswerId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("SayOnlinePanel.Data.Models.TargetQuestion", "TargetQuestion")
+                        .WithMany()
+                        .HasForeignKey("TargetQuestionId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("SayOnlinePanel.Data.Models.TargetSurvey", "TargetSurvey")
+                        .WithMany("TargetUserAnswers")
+                        .HasForeignKey("TargetSurveyId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("SayOnlinePanel.Data.Models.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("SayOnlinePanel.Data.Models.UserAnswer", b =>

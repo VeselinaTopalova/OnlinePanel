@@ -1,0 +1,27 @@
+﻿@model SayOnlinePanel.Web.ViewModels.TargetSurveys.SyrveysListViewModel
+@{
+    this.ViewData["Title"] = "All Target Surveys, page " + Model.PageNumber;
+}
+
+<h3>@this.ViewData["Title"]</h3>
+<hr />
+<div class="list-group">
+    @foreach (var sv in Model.Surveys)
+    {
+        <div class="list-group-item list-group-item-action flex-column align-items-start active"><h5 class="mb-1">@sv.Name</div>
+        <p>
+            <a asp-action="ById" asp-route-id="@sv.Id" class="btn btn-outline-primary">View</a>
+            <a asp-action="SelectedAnswers" asp-route-id="@sv.Id" class="btn btn-outline-primary">Select Target Answer</a>
+        </p>
+        <div class="d-flex w-100 justify-content-between">
+            <small>Start: @sv.StartDate.Date</small>
+            <small>End: @sv.EndDate.Date</small>
+        </div>
+    }
+</div>
+
+<hr />
+<p>&nbsp;</p>
+
+
+<partial name="_PagingPartial" model="@Model" />

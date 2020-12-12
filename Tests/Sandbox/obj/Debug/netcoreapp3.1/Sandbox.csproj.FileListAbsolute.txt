@@ -93,3 +93,5 @@ C:\Users\Acer\Desktop\MyProjectNew\Tests\Sandbox\obj\Debug\netcoreapp3.1\Sandbox
 C:\Users\Acer\Desktop\MyProjectNew\Tests\Sandbox\obj\Debug\netcoreapp3.1\Sandbox.dll
 C:\Users\Acer\Desktop\MyProjectNew\Tests\Sandbox\obj\Debug\netcoreapp3.1\Sandbox.pdb
 C:\Users\Acer\Desktop\MyProjectNew\Tests\Sandbox\obj\Debug\netcoreapp3.1\Sandbox.genruntimeconfig.cache
+C:\Users\Acer\Desktop\MyProjectNew\Tests\Sandbox\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Http.Features.dll
+C:\Users\Acer\Desktop\MyProjectNew\Tests\Sandbox\bin\Debug\netcoreapp3.1\System.IO.Pipelines.dll

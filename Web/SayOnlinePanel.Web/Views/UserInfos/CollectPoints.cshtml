@@ -8,7 +8,7 @@
 </div>
 <hr />
 
-@if (Model.Surveys.Count() > 0)
+@if (Model.SurveysForUser.Count() > 0)
 {
     <table class="table table-hover">
         <thead>
@@ -19,12 +19,11 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var sv in Model.Surveys)
+            @foreach (var sv in Model.SurveysForUser)
             {
                 <tr>
-                    @*<td>@sv.Date</td>*@
-                    <td><a asp-controller="Users" asp-action="CompleteSurvey" asp-route-id="@sv.Id" class="text-muted">@sv.Name</a></td>
-                    <td>@sv.Points</td>
+                    <td><a asp-controller="Users" asp-action="CompleteTargetSurvey" asp-route-id="@sv.TargetSurvey.Id" class="text-muted">@sv.TargetSurvey.Name</a></td>
+                    <td>@sv.PointsStart</td>
                 </tr>
             }
         </tbody>

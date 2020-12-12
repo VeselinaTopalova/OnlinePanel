@@ -1,0 +1,91 @@
+﻿@model SayOnlinePanel.Web.ViewModels.TargetSurveys.EditSurveyInputModel
+
+<form method="post" id="editForm">
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Description"></label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="StartDate"></label>
+        <input asp-for="StartDate" class="form-control" />
+        <span asp-validation-for="StartDate" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="EndDate"></label>
+        <input asp-for="EndDate" class="form-control" />
+        <span asp-validation-for="EndDate" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="PointsStart"></label>
+        <input asp-for="PointsStart" class="form-control" />
+        <span asp-validation-for="PointsStart" class="text-danger"></span>
+    </div>
+    
+    <div class="form-group">
+        <hr />
+        @for (var i = 0; i < Model.TargetQuestions.Count(); i++)
+        {
+
+            @Html.HiddenFor(x => Model.TargetQuestions[i].Id)
+            <div class="form-group">
+                @Html.LabelFor(x => Model.TargetQuestions[i].Name, "Question Text:")
+                @Html.TextBoxFor(x => Model.TargetQuestions[i].Name, new { @class = "form-control" })
+
+                @Html.LabelFor(x => Model.TargetQuestions[i].TargetQuestionType)
+                @*@Html.TextBoxFor(x => Model.Questions[i].QuestionType, new { @class = "form-control", @readonly = "readonly" })*@
+                @Html.TextBoxFor(x => Model.TargetQuestions[i].TargetQuestionType, new { @class = "form-control" })
+
+                @for (var j = 0; j < Model.TargetQuestions[i].TargetAnswers.Count(); j++)
+                {
+
+                    @Html.HiddenFor(x => Model.TargetQuestions[i].TargetAnswers[j].Id)
+                    <div class="form-group">
+                        @Html.LabelFor(x => Model.TargetQuestions[i].TargetAnswers[j].Name, "Answer Text:")
+                        @Html.TextBoxFor(x => Model.TargetQuestions[i].TargetAnswers[j].Name, new { @class = "form-control" })
+
+                    </div>
+                }
+            </div>
+            <hr />
+        }
+    </div>
+    <hr />
+    <input type="hidden" asp-for="Id" />
+</form>
+
+<button type="submit" class="btn btn-success" data-toggle="modal" data-target="#modalEdit">Save changes</button>
+
+<hr />
+<p>&nbsp;</p>
+
+
+
+
+<!-- Modal -->
+<div class="modal" id="modalEdit" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Confirm edit</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    Do you confirm this changes?
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick="editForm.submit()">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>

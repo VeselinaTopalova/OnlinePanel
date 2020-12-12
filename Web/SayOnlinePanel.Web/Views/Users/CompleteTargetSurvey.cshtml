@@ -1,0 +1,59 @@
+﻿@using SayOnlinePanel.Web.ViewModels.Users
+@model SayOnlinePanel.Web.ViewModels.Users.TargetPeopleSelectionViewModel
+
+@{ ViewBag.Title = Model.TargetSurvey.Name; }
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    int index = 0;
+    @foreach (QuestionsTargetViewModel question in Model.TargetSurvey.TargetQuestions)
+    {
+        int answerIndex = 0;
+        int answersCount = question.TargetAnswers.ToArray().Length;
+        int width = 100 / answersCount;
+
+        <div class="row">
+            @question.Name
+        </div>
+        <input type="hidden" name="model.AnsweredQuestions[@index].Id" value=@question.Id />
+        
+        @foreach (var answer in question.TargetAnswers)
+        {
+            @if (question.TargetQuestionType.ToString() == "SingleAnswer")
+            {
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="model.AnsweredQuestions[@index].SelectedAnswerIds[0]" value=@answer.Id>
+                        @answer.Name
+                    </label>
+                </div>
+            }
+
+            else if (question.TargetQuestionType.ToString() == "MultipleAnswer")
+            {
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" name="model.AnsweredQuestions[@index].SelectedAnswerIds[]" value=@answer.Id>
+                        @answer.Name
+                    </label>
+                </div>
+
+            }
+            
+            answerIndex++;
+        }
+        <hr />
+
+       
+        index++;
+    }
+   
+    <div class="row">
+        <input type="submit" class="btn btn-primary" />
+    </div>
+}
+<p>&nbsp;</p>
+<p>&nbsp;</p>

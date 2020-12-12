@@ -13,6 +13,7 @@
             this.Questions = new HashSet<Question>();
             this.Users = new HashSet<ApplicationUser>();
             this.UserAnswers = new HashSet<UserAnswer>();
+            this.SurveyUserInfos = new HashSet<SurveyUserInfo>();
         }
 
         [Required]
@@ -44,10 +45,17 @@
 
         public virtual ICollection<ApplicationUser> Users { get; set; }
 
+        public virtual ICollection<SurveyUserInfo> SurveyUserInfos { get; set; }
+
+
         public virtual ICollection<UserAnswer> UserAnswers { get; set; }
 
         public int PointsStart { get; set; }
 
         public int PointsTotal { get; set; }
+
+        public int TargetSurveyId { get; set; }
+
+        public virtual TargetSurvey TargetSurvey { get; set; }
     }
 }

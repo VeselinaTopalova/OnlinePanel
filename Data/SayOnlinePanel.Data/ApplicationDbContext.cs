@@ -43,6 +43,20 @@
 
         public DbSet<VoucherUser> VoucherUsers { get; set; }
 
+        public DbSet<TargetSurvey> TargetSurveys { get; set; }
+
+        public DbSet<TargetQuestion> TargetQuestions { get; set; }
+
+        public DbSet<TargetAnswer> TargetAnswers { get; set; }
+
+        public DbSet<TargetUserAnswer> TargetUserAnswers { get; set; }
+
+        public DbSet<TargetSelectedAnswer> TargetSelectedAnswers { get; set; }
+
+        public DbSet<SurveyUserInfo> SurveyUserInfos { get; set; }
+
+        public DbSet<TargetSyrveyUserInfo> TargetSyrveyUserInfos { get; set; }
+
         public override int SaveChanges() => this.SaveChanges(true);
 
         public override int SaveChanges(bool acceptAllChangesOnSuccess)
@@ -89,6 +103,13 @@
             {
                 foreignKey.DeleteBehavior = DeleteBehavior.Restrict;
             }
+
+            builder.Entity<TargetSyrveyUserInfo>()
+            .HasKey(c => new { c.TargetSurveyId, c.UserInfoId });
+
+            builder.Entity<SurveyUserInfo>()
+            .HasKey(c => new { c.SurveyId, c.UserInfoId });
+
         }
 
         private static void SetIsDeletedQueryFilter<T>(ModelBuilder builder)

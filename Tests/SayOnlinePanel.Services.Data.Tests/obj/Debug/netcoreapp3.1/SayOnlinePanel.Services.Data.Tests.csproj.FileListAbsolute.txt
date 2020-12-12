@@ -164,3 +164,5 @@ C:\Users\Acer\Desktop\MyProjectNew\Tests\SayOnlinePanel.Services.Data.Tests\obj\
 C:\Users\Acer\Desktop\MyProjectNew\Tests\SayOnlinePanel.Services.Data.Tests\obj\Debug\netcoreapp3.1\SayOnlinePanel.Services.Data.Tests.dll
 C:\Users\Acer\Desktop\MyProjectNew\Tests\SayOnlinePanel.Services.Data.Tests\obj\Debug\netcoreapp3.1\SayOnlinePanel.Services.Data.Tests.pdb
 C:\Users\Acer\Desktop\MyProjectNew\Tests\SayOnlinePanel.Services.Data.Tests\obj\Debug\netcoreapp3.1\SayOnlinePanel.Services.Data.Tests.genruntimeconfig.cache
+C:\Users\Acer\Desktop\MyProjectNew\Tests\SayOnlinePanel.Services.Data.Tests\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Http.Features.dll
+C:\Users\Acer\Desktop\MyProjectNew\Tests\SayOnlinePanel.Services.Data.Tests\bin\Debug\netcoreapp3.1\System.IO.Pipelines.dll

@@ -42,7 +42,6 @@
             return this.View(voucherViewModel);
         }
 
-        //[Authorize]
         public IActionResult Create()
         {
             var viewModel = new CreateVoucherInputModel();

@@ -1,7 +1,7 @@
 ﻿namespace SayOnlinePanel.Web.Controllers
 {
     using System.Threading.Tasks;
-
+    using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Mvc;
     using SayOnlinePanel.Services.Data;
     using SayOnlinePanel.Web.ViewModels.Surveys;
@@ -9,10 +9,12 @@
     public class SurveysController : Controller
     {
         private readonly ISurveyService surveyService;
+        private readonly IWebHostEnvironment environment;
 
-        public SurveysController(ISurveyService surveyService)
+        public SurveysController(ISurveyService surveyService, IWebHostEnvironment environment)
         {
             this.surveyService = surveyService;
+            this.environment = environment;
         }
 
         public IActionResult Create()
@@ -22,16 +24,14 @@
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(CreateSurveyInputModel input)
+        public async Task<IActionResult> Create(CreateSurveyInputModel input, int? idTarget)
         {
             if (!this.ModelState.IsValid)
             {
                 return this.View(input);
             }
 
-            await this.surveyService.CreateAsync(input);
-
-            // TODO: Redirect to ???
+            await this.surveyService.CreateAsync(input, idTarget);
             return this.Redirect("Surveys");
         }
 
@@ -62,13 +62,7 @@
         public IActionResult Edit(int id)
         {
             var inputModel = this.surveyService.GetById<EditSurveyInputModel>(id);
-            //inputModel.EditedQuestions = this.surveyService.GetById<EditSurveyInputModel>(id).EditedQuestions;
             return this.View(inputModel);
-            //var model = new PeopleSelectionViewModel();
-
-            //model.Survey = this.surveyService.GetById<SingleSurveyViewModel>(id);
-
-            //return View(model);
         }
 
         [HttpPost]

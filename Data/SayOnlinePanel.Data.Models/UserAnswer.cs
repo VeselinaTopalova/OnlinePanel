@@ -17,5 +17,13 @@
         public virtual Survey Survey { get; set; }
 
         public string AnswerInput { get; set; }
+
+        //public int TargetAnswerId { get; set; }
+
+        //public virtual TargetAnswer TargetAnswer { get; set; }
+
+        //public int TargetSurveyId { get; set; }
+
+        //public virtual TargetSurvey TargetSurvey { get; set; }
     }
 }

@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.IO;
     using System.Linq;
     using System.Threading.Tasks;
 
@@ -26,7 +27,7 @@
             this.answersRepository = answersRepository;
         }
 
-        public async Task CreateAsync(CreateSurveyInputModel input)
+        public async Task CreateAsync(CreateSurveyInputModel input, int? idTarget)
         {
             var survey = new Survey
             {
@@ -40,6 +41,10 @@
                 PointsStart = input.PointsStart,
                 PointsTotal = input.PointsTotal,
             };
+            //if (idTarget != null)
+            //{
+            //    survey.TargetSurveyId = idTarget;
+            //}
 
             foreach (var inputQuestion in input.Questions)
             {
@@ -49,6 +54,20 @@
                     Name = inputQuestion.Name,
                     QuestionType = qt,
                 };
+
+                //var image = inputQuestion.Image;
+
+                //var extension = Path.GetExtension(image.FileName).TrimStart('.');
+
+                //question.Image = new ImageForQuestion
+                //{
+                //    Extension = extension,
+                //};
+
+                //var physicalPath = $"{imagePath}/questions/{question.Image.Id}.{extension}";
+                //using Stream fileStream = new FileStream(physicalPath, FileMode.Create);
+                //await image.CopyToAsync(fileStream);
+
                 foreach (var inputAnswers in inputQuestion.Answers)
                 {
                     question.Answers.Add(new Answer
@@ -56,7 +75,6 @@
                         Name = inputAnswers.Name,
                     });
                 }
-
                 survey.Questions.Add(question);
             }
 

@@ -9,7 +9,7 @@
     {
         public Answer()
         {
-            this.Images = new HashSet<ImageForAnswer>();
+            //this.Images = new HashSet<ImageForAnswer>();
             this.Users = new HashSet<ApplicationUser>();
             this.UserAnswers = new HashSet<UserAnswer>();
         }
@@ -25,7 +25,7 @@
 
         //public virtual Survey Survey { get; set; }
 
-        public virtual ICollection<ImageForAnswer> Images { get; set; }
+        //public virtual ICollection<ImageForAnswer> Images { get; set; }
 
         public virtual ICollection<ApplicationUser> Users { get; set; }
 

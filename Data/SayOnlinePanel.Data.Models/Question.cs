@@ -10,7 +10,7 @@
         public Question()
         {
             this.Answers = new HashSet<Answer>();
-            this.Images = new HashSet<ImageForQuestion>();
+            //this.Images = new HashSet<ImageForQuestion>();
         }
 
         public string Name { get; set; }
@@ -24,6 +24,8 @@
 
         public virtual ICollection<Answer> Answers { get; set; }
 
-        public virtual ICollection<ImageForQuestion> Images { get; set; }
+        //public virtual ICollection<ImageForQuestion> Images { get; set; }
+
+        public virtual ImageForQuestion Image { get; set; }
     }
 }

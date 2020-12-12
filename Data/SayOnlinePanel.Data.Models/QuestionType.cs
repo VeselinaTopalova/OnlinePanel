@@ -16,6 +16,6 @@
 
         OpenEnded = 7,
 
-        ImageChoice = 8,
+        ImageQuestion = 8,
     }
 }

@@ -51,11 +51,11 @@
         <span asp-validation-for="SampleMale" class="text-danger"></span>
     </div>
 
-    <div id="QuestionsContainer">
-        <div id="QuestionsContainer">
+    <div id="QuestionsContainer" class="form-group">
+        <div id="QuestionsContainer" class="form-group">
             <label asp-for="Questions"></label>
             <a id="addQ" class="btn btn-outline-secondary">Add Question</a>
-            <div id="Q"></div>
+            <div id="Q" class="form-group"></div>
         </div>
     </div>
 
@@ -74,36 +74,86 @@
         btnQ.addEventListener("click", AddQuestion);
         let questionIndex = 0;
         function AddQuestion() {
+            this.remove();
             let p = createHTMLElement("p", `${questionIndex + 1}`);
-            let nameQ = createHTMLElement("textarea", null, null, [{ k: "placeholder", v: "Question description" }]);
+            let divQname = createHTMLElement("div");
+            let nameQ = createHTMLElement("input", null, "form-control", [{ k: "placeholder", v: "Question description" }]);
             nameQ.name = `Questions[${questionIndex}].Name`;
+            divQname.appendChild(nameQ);
+
+            let divQType = createHTMLElement("div");
             let typeQ = createHTMLElement("select", null, null, [{ k: "placeholder", v: "Question type" }]);
-            let options = ["SingleAnswer", "MultipleAnswer", "RatingScale", "LikertScales", "Quantitative", "Dichotomous", "OpenEnded", "ImageChoice"];
+            //let typeQ = createHTMLElement("select", null, "form-control");
+            let options = ["SingleAnswer", "MultipleAnswer", "RatingScale", "LikertScales", "Quantitative", "Dichotomous", "OpenEnded"] //, "ImageQuestion", "ImageChoiceAnswer"];
+
+
             for (let index = 0; index < options.length; index++) {
                 let opt = options[index];
                 let el = document.createElement('option');
                 el.textContent = String(opt);
                 el.value = String(opt);
                 typeQ.appendChild(el);
+
             }
+
+
             typeQ.name = `Questions[${questionIndex}].QuestionType`;
+            typeQ.addEventListener('change', (event) => {
+                if (typeQ.value == "ImageQuestion") {
+                    let imageInput = createHTMLElement("input", null, "form-control-file", [{ k: "placeholder", v: "Add image for question" }]);
+                    imageInput.type = "file";
+                    imageInput.setAttribute("id", "File1");
+                    divQType.appendChild(imageInput);
+
+                    let btnF = createHTMLElement("button");
+                    btnF.setAttribute("id", "Button1");
+                    //btnF.value = "Upload"
+                    divQType.appendChild(btnF);
+                    //imageInput.name = `Questions[${questionIndex - 1}].Image`;
+                    //$('#Button1').click(function () {
+                    //    var fileInput = document.getElementById('File1');
+                    //    var file = fileInput.files[0];
+                    //    var formData = new FormData();
+                    //    formData.append(`Questions[${questionIndex - 1}].Image`, file);
+
+                    //    $.ajax('/Surveys/Create', {
+                    //        method: "POST",
+                    //        processData: false,
+                    //        contentType: false,
+                    //        data: formData
+                    //    }).done(function (data) { console.log(data); });
+
+                    //});
+                }
+            });
+
+            divQType.appendChild(typeQ);
 
             let AddABtn = createHTMLElement("a", "Add Answer", "btn");
             AddABtn.classList.add('btn-outline-success');
             let divA = document.createElement('div');
             divQ.appendChild(p);
-            divQ.appendChild(nameQ);
-            divQ.appendChild(typeQ);
+            divQ.appendChild(divQname);
+            divQ.appendChild(divQType);
             divQ.appendChild(AddABtn);
             divQ.appendChild(divA);
             let answerIndex = 0;
 
             AddABtn.addEventListener("click", () => {
-                let nameA = createHTMLElement("textarea");
+                // if(typeQ.value == "ImageChoiceAnswer"){
+                // let imageInputAnswer = createHTMLElement("input", null, "form-control-file", [{ k: "placeholder", v: "Add image for answer"}]);
+                // imageInputAnswer.name = `Questions[${questionIndex - 1}].Answers[${answerIndex}].Name`;
+                // divA.appendChild(imageInputAnswer);
+                //}
+                let nameA = createHTMLElement("input", null, "form-control", [{ k: "placeholder", v: "Answer description" }]);
                 //nameA.name = `Answers[${answerIndex}].Name`;
                 nameA.name = `Questions[${questionIndex - 1}].Answers[${answerIndex}].Name`;
+
                 divA.appendChild(nameA);
-                divA.appendChild(btnQ)
+                let divQbtn = document.createElement('div');
+                divQbtn.appendChild(btnQ);
+                divA.appendChild(divQbtn);
+
                 answerIndex++;
             })
             questionIndex++;

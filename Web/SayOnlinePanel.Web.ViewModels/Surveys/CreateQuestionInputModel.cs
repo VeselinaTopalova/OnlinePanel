@@ -1,5 +1,6 @@
 ﻿namespace SayOnlinePanel.Web.ViewModels.Surveys
 {
+    using Microsoft.AspNetCore.Http;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
@@ -12,6 +13,9 @@
         [Required]
         [Display(Name = "QuestionType")]
         public string QuestionType { get; set; }
+
+        public IFormFile Image { get; set; }
+
 
         public IEnumerable<SQAnswerInputModel> Answers { get; set; }
     }

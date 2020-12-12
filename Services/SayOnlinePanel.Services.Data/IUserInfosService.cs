@@ -1,4 +1,5 @@
-﻿using SayOnlinePanel.Web.ViewModels.UserInfos;
+﻿using SayOnlinePanel.Data.Models;
+using SayOnlinePanel.Web.ViewModels.UserInfos;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,8 +9,8 @@ namespace SayOnlinePanel.Services.Data
 {
     public interface IUserInfosService
     {
-        IEnumerable<T> GetSurveysForUser<T>(string id);
-
         Task CreateAsync(CreateUserInfoInputModel input, string id);
+
+        IEnumerable<Survey> GetSurveysForUser(string userId);
     }
 }

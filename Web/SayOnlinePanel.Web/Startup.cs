@@ -67,6 +67,7 @@
             services.AddTransient<ISurveyService, SurveyService>();
             services.AddTransient<IUsersService, UsersService>();
             services.AddTransient<IUserInfosService, UserInfosService>();
+            services.AddTransient<ITargetSurveyService, TargetSurveyService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

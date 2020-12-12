@@ -3,12 +3,11 @@
     using System;
     using System.Threading.Tasks;
 
+    using Microsoft.AspNetCore.Mvc;
     using SayOnlinePanel.Data.Common.Repositories;
     using SayOnlinePanel.Data.Models;
     using SayOnlinePanel.Services.Data;
     using SayOnlinePanel.Web.ViewModels.Settings;
-
-    using Microsoft.AspNetCore.Mvc;
 
     public class SettingsController : BaseController
     {
