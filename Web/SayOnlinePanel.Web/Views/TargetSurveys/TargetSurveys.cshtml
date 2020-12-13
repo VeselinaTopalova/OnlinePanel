@@ -8,7 +8,7 @@
 <div class="list-group">
     @foreach (var sv in Model.Surveys)
     {
-        <div class="list-group-item list-group-item-action flex-column align-items-start active"><h5 class="mb-1">@sv.Name</div>
+        <div class="list-group-item list-group-item-action flex-column align-items-start active"><h5 class="mb-1">@sv.Name</h5></div>
         <p>
             <a asp-action="ById" asp-route-id="@sv.Id" class="btn btn-outline-primary">View</a>
             <a asp-action="SelectedAnswers" asp-route-id="@sv.Id" class="btn btn-outline-primary">Select Target Answer</a>

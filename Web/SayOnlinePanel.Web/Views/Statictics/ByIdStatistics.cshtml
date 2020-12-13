@@ -1,1 +1,70 @@
-﻿
+﻿@*<ejs-accumulationchart id="container">
+        <e-accumulation-series-collection>
+            <e-accumulation-series dataSource="ViewBag.dataSource" xName="xValue" yName="yValue">
+            </e-accumulation-series>
+        </e-accumulation-series-collection>
+    </ejs-accumulationchart>*@
+
+
+@model SayOnlinePanel.Web.ViewModels.Statictics.SingleSurveyViewModel
+@foreach (var question in Model.Questions)
+{
+    <div id="container-@question.Id" style="width:100%; height:400px;"></div>
+}
+
+
+@section Scripts {
+    <script>
+        function AddQuestionChart(container, name, answersNames, answersCount) {
+            const chart = Highcharts.chart(container, {
+                chart: {
+                    type: 'bar'
+                },
+                title: {
+                    text: name
+                },
+                xAxis: {
+                    categories: answersNames
+                },
+                yAxis: {
+                    title: {
+                        text: 'Complete'
+                    }
+                },
+                series: [{
+                    name: 'Completed %',
+                    data: answersCount
+                }
+                ]
+            });
+
+        }
+    </script>
+}
+
+
+<script type="text/javascript">
+@foreach (var question in Model.Questions)
+{
+    var answersNames = new List<string>(); // new string[question.Answers.Count()];
+    var answersCount = new List<int>(); // new int[question.Answers.Count()];
+
+
+    @foreach (var answer in question.Answers)
+    {
+        answersNames.Add(answer.Name);
+        answersCount.Add(answer.Count);
+    }
+    <text>
+    document.addEventListener('DOMContentLoaded',
+        function () {
+            let name = @Html.Raw(Json.Serialize(question.Name));
+            let answersNames = @Html.Raw(Json.Serialize(answersNames));
+            let answersCount = @Html.Raw(Json.Serialize(answersCount));
+            let container = "container-@question.Id";
+            AddQuestionChart(container, name, answersNames, answersCount);
+        }
+    );
+    </text>
+}
+</script>

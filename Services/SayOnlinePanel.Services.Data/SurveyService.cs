@@ -27,7 +27,7 @@
             this.answersRepository = answersRepository;
         }
 
-        public async Task CreateAsync(CreateSurveyInputModel input, int? idTarget)
+        public async Task CreateAsync(CreateSurveyInputModel input, int idTarget)
         {
             var survey = new Survey
             {
@@ -40,6 +40,7 @@
                 SampleMale = input.SampleMale,
                 PointsStart = input.PointsStart,
                 PointsTotal = input.PointsTotal,
+                TargetSurveyId = idTarget,
             };
             //if (idTarget != null)
             //{

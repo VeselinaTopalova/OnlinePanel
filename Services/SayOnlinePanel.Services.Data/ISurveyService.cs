@@ -7,7 +7,7 @@
 
     public interface ISurveyService
     {
-        Task CreateAsync(CreateSurveyInputModel input, int? idTarget);
+        Task CreateAsync(CreateSurveyInputModel input, int idTarget);
 
         //IEnumerable<T> GetAll<T>(int? count = null);
 

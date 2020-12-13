@@ -2,7 +2,7 @@
 {
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    //ok
+
     public class TargetPeopleSelectionViewModel
     {
         public SingleTargetSurveyViewModel TargetSurvey;

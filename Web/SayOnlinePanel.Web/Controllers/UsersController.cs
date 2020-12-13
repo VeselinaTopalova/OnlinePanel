@@ -67,6 +67,7 @@
             bool isInList = false;
             foreach (var answeredQuestion in model.AnsweredQuestions)
             {
+                isInList = false;
                 var currQuestion = this.db.TargetQuestions.FirstOrDefault(x => x.Id == answeredQuestion.Id);
                 var targetAnswersHaveCheckedIds = this.db.TargetSelectedAnswers.Where(x => x.TargetQuestion.Id == answeredQuestion.Id)
                     .Select(s => s.TargetAnswersHaveChecked)
@@ -75,16 +76,16 @@
 
                 foreach (var selectedAnswerId in answeredQuestion.SelectedAnswerIds)
                 {
-                    //isInList = false;
                     var currAnswer = this.db.TargetAnswers.FirstOrDefault(x => x.Id == selectedAnswerId);
                     if (targetAnswersHaveCheckedIds.IndexOf(currAnswer) != -1)
                     {
                         isInList = true;
+                        break;
                     }
-                    else
-                    {
-                        //break;
-                    }
+                }
+                if (!isInList)
+                {
+                    break;
                 }
             }
 

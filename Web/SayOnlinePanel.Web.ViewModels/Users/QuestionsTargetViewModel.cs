@@ -14,6 +14,5 @@
         public TargetQuestionType TargetQuestionType { get; set; }
 
         public IEnumerable<AnswersTargetViewModel> TargetAnswers { get; set; }
-
     }
 }

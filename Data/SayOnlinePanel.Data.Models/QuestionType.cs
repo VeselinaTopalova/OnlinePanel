@@ -6,8 +6,6 @@
 
         MultipleAnswer = 2,
 
-        RatingScale = 3,
-
         LikertScales = 4,
 
         Quantitative = 5,

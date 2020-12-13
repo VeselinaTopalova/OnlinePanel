@@ -9,6 +9,7 @@
         public int Points { get; set; }
 
         public IEnumerable<SurveysNamePoints> Surveys { get; set; }
+
         public IEnumerable<Survey> SurveysForUser { get; set; }
     }
 }

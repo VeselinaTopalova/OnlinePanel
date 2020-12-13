@@ -1,19 +1,17 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
-using SayOnlinePanel.Data;
-using SayOnlinePanel.Data.Models;
-using SayOnlinePanel.Services.Data;
-using SayOnlinePanel.Web.ViewModels.Statictics;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
-using Formatting = Newtonsoft.Json.Formatting;
-using System.Runtime.Serialization;
-
-namespace SayOnlinePanel.Web.Controllers
+﻿namespace SayOnlinePanel.Web.Controllers
 {
+    using System.Linq;
+
+    using Microsoft.AspNetCore.Identity;
+    using Microsoft.AspNetCore.Mvc;
+    using Newtonsoft.Json;
+    using SayOnlinePanel.Data;
+    using SayOnlinePanel.Data.Models;
+    using SayOnlinePanel.Services.Data;
+    using SayOnlinePanel.Web.ViewModels.Statictics;
+
+    using Formatting = Newtonsoft.Json.Formatting;
+
     public class StaticticsController : Controller
     {
         private readonly IUsersService usersService;
@@ -28,27 +26,41 @@ namespace SayOnlinePanel.Web.Controllers
             this.userManager = userManager;
             this.db = db;
         }
-        //[HttpPost]
-        //public JsonResult AjaxMethod(string name)
+        //raboti wry]a json
+        //public string ByIdStatistics(int id)
         //{
-        //    PersonModel person = new PersonModel
+        //    //var survey = this.surveyService.GetById<SingleSurveyViewModel>(id);
+        //    var survey = this.db.UserAnswers.Where(x => x.SurveyId == id).Select(x => new SingleSurveyViewModel
         //    {
-        //        Name = name,
-        //        DateTime = DateTime.Now.ToString()
-        //    };
-        //    return Json(person);
+        //        Name = x.Survey.Name,
+        //        Questions = x.Survey.Questions.Select(s => new QuestionsViewModel
+        //        {
+        //            Name = s.Name,
+        //            QuestionType = s.QuestionType,
+        //            Answers = s.Answers.Select(a => new AnswersViewModel
+        //            {
+        //                Name = a.Name,
+        //                Count = a.UserAnswers.Count(),
+        //            }).ToList(),
+        //        }).ToList(),
+        //    }).FirstOrDefault();
+        //    ;
+        //    ;
+        //    //return this.View(survey);
+        //    var jsonResult = JsonConvert.SerializeObject(survey, Formatting.Indented);
+
+        //    return jsonResult;
+        //    //return Json(survey);
         //}
 
-        //public IActionResult ByIdStatistics(int id)
-        //public JsonResult ByIdStatistics(int id)
-        public string ByIdStatistics(int id)
+        public IActionResult ByIdStatistics(int id)
         {
-            //var survey = this.surveyService.GetById<SingleSurveyViewModel>(id);
             var survey = this.db.UserAnswers.Where(x => x.SurveyId == id).Select(x => new SingleSurveyViewModel
             {
                 Name = x.Survey.Name,
                 Questions = x.Survey.Questions.Select(s => new QuestionsViewModel
                 {
+                    Id = s.Id,
                     Name = s.Name,
                     QuestionType = s.QuestionType,
                     Answers = s.Answers.Select(a => new AnswersViewModel
@@ -58,13 +70,9 @@ namespace SayOnlinePanel.Web.Controllers
                     }).ToList(),
                 }).ToList(),
             }).FirstOrDefault();
-            ;
-            ;
-            //return this.View(survey);
-            var jsonResult = JsonConvert.SerializeObject(survey, Formatting.Indented);
 
-            return jsonResult;
-            //return Json(survey);
+            return this.View(survey);
+
         }
 
         public IActionResult SampleComplete(int id)
@@ -82,15 +90,10 @@ namespace SayOnlinePanel.Web.Controllers
                 SampleFemaleCompletePercent = x.Survey.SampleFemale > 0 ? ((double)x.Survey.SampleFemaleComplete / (double)x.Survey.SampleFemale) * 100 : 0,
                 SampleFemale = x.Survey.SampleFemale,
             }).FirstOrDefault();
-            ;
-            ;
 
             int completeTotal = this.db.UserAnswers.Where(x => x.SurveyId == id).Select(x => x.Survey.SampleTotalComplete).FirstOrDefault();
             int sampleTotal = this.db.UserAnswers.Where(x => x.SurveyId == id).Select(x => x.Survey.SampleTotal).FirstOrDefault();
-
-
             return this.View(survey);
         }
-
     }
 }

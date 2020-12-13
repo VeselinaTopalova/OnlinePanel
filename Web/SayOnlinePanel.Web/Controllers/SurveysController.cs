@@ -24,14 +24,14 @@
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(CreateSurveyInputModel input, int? idTarget)
+        public async Task<IActionResult> Create(CreateSurveyInputModel input, int id)
         {
             if (!this.ModelState.IsValid)
             {
                 return this.View(input);
             }
 
-            await this.surveyService.CreateAsync(input, idTarget);
+            await this.surveyService.CreateAsync(input, id);
             return this.Redirect("Surveys");
         }
 
