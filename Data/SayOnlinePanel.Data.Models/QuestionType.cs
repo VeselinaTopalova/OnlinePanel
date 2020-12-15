@@ -13,7 +13,5 @@
         Dichotomous = 6,
 
         OpenEnded = 7,
-
-        ImageQuestion = 8,
     }
 }

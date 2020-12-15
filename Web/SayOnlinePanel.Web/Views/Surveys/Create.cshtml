@@ -1,8 +1,10 @@
-﻿@model SayOnlinePanel.Web.ViewModels.Surveys.CreateSurveyInputModel
-@{ this.ViewData["Title"] = "Add new survey"; }
-<form method="post">
+﻿@using SayOnlinePanel.Data.Models
+@model SayOnlinePanel.Web.ViewModels.Surveys.CreateSurveyInputModel
 
-    @*<form method="post" class="col-md-6 offset-md-3">*@
+@{ var questionTypesList = Enum.GetValues(typeof(QuestionType)).OfType<QuestionType>().Select(m => m.ToString()).ToList(); }
+<h3>Create New Survey</h3>
+
+<form method="post">
     <h1>@this.ViewData["Title"]</h1>
     <div asp-validation-summary="All" class="text-danger"></div>
     <div class="form-group">
@@ -12,7 +14,7 @@
     </div>
     <div class="form-group">
         <label asp-for="Description"></label>
-        <textarea asp-for="Description" class="form-control" rows="5"></textarea>
+        <textarea asp-for="Description" class="form-control" rows="2"></textarea>
         <span asp-validation-for="Description" class="text-danger"></span>
     </div>
     <div class="form-group">
@@ -52,11 +54,11 @@
     </div>
 
     <div id="QuestionsContainer" class="form-group">
-        <div id="QuestionsContainer" class="form-group">
+        @*<div id="QuestionsContainer" class="form-group">*@
             <label asp-for="Questions"></label>
             <a id="addQ" class="btn btn-outline-secondary">Add Question</a>
             <div id="Q" class="form-group"></div>
-        </div>
+        @*</div>*@
     </div>
 
     <input type="submit" class="btn btn-primary" />
@@ -75,17 +77,20 @@
         let questionIndex = 0;
         function AddQuestion() {
             this.remove();
+            if (document.getElementById("AddABtn") != null) {
+                document.getElementById("AddABtn").remove()
+            }
             let p = createHTMLElement("p", `${questionIndex + 1}`);
             let divQname = createHTMLElement("div");
-            let nameQ = createHTMLElement("input", null, "form-control", [{ k: "placeholder", v: "Question description" }]);
+            let nameQ = createHTMLElement("input", null, "form-control", [{ k: "placeholder", v: "Question text" }]);
+            nameQ.style.marginBottom = "10px";
             nameQ.name = `Questions[${questionIndex}].Name`;
-            divQname.appendChild(nameQ);
+            divQname.appendChild(nameQ);          
 
             let divQType = createHTMLElement("div");
-            let typeQ = createHTMLElement("select", null, null, [{ k: "placeholder", v: "Question type" }]);
-            //let typeQ = createHTMLElement("select", null, "form-control");
-            let options = ["SingleAnswer", "MultipleAnswer", "LikertScales", "Quantitative", "Dichotomous", "OpenEnded"] //, "ImageQuestion", "ImageChoiceAnswer"];
-
+            let typeQ = createHTMLElement("select", null, "form-control", [{ k: "placeholder", v: "Question type" }]);
+            typeQ.style.marginBottom = "10px";
+            let options = @Html.Raw(Json.Serialize(questionTypesList));
 
             for (let index = 0; index < options.length; index++) {
                 let opt = options[index];
@@ -93,44 +98,16 @@
                 el.textContent = String(opt);
                 el.value = String(opt);
                 typeQ.appendChild(el);
-
             }
 
-
             typeQ.name = `Questions[${questionIndex}].QuestionType`;
-            typeQ.addEventListener('change', (event) => {
-                if (typeQ.value == "ImageQuestion") {
-                    let imageInput = createHTMLElement("input", null, "form-control-file", [{ k: "placeholder", v: "Add image for question" }]);
-                    imageInput.type = "file";
-                    imageInput.setAttribute("id", "File1");
-                    divQType.appendChild(imageInput);
-
-                    let btnF = createHTMLElement("button");
-                    btnF.setAttribute("id", "Button1");
-                    //btnF.value = "Upload"
-                    divQType.appendChild(btnF);
-                    //imageInput.name = `Questions[${questionIndex - 1}].Image`;
-                    //$('#Button1').click(function () {
-                    //    var fileInput = document.getElementById('File1');
-                    //    var file = fileInput.files[0];
-                    //    var formData = new FormData();
-                    //    formData.append(`Questions[${questionIndex - 1}].Image`, file);
-
-                    //    $.ajax('/Surveys/Create', {
-                    //        method: "POST",
-                    //        processData: false,
-                    //        contentType: false,
-                    //        data: formData
-                    //    }).done(function (data) { console.log(data); });
-
-                    //});
-                }
-            });
 
             divQType.appendChild(typeQ);
 
             let AddABtn = createHTMLElement("a", "Add Answer", "btn");
+            AddABtn.id = "AddABtn";
             AddABtn.classList.add('btn-outline-success');
+            AddABtn.style.marginBottom = "10px";
             let divA = document.createElement('div');
             divQ.appendChild(p);
             divQ.appendChild(divQname);
@@ -140,13 +117,8 @@
             let answerIndex = 0;
 
             AddABtn.addEventListener("click", () => {
-                // if(typeQ.value == "ImageChoiceAnswer"){
-                // let imageInputAnswer = createHTMLElement("input", null, "form-control-file", [{ k: "placeholder", v: "Add image for answer"}]);
-                // imageInputAnswer.name = `Questions[${questionIndex - 1}].Answers[${answerIndex}].Name`;
-                // divA.appendChild(imageInputAnswer);
-                //}
-                let nameA = createHTMLElement("input", null, "form-control", [{ k: "placeholder", v: "Answer description" }]);
-                //nameA.name = `Answers[${answerIndex}].Name`;
+                let nameA = createHTMLElement("input", null, "form-control", [{ k: "placeholder", v: "Answer text" }]);
+                nameA.style.marginBottom = "10px";
                 nameA.name = `Questions[${questionIndex - 1}].Answers[${answerIndex}].Name`;
 
                 divA.appendChild(nameA);

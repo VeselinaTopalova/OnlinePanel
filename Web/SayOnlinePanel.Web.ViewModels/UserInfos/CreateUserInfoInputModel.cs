@@ -3,8 +3,15 @@
     using System;
     using System.ComponentModel.DataAnnotations;
 
+    using SayOnlinePanel.Data.Models;
+
     public class CreateUserInfoInputModel
     {
+        public CreateUserInfoInputModel()
+        {
+            this.Birthday = DateTime.Today;
+        }
+
         [Required]
         public Gender Gender { get; set; }
 
@@ -13,24 +20,7 @@
 
         [Required]
         [DataType(DataType.Date)]
+        //[Range(typeof(DateTime), "1/1/1900", "1/1/2012", ErrorMessage = "Date is out of Range")]
         public DateTime Birthday { get; set; }
-    }
-
-    public enum Gender
-    {
-        Male,
-
-        Female,
-    }
-
-    public enum Town
-    {
-        Capital = 1,
-
-        RegionalCapital = 2,
-
-        SmallTown = 3,
-
-        Countri = 4,
     }
 }

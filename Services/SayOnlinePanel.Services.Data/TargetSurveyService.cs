@@ -35,7 +35,6 @@
                 Description = input.Description,
                 StartDate = input.StartDate,
                 EndDate = input.EndDate,
-                PointsStart = input.PointsStart,
             };
 
             foreach (var inputQuestion in input.Questions)
@@ -75,7 +74,6 @@
                 Description = input.Description,
                 StartDate = input.StartDate,
                 EndDate = input.EndDate,
-                PointsStart = input.PointsStart,
             };
 
             foreach (var inputQuestion in input.Questions)
@@ -144,7 +142,6 @@
             var survey = this.targetSurveysRepository.All().FirstOrDefault(x => x.Id == id);
             survey.Name = input.Name;
             survey.Description = input.Description;
-            survey.PointsStart = input.PointsStart;
             survey.StartDate = input.StartDate;
             survey.EndDate = input.EndDate;
 

@@ -106,7 +106,7 @@
             }
         }
 
-        //[Authorize]
+        //[Authorize
         public IActionResult Create()
         {
             var viewModel = new CreateUserInfoInputModel();
@@ -130,7 +130,7 @@
             {
                 this.ModelState.AddModelError(string.Empty, ex.Message);
                 return this.View(input);
-            }            
+            }
 
             return this.Redirect("MyPoints");
         }

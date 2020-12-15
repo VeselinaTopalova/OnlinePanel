@@ -1,4 +1,9 @@
-﻿@model SayOnlinePanel.Web.ViewModels.Surveys.EditSurveyInputModel
+﻿@using SayOnlinePanel.Data.Models
+@model SayOnlinePanel.Web.ViewModels.Surveys.EditSurveyInputModel
+
+@{
+    var questionTypesList = Enum.GetValues(typeof(QuestionType)).OfType<QuestionType>().Select(m => new { Text = m.ToString(), Value = (int)m }).ToList();
+}
 
 <form method="post" id="editForm">
     <div class="form-group">
@@ -58,7 +63,8 @@
 
                 @Html.LabelFor(x => Model.Questions[i].QuestionType)
                 @*@Html.TextBoxFor(x => Model.Questions[i].QuestionType, new { @class = "form-control", @readonly = "readonly" })*@
-                @Html.TextBoxFor(x => Model.Questions[i].QuestionType, new { @class = "form-control" })
+                @Html.DropDownListFor(x => Model.Questions[i].QuestionType, new SelectList(questionTypesList, "Value", "Text", Model.Questions[i].QuestionType))
+                @*@Html.TextBoxFor(x => Model.Questions[i].QuestionType, new { @class = "form-control" })*@
 
                 @for (var j = 0; j < Model.Questions[i].Answers.Count(); j++)
                 {

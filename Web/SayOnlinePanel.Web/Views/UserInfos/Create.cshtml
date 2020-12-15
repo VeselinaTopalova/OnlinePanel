@@ -1,25 +1,36 @@
 ﻿@using SayOnlinePanel.Common
+@using SayOnlinePanel.Data.Models
 @model SayOnlinePanel.Web.ViewModels.UserInfos.CreateUserInfoInputModel
+@*<select asp-for="Gender" asp-items="Html.GetEnumSelectList<Gender>()">
+        <option selected="selected" value="">Please select</option>
+    </select>*@
 
-@*<select asp-for="Gender" asp-items="Html.GetEnumSelectList<Genders>()">
-    <option selected="selected" value="">Please select</option>
-</select>*@
+@{
+    var genderList = Enum.GetValues(typeof(Gender)).OfType<Gender>().Select(m => new { Text = m.ToString(), Value = (int)m }).ToList();
+    var townList = Enum.GetValues(typeof(Town)).OfType<Town>().Select(m => new { Text = m.ToString(), Value = (int)m }).ToList();
+}
 <div>
-    <p class="text-muted">За да можем да Ви изпращаме проучвания, Вашият профил трябва да е завършен. Моля попълнете</p>
+    <h6 class="text-muted">За да можем да Ви изпращаме проучвания, Вашият профил трябва да е завършен. Моля попълнете:</h6>
     <form method="post" class="col-md-6 offset-md-3">
         <div class="form-group">
             <label asp-for="@Model.Gender"></label>
-            <input asp-for="@Model.Gender" class="form-control" />
+            <select class="form-control" asp-for="Gender" asp-items="Html.GetEnumSelectList<Gender>()">
+                <option selected="selected" value="">Please select</option>
+            </select>
+            @*@Html.DropDownList("Gender", new SelectList(genderList, "Value", "Text", Model.Gender))*@
             <span asp-validation-for="@Model.Gender" class="text-danger"></span>
         </div>
         <div class="form-group">
             <label asp-for="@Model.Town"></label>
-            <input asp-for="@Model.Town" class="form-control" />
+            <select class="form-control" asp-for="Town" asp-items="Html.GetEnumSelectList<Town>()">
+                <option selected="selected" value="">Please select</option>
+            </select>
+            @*@Html.DropDownList("Town", new SelectList(townList, "Value", "Text", Model.Town))*@
             <span asp-validation-for="@Model.Town" class="text-danger"></span>
         </div>
         <div class="form-group">
             <label asp-for="@Model.Birthday"></label>
-            <input asp-for="@Model.Birthday" class="form-control" />
+            <input asp-for="@Model.Birthday" class="form-control" id="datepicker"/>
             <span asp-validation-for="@Model.Birthday" class="text-danger"></span>
         </div>
         <input type="submit" class="btn btn-primary" />

@@ -10,6 +10,12 @@
 
     public class EditSurveyInputModel : IMapFrom<TargetSurvey>
     {
+        public EditSurveyInputModel()
+        {
+            this.StartDate = DateTime.Today;
+            this.EndDate = DateTime.Today;
+        }
+
         public int Id { get; set; }
 
         [Required]
@@ -27,7 +33,7 @@
         [DataType(DataType.Date)]
         public DateTime EndDate { get; set; }
 
-        public int PointsStart { get; set; }
+        //public int PointsStart { get; set; }
 
         public List<EditQuestionInputModel> TargetQuestions { get; set; }
     }

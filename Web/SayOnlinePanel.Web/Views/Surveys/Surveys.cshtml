@@ -6,35 +6,24 @@
 
 <h3>@this.ViewData["Title"]</h3>
 <hr />
-@*<div class="row">
-        @foreach (var sv in Model.Surveys)
-        {
-            <div class="media col-md-4">
-                <div class="media-body">
-                    <h5 class="mt-0"><a asp-action="ById" asp-route-id="@sv.Id">@sv.Name</a></h5>
-                </div>
-            </div>
-        }
-    </div>*@
+
 <div class="list-group">
     @foreach (var sv in Model.Surveys)
     {
-        @*<a asp-action="ById" asp-route-id="@sv.Id" class="list-group-item list-group-item-action flex-column align-items-start active"><h5 class="mb-1">@sv.Name</h5> </a>*@
-        <div class="list-group-item list-group-item-action flex-column align-items-start active"><h5 class="mb-1">@sv.Name</div>
-        <p>
+        <div class="list-group-item list-group-item-action flex-column align-items-start active"><h5 class="mb-1">@sv.Name</h5></div>
+        <div style="margin-top: 10px">
             <a asp-action="ById" asp-route-id="@sv.Id" class="btn btn-outline-primary">View</a>
             <a asp-controller="Statictics" asp-action="SampleComplete" asp-route-id="@sv.Id" class="btn btn-outline-secondary">Complete Sample</a>
             <a asp-controller="Statictics" asp-action="ByIdStatistics" asp-route-id="@sv.Id" class="btn btn-outline-info">Charts</a>
-        </p>
-        <div class="d-flex w-100 justify-content-between">
-            <small>Start: @sv.StartDate.Date</small>
-            <small>End: @sv.EndDate.Date</small>
         </div>
+        <div class="d-flex w-100 justify-content-between">
+            <small style="margin-top: 10px">Start: @sv.StartDate.Date.ToString("d")   /   End: @sv.EndDate.Date.ToString("d")</small>
+            <p>&nbsp;</p>
+        </div>
+        <p>&nbsp;</p>
     }
 </div>
-
-<hr />
+<partial name="_PagingPartial" model="@Model" />
 <p>&nbsp;</p>
 
 
-<partial name="_PagingPartial" model="@Model" />

@@ -1,7 +1,4 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
-
-html, body {
+﻿html, body {
     padding: 0;
     margin: 0;
 }
@@ -93,4 +90,4 @@ form .buttons {
 
     form .buttons .submit:hover {
         background-color: #14892c;
-    } 
+    }

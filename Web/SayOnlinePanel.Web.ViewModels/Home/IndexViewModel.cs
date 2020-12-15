@@ -5,6 +5,6 @@
 
     public class IndexViewModel
     {
-        public IEnumerable<IndexVoucherViewModel> Vouchers { get; set; }
+        public List<IndexVoucherViewModel> Vouchers { get; set; }
     }
 }

@@ -26,10 +26,9 @@
             this.userManager = userManager;
             this.db = db;
         }
-        //raboti wry]a json
+
         //public string ByIdStatistics(int id)
         //{
-        //    //var survey = this.surveyService.GetById<SingleSurveyViewModel>(id);
         //    var survey = this.db.UserAnswers.Where(x => x.SurveyId == id).Select(x => new SingleSurveyViewModel
         //    {
         //        Name = x.Survey.Name,
@@ -44,13 +43,8 @@
         //            }).ToList(),
         //        }).ToList(),
         //    }).FirstOrDefault();
-        //    ;
-        //    ;
-        //    //return this.View(survey);
         //    var jsonResult = JsonConvert.SerializeObject(survey, Formatting.Indented);
-
         //    return jsonResult;
-        //    //return Json(survey);
         //}
 
         public IActionResult ByIdStatistics(int id)
@@ -67,6 +61,7 @@
                     {
                         Name = a.Name,
                         Count = a.UserAnswers.Count(),
+                        CountPercent = (double)a.UserAnswers.Count() / (double)s.Survey.SampleTotal * 100,
                     }).ToList(),
                 }).ToList(),
             }).FirstOrDefault();

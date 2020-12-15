@@ -24,6 +24,18 @@
             {
                 query = query.Take(count.Value);
             }
+
+            return query.To<T>().ToList();
+        }
+
+        public IEnumerable<T> GetAllWithCount<T>(int? count = null)
+        {
+            IQueryable<Voucher> query = this.voucherRepository.All().OrderByDescending(x => x.Id);
+            if (count.HasValue)
+            {
+                query = query.Take(count.Value);
+            }
+
             return query.To<T>().ToList();
         }
 

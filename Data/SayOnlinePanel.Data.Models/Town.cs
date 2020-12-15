@@ -8,6 +8,6 @@
 
         SmallTown = 3,
 
-        Countri = 4,
+        Country = 4,
     }
 }

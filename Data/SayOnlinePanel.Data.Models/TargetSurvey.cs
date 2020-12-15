@@ -35,6 +35,6 @@
 
         public virtual ICollection<TargetUserAnswer> TargetUserAnswers { get; set; }
 
-        public int PointsStart { get; set; }
+        //public int PointsStart { get; set; }
     }
 }

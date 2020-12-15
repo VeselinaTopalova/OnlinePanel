@@ -3,7 +3,7 @@
 
 @{ ViewBag.Title = Model.Survey.Name; }
 
-<h2>@ViewBag.Title</h2>
+<h3>@ViewBag.Title</h3>
 
 @using (Html.BeginForm())
 {
@@ -51,8 +51,8 @@
             }
             else if (question.QuestionType.ToString() == "LikertScales")
             {
-                <li style="width:calc(@width% - 6px)">
-                    <input type="radio" name="model.AnsweredQuestions[@index].SelectedAnswerIds[0]" value="@answer.Id"class="form-control validate" required>
+                <li >
+                    <input type="radio" name="model.AnsweredQuestions[@index].SelectedAnswerIds[0]" value="@answer.Id" required >
                     <label>@answer.Name</label>
                 </li>
             }
@@ -85,7 +85,7 @@
 
         @if (question.QuestionType.ToString() == "LikertScales")
         {
-            @Html.Raw(" </ul> </ div > ")
+            @Html.Raw(" </ul> </ div >")
         }
         else if (question.QuestionType.ToString() == "Dichotomous")
         {
@@ -93,12 +93,6 @@
         }
         index++;
     }
-    @*@foreach (AnswersViewModel answer in question.Answers)
-        {
-            @answer.Name
-            <input type="checkbox" name="model.Answers[]" value=@answer.Id>
-        }*@
-
 
     <div class="row">
         <input type="submit" class="btn btn-primary" />

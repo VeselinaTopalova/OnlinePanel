@@ -8,7 +8,7 @@
     {
         [Required]
         [MinLength(3)]
-        [Display(Name = "SurveyName")]
+        [Display(Name = "Survey Name")]
         public string Name { get; set; }
 
         public string Description { get; set; }
@@ -33,5 +33,11 @@
         public int SampleMale { get; set; }
 
         public IEnumerable<CreateQuestionInputModel> Questions { get; set; }
+
+        public CreateSurveyInputModel()
+        {
+            this.StartDate = DateTime.Today;
+            this.EndDate = DateTime.Today;
+        }
     }
 }

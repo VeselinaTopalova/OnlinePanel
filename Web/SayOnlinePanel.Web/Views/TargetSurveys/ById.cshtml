@@ -16,7 +16,7 @@
                         @answer.Name
                     </label>
                 </div>
-             }
+            }
         }
         @if (question.TargetQuestionType.ToString() == "MultipleAnswer")
         {
@@ -28,22 +28,22 @@
                         @answer.Name
                     </label>
                 </div>
-             }
+            }
         }
-       
+
         <hr />
-     }
+    }
 </div>
-<hr />
+
 <div class="row">
-    <a asp-controller="TargetSurveys" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-outline-warning">Edit</a>
+    <a asp-controller="TargetSurveys" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-outline-warning" style="margin-right: 10px">Edit</a>
     <form method="post" asp-controller="TargetSurveys" asp-action="Delete" id="deleteForm" asp-route-id="@Model.Id">
     </form>
-    <button class="btn btn-outline-danger" data-toggle="modal" data-target="#deleteModal">Delete</button>
+    <button class="btn btn-outline-danger" data-toggle="modal" data-target="#deleteModal" style="margin-right: 10px">Delete</button>
     <a asp-controller="Surveys" asp-action="Create" asp-route-id="@Model.Id" class="btn btn-outline-primary">Create New Survey</a>
 </div>
 
-<hr />
+<p>&nbsp;</p>
 <p>&nbsp;</p>
 
 

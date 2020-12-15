@@ -33,27 +33,42 @@
         <p class="text-muted">
             Talk Online Panels работят в Централна и Югоизточна Европа чрез мрежа от представителни офиси и местни ръководители на проекти. Членовете се набират чрез текущи проучвания, обществени и медийни портали, като съхраняваме данните на потребителите в защитена база данни. Тя се използва, за да можем да провеждаме анкети с конкретни целеви групи - за маркетингови или социални проучвания.
 
-            Участниците в анкетите ни се възнаграждават с точки, като за всяка попълнена анкета се получават определен брой бонус точки. В зависимост от законодателството на всяка страна, всеки участник може да размени своите точки за ваучери за подарък или пари в брой, които се изплащат по банкова сметка или за дарение за благотворителност
+            Участниците в анкетите ни се възнаграждават с точки, като за всяка попълнена анкета се получават определен брой бонус точки. Всеки участник може да размени своите точки за ваучери за подарък.
 
-            Ние следим постоянно качеството на нашия панел. Използваме различни мерки за контрол за проверка на данните на потребителите, например проверки по поща или телефон, чрез месечно ограничаване на броя на попълнените анкети и изискване за актуализация на профила.
+            Ние следим постоянно качеството на нашия панел. Използваме различни мерки за контрол за проверка на данните на потребителите.
         </p>
     </div>
     <p>&nbsp;</p>
     <h3 class="text-muted">Награди</h3>
-    <div class="row">
-        @foreach (var v in Model.Vouchers)
-        {
-            <div class="col-md-4 media">
-                <div class="card">
-                    <a asp-controller="Vouchers" asp-action="ById" asp-route-id="@v.Id"><img src="@v.Image" class="card-img-top" alt="@v.Name"></a>
-                    <div class="card-body">
-                        <a asp-controller="Vouchers" asp-action="ById" asp-route-id="@v.Id"><h5 class="text-muted">@v.Name</h5></a>
-                        <p class="card-text">@v.Points точки</p>
-                        @*<h6 class="media-heading"><a asp-controller="Tours" asp-action="ById" asp-route-id="@tour.Id">LEARN MORE</a></h6>*@
+
+    <div class="container">
+        <div class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="row">
+                        @*@{var a = (int)Model.Vouchers.Count() / 3; }
+                @for (int i = 0; i < a; i++)
+                {
+
+                }*@
+                        @for (int i = 0; i < 3; i++)
+                        {
+                            <div class="col-sm"><img class="d-block w-100" src=@Model.Vouchers[i].Image alt="1 slide"></div>
+                        }
+
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="row">
+                        @for (int i = 3; i < 6; i++)
+                        {
+                            <div class="col-sm"><img class="d-block w-100" src=@Model.Vouchers[i].Image alt="4 slide"></div>
+                        }
                     </div>
                 </div>
             </div>
-        }
+        </div>
     </div>
-</div>
-<p>&nbsp;</p>
+
+    <p>&nbsp;</p>
+

@@ -1,5 +1,9 @@
-﻿@model SayOnlinePanel.Web.ViewModels.TargetSurveys.EditSurveyInputModel
+﻿@using SayOnlinePanel.Data.Models
+@model SayOnlinePanel.Web.ViewModels.TargetSurveys.EditSurveyInputModel
 
+@{
+    var questionTypesList = Enum.GetValues(typeof(QuestionType)).OfType<QuestionType>().Select(m => new { Text = m.ToString(), Value = (int)m }).ToList();
+}
 <form method="post" id="editForm">
     <div class="form-group">
         <label asp-for="Name"></label>
@@ -21,12 +25,7 @@
         <input asp-for="EndDate" class="form-control" />
         <span asp-validation-for="EndDate" class="text-danger"></span>
     </div>
-    <div class="form-group">
-        <label asp-for="PointsStart"></label>
-        <input asp-for="PointsStart" class="form-control" />
-        <span asp-validation-for="PointsStart" class="text-danger"></span>
-    </div>
-    
+
     <div class="form-group">
         <hr />
         @for (var i = 0; i < Model.TargetQuestions.Count(); i++)
@@ -39,7 +38,8 @@
 
                 @Html.LabelFor(x => Model.TargetQuestions[i].TargetQuestionType)
                 @*@Html.TextBoxFor(x => Model.Questions[i].QuestionType, new { @class = "form-control", @readonly = "readonly" })*@
-                @Html.TextBoxFor(x => Model.TargetQuestions[i].TargetQuestionType, new { @class = "form-control" })
+                @Html.DropDownListFor(x => Model.TargetQuestions[i].TargetQuestionType, new SelectList(questionTypesList, "Value", "Text", Model.TargetQuestions[i].TargetQuestionType))
+                @*@Html.TextBoxFor(x => Model.TargetQuestions[i].TargetQuestionType, new { @class = "form-control" })*@
 
                 @for (var j = 0; j < Model.TargetQuestions[i].TargetAnswers.Count(); j++)
                 {

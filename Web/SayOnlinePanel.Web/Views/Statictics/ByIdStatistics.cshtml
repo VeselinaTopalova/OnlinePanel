@@ -1,15 +1,9 @@
-﻿@*<ejs-accumulationchart id="container">
-        <e-accumulation-series-collection>
-            <e-accumulation-series dataSource="ViewBag.dataSource" xName="xValue" yName="yValue">
-            </e-accumulation-series>
-        </e-accumulation-series-collection>
-    </ejs-accumulationchart>*@
+﻿@model SayOnlinePanel.Web.ViewModels.Statictics.SingleSurveyViewModel
 
-
-@model SayOnlinePanel.Web.ViewModels.Statictics.SingleSurveyViewModel
 @foreach (var question in Model.Questions)
 {
     <div id="container-@question.Id" style="width:100%; height:400px;"></div>
+    <p>&nbsp;</p>
 }
 
 
@@ -32,7 +26,7 @@
                     }
                 },
                 series: [{
-                    name: 'Completed %',
+                    name: '% of All',
                     data: answersCount
                 }
                 ]
@@ -47,22 +41,25 @@
 @foreach (var question in Model.Questions)
 {
     var answersNames = new List<string>(); // new string[question.Answers.Count()];
-    var answersCount = new List<int>(); // new int[question.Answers.Count()];
+    //var answersCount = new List<int>(); // new int[question.Answers.Count()];
+    var answersCountPercent = new List<double>();
 
 
     @foreach (var answer in question.Answers)
     {
         answersNames.Add(answer.Name);
-        answersCount.Add(answer.Count);
+        //answersCount.Add(answer.Count);
+        answersCountPercent.Add(Math.Round(answer.CountPercent, 1));
     }
     <text>
     document.addEventListener('DOMContentLoaded',
         function () {
             let name = @Html.Raw(Json.Serialize(question.Name));
             let answersNames = @Html.Raw(Json.Serialize(answersNames));
-            let answersCount = @Html.Raw(Json.Serialize(answersCount));
+            @*let answersCount = @Html.Raw(Json.Serialize(answersCount));*@
+            let answersCountPercent = @Html.Raw(Json.Serialize(answersCountPercent));
             let container = "container-@question.Id";
-            AddQuestionChart(container, name, answersNames, answersCount);
+            AddQuestionChart(container, name, answersNames, answersCountPercent);
         }
     );
     </text>

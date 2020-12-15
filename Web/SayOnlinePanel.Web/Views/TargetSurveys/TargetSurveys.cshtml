@@ -9,19 +9,16 @@
     @foreach (var sv in Model.Surveys)
     {
         <div class="list-group-item list-group-item-action flex-column align-items-start active"><h5 class="mb-1">@sv.Name</h5></div>
-        <p>
+        <div style="margin-top: 10px">
             <a asp-action="ById" asp-route-id="@sv.Id" class="btn btn-outline-primary">View</a>
-            <a asp-action="SelectedAnswers" asp-route-id="@sv.Id" class="btn btn-outline-primary">Select Target Answer</a>
-        </p>
-        <div class="d-flex w-100 justify-content-between">
-            <small>Start: @sv.StartDate.Date</small>
-            <small>End: @sv.EndDate.Date</small>
+            <a asp-action="SelectedAnswers" asp-route-id="@sv.Id" class="btn btn-outline-secondary">Select Target Answer</a>
         </div>
+        <div class="d-flex w-100 justify-content-between">
+            <small style="margin-top: 10px">Start: @sv.StartDate.Date.ToString("d")   /   End: @sv.EndDate.Date.ToString("d")</small>
+            <p>&nbsp;</p>
+        </div>
+        <p>&nbsp;</p>
     }
 </div>
-
-<hr />
-<p>&nbsp;</p>
-
-
 <partial name="_PagingPartial" model="@Model" />
+<p>&nbsp;</p>

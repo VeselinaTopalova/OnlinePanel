@@ -1,9 +1,10 @@
 ﻿@model SayOnlinePanel.Web.ViewModels.Surveys.SingleSurveyViewModel
 <h3>@Model.Name</h3>
-<div class="single-recipe-layout1">
+
+<div>
     @foreach (var question in Model.Questions)
     {
-        <label class="col-sm-2 col-form-label">@question.Name</label>
+        <label>@question.Name</label>
 
         @if (question.QuestionType.ToString() == "SingleAnswer")
         {
@@ -11,7 +12,7 @@
             {
                 <div class="form-check">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
+                        <input type="radio" class="form-check-input">
                         @answer.Name
                     </label>
                 </div>}}
@@ -27,22 +28,23 @@
                 </div>}}
         @if (question.QuestionType.ToString() == "LikertScales")
         {
-            <div class="wrap">
-                <ul class='likert'>
-                    @foreach (var answer in question.Answers)
-                    {
-                        <li>
-                            <input type="radio" name="likert" value="strong_agree">
-                            <label>@answer.Name</label>
-                        </li>
-                    }
-                </ul>
-            </div>}
+            <form action="">
+                <div class="wrap">
+                    <ul class='likert'>
+                        @foreach (var answer in question.Answers)
+                        {
+                            <li>
+                                <input type="radio" name="likert" value="strong_agree">
+                                <label>@answer.Name</label>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </form>}
         @if (question.QuestionType.ToString() == "Dichotomous")
         {
             <div class="form-group">
-                <label for="exampleSelect1">Example select</label>
-                <select class="form-control" id="exampleSelect1">
+                <select class="form-control">
                     @foreach (var answer in question.Answers)
                     {
                         <option>@answer.Name</option>
@@ -53,43 +55,41 @@
         {
             <div class="form-group">
                 <label for="exampleTextarea"></label>
-                <textarea class="form-control" id="exampleTextarea" rows="2"></textarea>
+                <textarea class="form-control" rows="2"></textarea>
             </div>}
         @if (question.QuestionType.ToString() == "Quantitative")
         {
             <div class="form-group">
                 <label for="exampleTextarea"></label>
-                <input class="form-control" type="number" id="exampleTextarea" rows="3"></input>
+                <input class="form-control" type="number" rows="1">
             </div>}
         <hr />}
-    @*<button type="submit" class="btn btn-primary">Submit</button>*@
-    @*<a asp-controller="Surveys" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-outline-warning">Edit</a>
+
+
+    <div class="row">
+        <a asp-controller="Surveys" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-outline-warning" style="margin-right: 10px">Edit</a>
         <form method="post" asp-controller="Surveys" asp-action="Delete" id="deleteForm" asp-route-id="@Model.Id">
         </form>
-        <button class="btn btn-outline-danger" data-toggle="modal" data-target="#deleteModal">Delete</button>*@
-</div>
-<hr />
-<div class="row">
-    <a asp-controller="Surveys" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-outline-warning">Edit</a>
-    <form method="post" asp-controller="Surveys" asp-action="Delete" id="deleteForm" asp-route-id="@Model.Id">
-    </form>
-    <button class="btn btn-outline-danger" data-toggle="modal" data-target="#deleteModal">Delete</button>
-</div>
+        <button class="btn btn-outline-danger" data-toggle="modal" data-target="#deleteModal">Delete</button>
+    </div>
 
-<hr />
-<p>&nbsp;</p>
-
-
-<div class="modal" tabindex="-1" role="dialog" id="deleteModal">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                <p>Do you want to delete "@Model.Name"?</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" onclick="deleteForm.submit()">Yes</button>
-                <button type="button" class="btn btn-success" data-dismiss="modal">No</button>
+    <div class="modal" tabindex="-1" role="dialog" id="deleteModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <p>Do you want to delete "@Model.Name"?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" onclick="deleteForm.submit()">Yes</button>
+                    <button type="button" class="btn btn-success" data-dismiss="modal">No</button>
+                </div>
             </div>
         </div>
     </div>
 </div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+
+

@@ -1,18 +1,14 @@
 ﻿@using SayOnlinePanel.Common
 @model SayOnlinePanel.Web.ViewModels.UserInfos.SyrveysListViewModel
-@*@{
-        this.ViewData["Title"] = "All Surveys";
-    }*@
 
-@*<h3>@this.ViewData["Title"]</h3>*@
 <div class="block-content">
-    <h3 class="text-info">Актуален баланс: @Model.Points точки</h3>
-    <h7>@DateTime.Now</h7>
+    <h3 class="text-info">Актуален баланс: @Model.Points точки </h3>
+    <h7 class="text-muted">@DateTime.Now</h7>
 </div>
 <hr />
 <div>
     <p class="text-muted">
-        Моля вижте по-долу преглед на историята на акентите, в които сте участвали. Ако нещо не е ясно, моля, проверете страницатата Помощ или ни изпратете имейл.
+        Моля вижте по-долу преглед на историята на акентите, в които сте участвали. Ако нещо не е ясно, изпратете ни имейл.
     </p>
 </div>
 

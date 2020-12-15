@@ -9,11 +9,16 @@
 
     public class EditSurveyInputModel : IMapFrom<Survey>
     {
+        public EditSurveyInputModel()
+        {
+            this.StartDate = DateTime.Today;
+            this.EndDate = DateTime.Today;
+        }
         public int Id { get; set; }
 
         [Required]
         [MinLength(3)]
-        [Display(Name = "SurveyName")]
+        [Display(Name = "Survey Name")]
         public string Name { get; set; }
 
         public string Description { get; set; }

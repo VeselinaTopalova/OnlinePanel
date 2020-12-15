@@ -12,7 +12,6 @@
         [MinLength(100)]
         public string Description { get; set; }
 
-        [MinLength(1)]
         public int Points { get; set; }
 
         public int Leva { get; set; }

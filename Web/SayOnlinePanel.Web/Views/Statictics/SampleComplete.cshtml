@@ -1,26 +1,15 @@
-﻿@*<ejs-accumulationchart id="container">
-        <e-accumulation-series-collection>
-            <e-accumulation-series dataSource="ViewBag.dataSource" xName="xValue" yName="yValue">
-            </e-accumulation-series>
-        </e-accumulation-series-collection>
-    </ejs-accumulationchart>*@
-
-
-@model SayOnlinePanel.Web.ViewModels.Statictics.CompleteModel
+﻿@model SayOnlinePanel.Web.ViewModels.Statictics.CompleteModel
 
 <div>
-    <p>@Model.Name</p>
-    <p>Percent Total Sample Completed: @Model.SampleTotalCompletePercent</p>
-    <p>Percent Male Sample Completed: @Model.SampleMaleCompletePercent</p>
-    <p>Percent Female Sample Completed: @Model.SampleFemaleCompletePercent</p>
+    <h6>Survey Name: @Model.Name</h6>
+    <p>Total Sample Completed: @Math.Round(Model.SampleTotalCompletePercent, 1) %</p>
+    <p>Male Sample Completed: @Math.Round(Model.SampleMaleCompletePercent, 1) %</p>
+    <p>Female Sample Completed: @Math.Round(Model.SampleFemaleCompletePercent, 1) %</p>
+
 </div>
 
 @section Scripts {
-@*<a id="addC" class="btn btn-outline-info">Add Chart</a>*@
 <script>
-        //let btnC = document.querySelector("#addC");
-        //btnC.addEventListener("click", AddChart);
-
         function AddChart(a, b, c) {
             const chart = Highcharts.chart('container', {
                 chart: {
@@ -30,7 +19,7 @@
                     text: 'Completed Sample'
                 },
                 xAxis: {
-                    categories: ['Complete All Sample', 'Complete Male Sample', 'Complete Female Sample']
+                    categories: ['Completed All Sample', 'Completed Male Sample', 'Completed Female Sample']
                 },
                 yAxis: {
                     title: {
@@ -38,7 +27,7 @@
                     }
                 },
                 series: [{
-                    name: 'Completed %',
+                    name: '% Completed',
                     data: [a, b, c]
                 }
                 ]
