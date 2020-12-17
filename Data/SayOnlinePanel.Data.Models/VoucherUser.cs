@@ -4,9 +4,9 @@
     {
         public int Id { get; set; }
 
-        public string UserId { get; set; }
+        public int UserInfoId { get; set; }
 
-        public virtual ApplicationUser User { get; set; }
+        public UserInfo UserInfo { get; set; }
 
         public int VoucherId { get; set; }
 

@@ -6,6 +6,12 @@
 
     public class CreateSurveyInputModel
     {
+        public CreateSurveyInputModel()
+        {
+            this.StartDate = DateTime.Today;
+            this.EndDate = DateTime.Today;
+        }
+
         [Required]
         [MinLength(3)]
         [Display(Name = "Survey Name")]
@@ -33,11 +39,5 @@
         public int SampleMale { get; set; }
 
         public IEnumerable<CreateQuestionInputModel> Questions { get; set; }
-
-        public CreateSurveyInputModel()
-        {
-            this.StartDate = DateTime.Today;
-            this.EndDate = DateTime.Today;
-        }
     }
 }

@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Globalization;
     using System.Linq;
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Identity;
@@ -19,98 +20,72 @@
         private readonly IDeletableEntityRepository<UserInfo> userInfosRepository;
         private readonly IDeletableEntityRepository<Survey> surveysRepository;
         private readonly IDeletableEntityRepository<TargetSurvey> targetSurveysRepository;
+        private readonly IDeletableEntityRepository<Voucher> voucherRepository;
         private readonly UserManager<ApplicationUser> userManager;
 
-        public UserInfosService(IDeletableEntityRepository<UserInfo> userInfosRepository, 
+        public UserInfosService(IDeletableEntityRepository<UserInfo> userInfosRepository,
             IDeletableEntityRepository<Survey> surveysRepository,
-            IDeletableEntityRepository<TargetSurvey> targetSurveysRepository, UserManager<ApplicationUser> userManager)
+            IDeletableEntityRepository<TargetSurvey> targetSurveysRepository,
+            IDeletableEntityRepository<Voucher> voucherRepository,
+            UserManager<ApplicationUser> userManager)
         {
             this.userInfosRepository = userInfosRepository;
             this.surveysRepository = surveysRepository;
             this.targetSurveysRepository = targetSurveysRepository;
+            this.voucherRepository = voucherRepository;
             this.userManager = userManager;
         }
 
-
-        public IEnumerable<Survey> GetSurveysForUser(string userId)
+        public SyrveysListViewModel GetUsersPoints (string id)
         {
-            //var surveys = this.surveysRepository.AllAsNoTracking()
-            //    .OrderByDescending(x => x.Id)
-            //    .To<T>().ToList();
-            //return surveys;
-            var userInfo = this.userInfosRepository.All().FirstOrDefault(x => x.UserId == userId);
-            
-            if (userInfo.Gender == Gender.Male)
-            {
-                //List<Survey> surveysForUser = this.surveysRepository.All()
-                //.OrderByDescending(x => x.Id)
-                //.Where(w => w.StartDate < DateTime.Now && w.EndDate > DateTime.Now 
-                //    && w.SampleMale > 0
-                //    //&& !w.Users.Contains(userInfo.User)
-                //    )
-                ////.Select(s => s.TargetSurvey)
-                //.Include(x => x.TargetSurvey)
-                //.ThenInclude(x => x.TargetSyrveyUserInfos)
-                ////.To<T>()
-                //.ToList();
+            //var userVM = this.userInfosRepository.All().Where(x => x.UserId == id).Select(x => new SyrveysListViewModel
+            //{
+            //    Points = x.Points,
+            //    Surveys = x.SurveyUserInfos
+            //    .Select(s => new SurveysNamePoints
+            //    {
+            //        Name = s.Survey.Name,
+            //        Points = s.isComplete == true ? s.Survey.PointsTotal : s.Survey.PointsStart,
+            //        Date = s.Survey.ModifiedOn.HasValue ? s.Survey.ModifiedOn.Value.ToString("dd.MM.yyyy", CultureInfo.InvariantCulture) : null,
+            //    })
+            //}).FirstOrDefault();
+            //return userVM;
+            throw new NotImplementedException();
+        }
 
-                var surveysForUser = this.surveysRepository.All()
-                .OrderByDescending(x => x.Id)
-                .Where(w => w.StartDate < DateTime.Now && w.EndDate > DateTime.Now
-                    && w.SampleMale > 0)
-                .ToList();
+        public int GetUsersPointsForVoucher(string id)
+        {
+            var points = this.userInfosRepository.All().Where(x => x.UserId == id).FirstOrDefault().Points;
+            return points;
+        }
 
-                //foreach (var item in surveysForUser)
-                //{
-                //    var TSUI = item.TargetSurvey.TargetSyrveyUserInfos.Where(x => x.TargetSurveyId == item.TargetSurveyId && x.UserInfoId == userInfo.Id).FirstOrDefault();
-                //    if (item.TargetSurvey.TargetSyrveyUserInfos.Contains(TSUI))
-                //    {
-                //        surveysForUser.Remove(item);
-                //    }
-                //}
-                for (int i = 0; i < surveysForUser.Count; i++)
-                {
-                    var TSUI = surveysForUser[i].TargetSurvey.TargetSyrveyUserInfos.Where(x => x.TargetSurveyId == surveysForUser[i].TargetSurveyId && x.UserInfoId == userInfo.Id).FirstOrDefault();
-                    if (surveysForUser[i].TargetSurvey.TargetSyrveyUserInfos.Contains(TSUI))
-                    {
-                        surveysForUser.Remove(surveysForUser[i]);
-                    }
-                }
-                //foreach (var item in surveysForUser)
-                //{
-                //    var surveysForUserR = this.surveysRepository.All()
-                //.OrderByDescending(x => x.Id)
-                //.Where(w => w.Id == item.Id)
-                //.Select(s => s.TargetSurvey)
-                //.To<T>()
-                //.ToList();
-                //}
-                return surveysForUser;
-            }
-            else
-            {
-                var surveysForUser = this.surveysRepository.All()
-                .OrderByDescending(x => x.Id)
-                .Where(w => w.StartDate < DateTime.Now && w.EndDate > DateTime.Now
-                    && w.SampleFemale > 0
-                    //&& !w.Users.Contains(userInfo.User)
-                    )
-                //.Select(s => s.TargetSurvey)
-                .Include(x => x.TargetSurvey)
-                .ThenInclude(x => x.TargetSyrveyUserInfos)
-                //.To<T>()
-                .ToList();
-                foreach (var item in surveysForUser)
-                {
-                    var TSUI = item.SurveyUserInfos.Where(x => x.SurveyId == item.Id && x.UserInfoId == userInfo.Id).FirstOrDefault();
-                    if (item.SurveyUserInfos.Contains(TSUI))
-                    {
-                        surveysForUser.Remove(item);
-                    }
-                }
-                return surveysForUser;
-            }
+        public List<Voucher> GetUsersVoucher(string id)
+        {
+            //var userVauchers = this.userInfosRepository.All().Where(x => x.UserId == id).FirstOrDefault()
+            //    .VoucherUsers
+            //    .Select(s => s.Voucher).ToList();
 
+            //return userVauchers;
+            throw new NotImplementedException();
+
+        }
+
+        public async Task BuyVouchers(string userId, int voucherId)
+        {
+            //var userInfo = this.userInfosRepository.All().FirstOrDefault(x => x.UserId == userId);
+            //var voucher = this.voucherRepository.All().Where(x => x.Id == voucherId).FirstOrDefault();
+            //if(userInfo.Points >= voucher.Points)
+            //{
+            //    var voucherUser = new VoucherUser
+            //    {
+            //        VoucherId = voucher.Id,
+            //        UserInfoId = userInfo.Id,
+            //    };
+            //    userInfo.VoucherUsers.Add(voucherUser);
+            //    userInfo.Points -= voucher.Points;
+            //}
+            //this.userInfosRepository.SaveChangesAsync();
+            throw new NotImplementedException();
         }
 
         public async Task CreateAsync(CreateUserInfoInputModel input, string id)
@@ -127,15 +102,49 @@
             var userInfo = new UserInfo
             {
                 UserId = id,
-                //Gender = Enum.Parse<Gender>(input.Gender.ToString()),
                 Gender = resultGender,
                 Birthday = input.Birthday,
                 Town = resultTown,
-                //Town = Enum.Parse<Town>(input.Town.ToString()),
             };
             await this.userInfosRepository.AddAsync(userInfo);
             await this.userInfosRepository.SaveChangesAsync();
         }
 
+        public IEnumerable<Survey> GetSurveysForUser(string userId)
+        {
+            var userInfo = this.userInfosRepository.All().FirstOrDefault(x => x.UserId == userId);
+            var surveysForUser = new List<Survey>();
+            if (userInfo.Gender == Gender.Male)
+                {
+                    surveysForUser = this.surveysRepository.All()
+                 .OrderByDescending(x => x.Id)
+                 .Where(w => w.StartDate < DateTime.Now && w.EndDate > DateTime.Now
+                     && w.SampleMale > 0)
+                 .Include(x => x.TargetSurvey)
+                 .ThenInclude(x => x.TargetSyrveyUserInfos)
+                 .ToList();
+                }
+            else if (userInfo.Gender == Gender.Female)
+                {
+                    surveysForUser = this.surveysRepository.All()
+                .OrderByDescending(x => x.Id)
+                .Where(w => w.StartDate < DateTime.Now && w.EndDate > DateTime.Now
+                    && w.SampleFemale > 0)
+                .Include(x => x.TargetSurvey)
+                .ThenInclude(x => x.TargetSyrveyUserInfos)
+                .ToList();
+                }
+
+            for (int i = 0; i < surveysForUser.Count; i++)
+                {
+                    var TSUI = surveysForUser[i].TargetSurvey.TargetSyrveyUserInfos.Where(x => x.TargetSurveyId == surveysForUser[i].TargetSurveyId && x.UserInfoId == userInfo.Id).FirstOrDefault();
+                    if (surveysForUser[i].TargetSurvey.TargetSyrveyUserInfos.Contains(TSUI))
+                    {
+                        surveysForUser.Remove(surveysForUser[i]);
+                    }
+                }
+
+            return surveysForUser;
+        }
     }
 }

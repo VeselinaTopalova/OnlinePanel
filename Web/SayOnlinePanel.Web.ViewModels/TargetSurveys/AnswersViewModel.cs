@@ -1,5 +1,5 @@
 ﻿namespace SayOnlinePanel.Web.ViewModels.TargetSurveys
-{//ok
+{
     using SayOnlinePanel.Data.Models;
     using SayOnlinePanel.Services.Mapping;
 

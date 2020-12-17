@@ -2,7 +2,6 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.IO;
     using System.Linq;
     using System.Threading.Tasks;
 
@@ -59,6 +58,7 @@
                         Name = inputAnswers.Name,
                     });
                 }
+
                 targetSurvey.TargetQuestions.Add(question);
             }
 
@@ -98,6 +98,7 @@
                         Name = inputAnswers.Name,
                     });
                 }
+
                 targetSurvey.TargetQuestions.Add(question);
             }
 
@@ -172,38 +173,9 @@
             await this.targetSurveysRepository.SaveChangesAsync();
         }
 
-        //public async Task SelectedAnswers(PeopleSelectionViewModel model, int id)
-        //{
-        //    foreach (var answeredQuestion in model.AnsweredQuestions)
-        //    {
-        //        //var curTargetQuestion = this.db.TargetQuestions.FirstOrDefault(x => x.Id == answeredQuestion.Id);
-        //        var curTargetQuestion = this.targetQuestionsRepository.All().FirstOrDefault(x => x.Id == answeredQuestion.Id);
-        //        foreach (var selectedAnswerId in answeredQuestion.SelectedAnswerIds)
-        //        {
-        //            //var curTargetAnswer = this.db.TargetAnswers.FirstOrDefault(x => x.Id == selectedAnswerId);
-        //            //curTargetQuestion.TargetAnswersHaveCheckedIds.Add(selectedAnswerId);
-        //            //curTargetQuestion.TargetAnswersHaveChecked.Add(curTargetAnswer);
-        //        }
-        //    }
-
-        //    await this.targetQuestionsRepository.SaveChangesAsync();
-        //}
-
         public async Task SelectedAnswers(PeopleSelectionViewModel model, int id)
         {
-            
-            foreach (var answeredQuestion in model.AnsweredQuestions)
-            {
-                //var curTargetQuestion = this.db.TargetQuestions.FirstOrDefault(x => x.Id == answeredQuestion.Id);
-                var curTargetQuestion = this.targetQuestionsRepository.All().FirstOrDefault(x => x.Id == answeredQuestion.Id);
-
-                foreach (var selectedAnswerId in answeredQuestion.SelectedAnswerIds)
-                {
-                    
-                }
-            }
-            ;
-            await this.targetQuestionsRepository.SaveChangesAsync();
+            throw new NotImplementedException();
         }
     }
 }

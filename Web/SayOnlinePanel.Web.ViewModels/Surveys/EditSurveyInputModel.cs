@@ -14,6 +14,7 @@
             this.StartDate = DateTime.Today;
             this.EndDate = DateTime.Today;
         }
+
         public int Id { get; set; }
 
         [Required]

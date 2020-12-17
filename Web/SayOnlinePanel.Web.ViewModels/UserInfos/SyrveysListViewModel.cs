@@ -11,5 +11,7 @@
         public IEnumerable<SurveysNamePoints> Surveys { get; set; }
 
         public IEnumerable<Survey> SurveysForUser { get; set; }
+
+        public List<VoucherViewModel> VouchersUser { get; set; }
     }
 }

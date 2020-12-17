@@ -4,11 +4,10 @@
     using System.Linq;
     using System.Threading.Tasks;
 
-    using SayOnlinePanel.Common;
-    using SayOnlinePanel.Data.Models;
-
     using Microsoft.AspNetCore.Identity;
     using Microsoft.Extensions.DependencyInjection;
+    using SayOnlinePanel.Common;
+    using SayOnlinePanel.Data.Models;
 
     internal class RolesSeeder : ISeeder
     {

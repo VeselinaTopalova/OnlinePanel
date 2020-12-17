@@ -1,8 +1,5 @@
 ﻿namespace SayOnlinePanel.Web.ViewModels.TargetSurveys
 {
-    //ok
-    using Microsoft.AspNetCore.Http;
-    using SayOnlinePanel.Data.Models;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 

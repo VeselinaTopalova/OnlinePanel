@@ -2,14 +2,12 @@
 {
     using System.Collections.Generic;
     using System.Threading.Tasks;
-    using SayOnlinePanel.Data.Models;
+
     using SayOnlinePanel.Web.ViewModels.Surveys;
 
     public interface ISurveyService
     {
         Task CreateAsync(CreateSurveyInputModel input, int idTarget);
-
-        //IEnumerable<T> GetAll<T>(int? count = null);
 
         IEnumerable<T> GetAll<T>(int page, int itemsPerPage = 12);
 

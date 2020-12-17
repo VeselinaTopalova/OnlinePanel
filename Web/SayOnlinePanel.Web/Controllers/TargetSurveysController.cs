@@ -3,6 +3,8 @@
     using System;
     using System.Linq;
     using System.Threading.Tasks;
+
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
     using SayOnlinePanel.Data;
@@ -10,6 +12,7 @@
     using SayOnlinePanel.Services.Data;
     using SayOnlinePanel.Web.ViewModels.TargetSurveys;
 
+    [Authorize(Roles = "Administrator")]
     public class TargetSurveysController : Controller
     {
         private readonly ITargetSurveyService targetSurveyService;
@@ -50,6 +53,7 @@
             }
 
             //return this.RedirectToAction("Create", "Surveys", new { id = targetSurveyId });
+            this.TempData["Message"] = "Target Survey added successfully.";
             return this.Redirect("TargetSurveys");
         }
 
@@ -130,7 +134,6 @@
 
                 foreach (var selectedAnswerId in answeredQuestion.SelectedAnswerIds)
                 {
-
                     var curTargetAnswer = this.db.TargetAnswers.FirstOrDefault(x => x.Id == selectedAnswerId);
 
                     s.TargetAnswersHaveChecked.Add(curTargetAnswer);

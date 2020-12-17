@@ -1,8 +1,8 @@
 ﻿namespace SayOnlinePanel.Data.Configurations
 {
-    using SayOnlinePanel.Data.Models;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
+    using SayOnlinePanel.Data.Models;
 
     public class ApplicationUserConfiguration : IEntityTypeConfiguration<ApplicationUser>
     {

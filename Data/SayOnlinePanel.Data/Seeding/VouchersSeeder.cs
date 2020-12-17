@@ -15,6 +15,7 @@
             {
                 return;
             }
+
             var vouchers = new List<Voucher>();
 
             vouchers.Add(new Voucher
@@ -54,7 +55,7 @@
                 Company = "eMAG.bg",
                 Image = "https://talkonlinepanel.com/sites/talkonlinepanel.com/files/styles/incentive_teaser/public/incentives/bg_emag_20.png?itok=K-6D1lPI",
                 Leva = 20,
-                Points = 2000
+                Points = 2000,
             });
             vouchers.Add(new Voucher
             {
@@ -92,6 +93,15 @@
                 Image = "https://talkonlinepanel.com/sites/talkonlinepanel.com/files/styles/incentive_teaser/public/incentives/bg_edenred_20.png?itok=tgfM_SRT",
                 Leva = 20,
                 Points = 2250,
+            });
+            vouchers.Add(new Voucher
+            {
+                Name = "Ваучери Sunny Room 10лв.",
+                Description = @"Събрали сте 50 точки и искате да ги обмените за Ваучер от 10 лв. на Sunny Room, с който да зарадвате себе си или приятел/ка? Това можете да направите тук като натиснете бутона “Поръчайте сега” вдясно. Ваучерът дава право на едно посещение в Sunny Room. Sunny Room е мястотo, където можеш да преоткриеш креативността в себе си, да изразиш въображенето си върху платно и да намериш твореца в себе си.",
+                Company = "Sunny Room",
+                Image = "https://cdncloudcart.com/14561/products/images/35/vaucer-za-2-posesenia-image_5e54de36441d3_1280x1280.jpeg?1582620281",
+                Leva = 10,
+                Points = 50,
             });
 
             foreach (var voucher in vouchers)

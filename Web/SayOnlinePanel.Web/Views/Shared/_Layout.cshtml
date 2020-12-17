@@ -25,35 +25,36 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse" id="navbarColor01">
                     <partial name="_LoginPartial" />
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Administration</a>
-                            <div class="dropdown-menu">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="TargetSurveys" asp-action="Create">Create Target Survey</a>
-                                <a class="nav-link text-dark" asp-area="" asp-controller="TargetSurveys" asp-action="TargetSurveys">Target Surveys List</a>
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Surveys" asp-action="Create">Create Survey</a>
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Surveys" asp-action="Surveys">Surveys List</a>
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Vouchers" asp-action="Create">Create Voucher</a>
-                                <div class="dropdown-divider"></div>
-                            </div>
-                        </li>
+
+                        @if (this.User.IsInRole(GlobalConstants.AdministratorRoleName))
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Administration</a>
+                                <div class="dropdown-menu">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="TargetSurveys" asp-action="Create">Create Target Survey</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="TargetSurveys" asp-action="TargetSurveys">Target Surveys List</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Surveys" asp-action="Create">Create Survey</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Surveys" asp-action="Surveys">Surveys List</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Vouchers" asp-action="Create">Create Voucher</a>
+                                    <div class="dropdown-divider"></div>
+                                </div>
+                            </li>
+                        }
+
                         <li class="nav-item active">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Vouchers" asp-action="All">Награди</a>
                         </li>
-                        @*<li class="nav-item active">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Vouchers" asp-action="Create">Create Vouchers</a>
-                        </li>
-                        <li class="nav-item active">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Surveys" asp-action="Create">Create Surveys</a>
-                        </li>
-                        <li class="nav-item active">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Surveys" asp-action="Surveys">Surveys</a>
-                        </li>*@
-                        <li class="nav-item active">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="UserInfos" asp-action="CollectPoints">Събери точки</a>
-                        </li>
-                        <li class="nav-item active">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="UserInfos" asp-action="MyPoints">Моите точки</a>
-                        </li>
+                       
+                        @if (this.User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item active">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="UserInfos" asp-action="CollectPoints">Събери точки</a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="UserInfos" asp-action="MyPoints">Моите точки</a>
+                            </li>
+                        }
+
                     </ul>
                 </div>
             </div>

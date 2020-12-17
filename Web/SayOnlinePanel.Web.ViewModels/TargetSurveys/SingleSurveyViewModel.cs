@@ -1,6 +1,5 @@
 ﻿namespace SayOnlinePanel.Web.ViewModels.TargetSurveys
 {
-    //ok
     using System.Collections.Generic;
 
     using SayOnlinePanel.Data.Models;

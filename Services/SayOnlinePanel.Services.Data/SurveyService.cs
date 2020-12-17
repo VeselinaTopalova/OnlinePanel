@@ -2,7 +2,6 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.IO;
     using System.Linq;
     using System.Threading.Tasks;
 
@@ -42,32 +41,26 @@
                 PointsTotal = input.PointsTotal,
                 TargetSurveyId = idTarget,
             };
-            //if (idTarget != null)
-            //{
-            //    survey.TargetSurveyId = idTarget;
-            //}
 
             foreach (var inputQuestion in input.Questions)
             {
-                QuestionType qt = (QuestionType)Enum.Parse(typeof(QuestionType), inputQuestion.QuestionType, true);
+                var isValidEnum = Enum.TryParse<QuestionType>(inputQuestion.QuestionType, out QuestionType qt);
+
+                if (!isValidEnum)
+                {
+                    throw new Exception($"Invalid question type!");
+                }
+
+                if (survey.SampleFemale + survey.SampleMale != survey.SampleTotal)
+                {
+                    throw new Exception($"Invalid sample!");
+                }
+
                 var question = new Question
                 {
                     Name = inputQuestion.Name,
                     QuestionType = qt,
                 };
-
-                //var image = inputQuestion.Image;
-
-                //var extension = Path.GetExtension(image.FileName).TrimStart('.');
-
-                //question.Image = new ImageForQuestion
-                //{
-                //    Extension = extension,
-                //};
-
-                //var physicalPath = $"{imagePath}/questions/{question.Image.Id}.{extension}";
-                //using Stream fileStream = new FileStream(physicalPath, FileMode.Create);
-                //await image.CopyToAsync(fileStream);
 
                 foreach (var inputAnswers in inputQuestion.Answers)
                 {
@@ -76,6 +69,7 @@
                         Name = inputAnswers.Name,
                     });
                 }
+
                 survey.Questions.Add(question);
             }
 
@@ -83,19 +77,6 @@
             await this.surveysRepository.SaveChangesAsync();
         }
 
-        //public IEnumerable<T> GetAll<T>(int? count = null)
-        //{
-        //    IQueryable<Survey> query =
-        //        this.surveysRepository.All().OrderBy(x => x.Name);
-        //    if (count.HasValue)
-        //    {
-        //        query = query.Take(count.Value);
-        //    }
-
-        //    return query.To<T>().ToList();
-
-
-        //}
         public IEnumerable<T> GetAll<T>(int page, int itemsPerPage = 12)
         {
             var surveys = this.surveysRepository.AllAsNoTracking()
@@ -112,7 +93,7 @@
                 .To<T>().ToList();
             return surveys;
         }
-        
+
         public T GetById<T>(int id)
         {
             var survey = this.surveysRepository.AllAsNoTracking()
@@ -139,19 +120,21 @@
             survey.SampleTotal = input.SampleTotal;
             survey.SampleMale = input.SampleMale;
             survey.SampleFemale = input.SampleFemale;
-            ;
-            ;
 
             if (input.Questions.Count() > 0)
             {
                 foreach (var inputQuestion in input.Questions)
                 {
-                    //var currQ = survey.Questions.FirstOrDefault(x => x.Id == inputQuestion.Id);
+                    var isValidEnum = Enum.TryParse<QuestionType>(inputQuestion.QuestionType.ToString(), out QuestionType qt);
+
+                    if (!isValidEnum)
+                    {
+                        throw new Exception($"Invalid question type!");
+                    }
+
                     var currQ = this.questionsRepository.All().FirstOrDefault(x => x.Id == inputQuestion.Id);
                     currQ.Name = inputQuestion.Name;
-                    //currQ.QuestionType = Enum.Parse<QuestionType>(inputQuestion.QuestionType.ToString());  //???????
-                    currQ.QuestionType = inputQuestion.QuestionType;  //???????
-                    //await this.questionsRepository.SaveChangesAsync();
+                    currQ.QuestionType = inputQuestion.QuestionType;
                     foreach (var inputAnswer in inputQuestion.Answers)
                     {
                         var currA = this.answersRepository.All().FirstOrDefault(x => x.Id == inputAnswer.Id);

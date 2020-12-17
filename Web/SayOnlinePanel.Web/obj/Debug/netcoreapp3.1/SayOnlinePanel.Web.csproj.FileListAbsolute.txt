@@ -464,7 +464,6 @@ C:\Users\Acer\Desktop\MyProjectNew\Web\SayOnlinePanel.Web\obj\Debug\netcoreapp3.
 C:\Users\Acer\Desktop\MyProjectNew\Web\SayOnlinePanel.Web\obj\Debug\netcoreapp3.1\Razor\Views\Statictics\ByIdStatistics.cshtml.g.cs
 C:\Users\Acer\Desktop\MyProjectNew\Web\SayOnlinePanel.Web\obj\Debug\netcoreapp3.1\Razor\Views\Vouchers\All.cshtml.g.cs
 C:\Users\Acer\Desktop\MyProjectNew\Web\SayOnlinePanel.Web\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
-C:\Users\Acer\Desktop\MyProjectNew\Web\SayOnlinePanel.Web\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index1.cshtml.g.cs
 C:\Users\Acer\Desktop\MyProjectNew\Web\SayOnlinePanel.Web\obj\Debug\netcoreapp3.1\Razor\Views\UserInfos\CollectPoints.cshtml.g.cs
 C:\Users\Acer\Desktop\MyProjectNew\Web\SayOnlinePanel.Web\obj\Debug\netcoreapp3.1\Razor\Views\UserInfos\Create.cshtml.g.cs
 C:\Users\Acer\Desktop\MyProjectNew\Web\SayOnlinePanel.Web\obj\Debug\netcoreapp3.1\Razor\Views\Statictics\SampleComplete.cshtml.g.cs

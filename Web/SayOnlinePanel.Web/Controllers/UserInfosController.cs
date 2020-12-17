@@ -1,40 +1,36 @@
 ﻿namespace SayOnlinePanel.Web.Controllers
 {
     using System;
-    using System.Collections.Generic;
     using System.Globalization;
     using System.Linq;
     using System.Threading.Tasks;
 
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
-    using Microsoft.EntityFrameworkCore;
     using SayOnlinePanel.Data;
-    using SayOnlinePanel.Data.Common.Repositories;
     using SayOnlinePanel.Data.Models;
     using SayOnlinePanel.Services.Data;
     using SayOnlinePanel.Web.ViewModels.UserInfos;
 
+    [Authorize]
     public class UserInfosController : Controller
     {
         private readonly UserManager<ApplicationUser> userManager;
         private readonly ApplicationDbContext db;
-        private readonly ISurveyService surveyService;
         private readonly IUserInfosService userInfosService;
-        private readonly IDeletableEntityRepository<UserInfo> userInfosRepository;
 
-        public UserInfosController(UserManager<ApplicationUser> userManager, ApplicationDbContext db, ISurveyService surveyService, IUserInfosService userInfosService, IDeletableEntityRepository<UserInfo> userInfosRepository)
+        public UserInfosController(UserManager<ApplicationUser> userManager, ApplicationDbContext db, IUserInfosService userInfosService)
         {
             this.userManager = userManager;
             this.db = db;
-            this.surveyService = surveyService;
             this.userInfosService = userInfosService;
-            this.userInfosRepository = userInfosRepository;
         }
 
         public async Task<IActionResult> MyPoints()
         {
             var user = await this.userManager.GetUserAsync(this.User);
+
             var userVM = this.db.UserInfos.Where(x => x.UserId == user.Id).Select(x => new SyrveysListViewModel
             {
                 Points = x.Points,
@@ -42,11 +38,16 @@
                 .Select(s => new SurveysNamePoints
                 {
                     Name = s.Survey.Name,
-                    Points = s.isComplete == true? s.Survey.PointsTotal : s.Survey.PointsStart,
+                    Points = s.isComplete == true ? s.Survey.PointsTotal : s.Survey.PointsStart,
                     Date = s.Survey.ModifiedOn.HasValue ? s.Survey.ModifiedOn.Value.ToString("dd.MM.yyyy", CultureInfo.InvariantCulture) : null,
+                }),
+                VouchersUser = x.VoucherUsers.Select(v => new VoucherViewModel {
+                Name = v.Voucher.Name,
+                Points = v.Voucher.Points,
                 })
+                .ToList(),
             }).FirstOrDefault();
- 
+
             if (userVM != null)
             {
                 return this.View(userVM);
@@ -60,44 +61,13 @@
         public IActionResult CollectPoints()
         {
             var userId = this.userManager.GetUserId(this.User);
-            ;
+            //var userInfo = this.userInfosRepository.All().FirstOrDefault(x => x.UserId == userId);
             var userInfo = this.db.UserInfos.FirstOrDefault(x => x.UserId == userId);
 
             if (userInfo != null)
             {
-                var surveysForUser = new List<Survey>();
-                if (userInfo.Gender == Data.Models.Gender.Male)
-                {
-                   surveysForUser = this.db.Surveys
-                .OrderByDescending(x => x.Id)
-                .Where(w => w.StartDate < DateTime.Now && w.EndDate > DateTime.Now
-                    && w.SampleMale > 0)
-                .Include(x => x.TargetSurvey)
-                .ThenInclude(x => x.TargetSyrveyUserInfos)
-                .ToList();
-                }
-
-                else if(userInfo.Gender == Data.Models.Gender.Female)
-                {
-                    surveysForUser = this.db.Surveys
-                .OrderByDescending(x => x.Id)
-                .Where(w => w.StartDate < DateTime.Now && w.EndDate > DateTime.Now
-                    && w.SampleFemale > 0)
-                .Include(x => x.TargetSurvey)
-                .ThenInclude(x => x.TargetSyrveyUserInfos)
-                .ToList();
-                }
-                for (int i = 0; i < surveysForUser.Count; i++)
-                {
-                    var TSUI = surveysForUser[i].TargetSurvey.TargetSyrveyUserInfos.Where(x => x.TargetSurveyId == surveysForUser[i].TargetSurveyId && x.UserInfoId == userInfo.Id).FirstOrDefault();
-                    if (surveysForUser[i].TargetSurvey.TargetSyrveyUserInfos.Contains(TSUI))
-                    {
-                        surveysForUser.Remove(surveysForUser[i]);
-                    }
-                }
-
                 var viewModel = new SyrveysListViewModel();
-                viewModel.SurveysForUser = surveysForUser;
+                viewModel.SurveysForUser = this.userInfosService.GetSurveysForUser(userId);
                 return this.View(viewModel);
             }
             else
@@ -106,7 +76,6 @@
             }
         }
 
-        //[Authorize
         public IActionResult Create()
         {
             var viewModel = new CreateUserInfoInputModel();
@@ -133,6 +102,24 @@
             }
 
             return this.Redirect("MyPoints");
+        }
+
+        public async Task<IActionResult> Buy(int id)
+        {
+            var userId = this.userManager.GetUserId(this.User);
+            var userInfo = this.db.UserInfos.FirstOrDefault(x => x.UserId == userId);
+            var voucher = this.db.Vouchers.FirstOrDefault(x => x.Id == id);
+            userInfo.Points -= voucher.Points;
+            var voucherUser = new VoucherUser
+            {
+                VoucherId = voucher.Id,
+                UserInfoId = userInfo.Id,
+            };
+            userInfo.VoucherUsers.Add(voucherUser);
+            await this.db.SaveChangesAsync();
+
+            this.TempData["Message"] = "Успешно поръчахте този ваучер";
+            return this.Redirect("/UserInfos/MyPoints");
         }
     }
 }

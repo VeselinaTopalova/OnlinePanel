@@ -2,7 +2,7 @@
 {
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    //ok
+
     public class PeopleSelectionViewModel
     {
         public SingleSurveyViewModel TargetSurvey;
@@ -12,11 +12,8 @@
         public PeopleSelectionViewModel()
         {
             this.AnsweredQuestions = new List<AnsweredQuestion>();
-
         }
     }
-
-    
 
     public class AnsweredQuestion
     {
@@ -29,6 +26,5 @@
         {
             this.SelectedAnswerIds = new List<int>();
         }
-
     }
 }

@@ -2,7 +2,7 @@
 @model SayOnlinePanel.Web.ViewModels.TargetSurveys.EditSurveyInputModel
 
 @{
-    var questionTypesList = Enum.GetValues(typeof(QuestionType)).OfType<QuestionType>().Select(m => new { Text = m.ToString(), Value = (int)m }).ToList();
+    var questionTypesList = Enum.GetValues(typeof(TargetQuestionType)).OfType<TargetQuestionType>().Select(m => new { Text = m.ToString(), Value = (int)m }).ToList();
 }
 <form method="post" id="editForm">
     <div class="form-group">

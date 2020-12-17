@@ -818,18 +818,13 @@ namespace SayOnlinePanel.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<int?>("UserInfoId")
+                    b.Property<int>("UserInfoId")
                         .HasColumnType("int");
 
                     b.Property<int>("VoucherId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("UserId");
 
                     b.HasIndex("UserInfoId");
 
@@ -1079,13 +1074,11 @@ namespace SayOnlinePanel.Data.Migrations
 
             modelBuilder.Entity("SayOnlinePanel.Data.Models.VoucherUser", b =>
                 {
-                    b.HasOne("SayOnlinePanel.Data.Models.ApplicationUser", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
-
-                    b.HasOne("SayOnlinePanel.Data.Models.UserInfo", null)
+                    b.HasOne("SayOnlinePanel.Data.Models.UserInfo", "UserInfo")
                         .WithMany("VoucherUsers")
-                        .HasForeignKey("UserInfoId");
+                        .HasForeignKey("UserInfoId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
 
                     b.HasOne("SayOnlinePanel.Data.Models.Voucher", "Voucher")
                         .WithMany("VoucherUsers")

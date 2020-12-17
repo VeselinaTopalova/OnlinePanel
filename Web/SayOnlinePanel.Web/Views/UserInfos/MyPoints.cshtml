@@ -1,9 +1,24 @@
 ﻿@using SayOnlinePanel.Common
 @model SayOnlinePanel.Web.ViewModels.UserInfos.SyrveysListViewModel
 
+@if (this.TempData.ContainsKey("Message"))
+{
+<div class="alert alert-success">@this.TempData["Message"]</div>
+}
+
 <div class="block-content">
     <h3 class="text-info">Актуален баланс: @Model.Points точки </h3>
-    <h7 class="text-muted">@DateTime.Now</h7>
+    <blockquote class="blockquote text-right">
+        <small class="text-muted">@DateTime.Now</small>
+    </blockquote>
+
+    @if (Model.VouchersUser.Count() > 0)
+    {
+        foreach (var item in Model.VouchersUser)
+        {
+            <h6 class="text-secondary">Закупени ваучери: @item.Name   /   за @item.Points Точки</h6>
+        }
+    }
 </div>
 <hr />
 <div>
@@ -33,4 +48,5 @@
         }
     </tbody>
 </table>
+<p>&nbsp;</p>
 

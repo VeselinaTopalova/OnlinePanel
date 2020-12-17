@@ -1,6 +1,5 @@
 ﻿namespace SayOnlinePanel.Web.ViewModels.TargetSurveys
 {
-    //ok
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -32,8 +31,6 @@
         [Required]
         [DataType(DataType.Date)]
         public DateTime EndDate { get; set; }
-
-        //public int PointsStart { get; set; }
 
         public List<EditQuestionInputModel> TargetQuestions { get; set; }
     }

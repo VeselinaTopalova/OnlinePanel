@@ -19,7 +19,7 @@
         public IActionResult Index()
         {
             var viewModel = new IndexViewModel();
-            viewModel.Vouchers = 
+            viewModel.Vouchers =
                 (System.Collections.Generic.List<IndexVoucherViewModel>)
                 this.vouchersService.GetAllWithCount<IndexVoucherViewModel>(6);
             return this.View(viewModel);

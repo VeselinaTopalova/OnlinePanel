@@ -1,8 +1,8 @@
 ﻿namespace SayOnlinePanel.Web.ViewModels.TargetSurveys
 {
-    //ok
     using System;
     using System.ComponentModel.DataAnnotations;
+
     using SayOnlinePanel.Data.Models;
     using SayOnlinePanel.Services.Mapping;
 
@@ -17,7 +17,5 @@
 
         [DataType(DataType.Date)]
         public DateTime EndDate { get; set; }
-
-        //public int Points { get; set; }
     }
 }

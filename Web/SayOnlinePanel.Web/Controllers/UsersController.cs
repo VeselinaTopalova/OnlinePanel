@@ -1,8 +1,9 @@
 ﻿namespace SayOnlinePanel.Web.Controllers
 {
-    using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
+
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
     using SayOnlinePanel.Data;
@@ -10,18 +11,16 @@
     using SayOnlinePanel.Services.Data;
     using SayOnlinePanel.Web.ViewModels.Users;
 
+    [Authorize]
     public class UsersController : Controller
     {
-        private readonly IUsersService usersService;
         private readonly ISurveyService surveyService;
         private readonly UserManager<ApplicationUser> userManager;
         private readonly ApplicationDbContext db;
         private readonly ITargetSurveyService targetSurveyService;
 
-        public UsersController(IUsersService usersService, ISurveyService surveyService,
-            UserManager<ApplicationUser> userManager, ApplicationDbContext db, ITargetSurveyService targetSurveyService)
+        public UsersController(UserManager<ApplicationUser> userManager, ISurveyService surveyService, ITargetSurveyService targetSurveyService, ApplicationDbContext db)
         {
-            this.usersService = usersService;
             this.surveyService = surveyService;
             this.userManager = userManager;
             this.db = db;
@@ -59,11 +58,7 @@
             var tsui = new TargetSyrveyUserInfo { TargetSurvey = targetSurvey, UserInfo = userInfo };
             var sui = new SurveyUserInfo { Survey = survey, UserInfo = userInfo };
             userInfo.TargetSyrveyUserInfo.Add(tsui);
-            userInfo.SurveyUserInfos.Add(sui); 
-
-
-
-            ////is targetAnswersHaveCheckedIds is checked
+            userInfo.SurveyUserInfos.Add(sui);
             bool isInList = false;
             foreach (var answeredQuestion in model.AnsweredQuestions)
             {
@@ -72,7 +67,6 @@
                 var targetAnswersHaveCheckedIds = this.db.TargetSelectedAnswers.Where(x => x.TargetQuestion.Id == answeredQuestion.Id)
                     .Select(s => s.TargetAnswersHaveChecked)
                     .FirstOrDefault().ToList();
-
 
                 foreach (var selectedAnswerId in answeredQuestion.SelectedAnswerIds)
                 {
@@ -83,6 +77,7 @@
                         break;
                     }
                 }
+
                 if (!isInList)
                 {
                     break;
@@ -110,7 +105,6 @@
             }
             else
             {
-                
                 userInfo.Points += survey.PointsStart;
                 await this.db.SaveChangesAsync();
                 return this.RedirectToAction("ThankYou", "Users", new { id = survey.Id });
@@ -133,10 +127,9 @@
             {
                 return this.View(model);
             }
+
             var user = await this.userManager.GetUserAsync(this.User);
 
-            //this.usersService.CompleteAsync(model, id, user.Id);
-            // get the ids of the items selected:
             var answeredQuestions = model.AnsweredQuestions;
 
             foreach (var answeredQuestion in answeredQuestions)
@@ -187,10 +180,9 @@
             var sui = this.db.SurveyUserInfos.Where( s=>s.Survey == survey && s.UserInfo == userInfo).FirstOrDefault();
             sui.isComplete = true;
 
-            //Sample
             survey.SampleTotalComplete += 1;
 
-            if(userInfo.Gender == Gender.Male)
+            if (userInfo.Gender == Gender.Male)
             {
                 survey.SampleMaleComplete += 1;
             }
@@ -206,7 +198,7 @@
         public IActionResult ThankYou(int id)
         {
             var points = this.db.Surveys.FirstOrDefault(x => x.Id == id).PointsStart;
-            ViewData["points"] = points;
+            this.ViewData["points"] = points;
 
             return this.View();
         }

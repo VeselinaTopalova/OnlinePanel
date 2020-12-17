@@ -1,9 +1,7 @@
 ﻿@using SayOnlinePanel.Common
 @using SayOnlinePanel.Data.Models
 @model SayOnlinePanel.Web.ViewModels.UserInfos.CreateUserInfoInputModel
-@*<select asp-for="Gender" asp-items="Html.GetEnumSelectList<Gender>()">
-        <option selected="selected" value="">Please select</option>
-    </select>*@
+
 
 @{
     var genderList = Enum.GetValues(typeof(Gender)).OfType<Gender>().Select(m => new { Text = m.ToString(), Value = (int)m }).ToList();

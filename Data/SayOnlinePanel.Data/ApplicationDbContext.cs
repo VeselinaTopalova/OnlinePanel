@@ -109,7 +109,6 @@
 
             builder.Entity<SurveyUserInfo>()
             .HasKey(c => new { c.SurveyId, c.UserInfoId });
-
         }
 
         private static void SetIsDeletedQueryFilter<T>(ModelBuilder builder)

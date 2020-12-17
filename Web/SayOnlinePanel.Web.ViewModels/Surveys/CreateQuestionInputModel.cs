@@ -1,21 +1,21 @@
 ﻿namespace SayOnlinePanel.Web.ViewModels.Surveys
 {
-    using Microsoft.AspNetCore.Http;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+
+    using Microsoft.AspNetCore.Http;
 
     public class CreateQuestionInputModel
     {
         [Required]
-        [Display(Name = "QuestionName")]
+        [Display(Name = "Question Name")]
         public string Name { get; set; }
 
         [Required]
-        [Display(Name = "QuestionType")]
+        [Display(Name = "Question Type")]
         public string QuestionType { get; set; }
 
         public IFormFile Image { get; set; }
-
 
         public IEnumerable<SQAnswerInputModel> Answers { get; set; }
     }

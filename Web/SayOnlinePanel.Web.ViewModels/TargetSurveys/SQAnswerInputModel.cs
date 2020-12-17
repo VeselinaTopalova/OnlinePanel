@@ -1,6 +1,5 @@
 ﻿namespace SayOnlinePanel.Web.ViewModels.TargetSurveys
 {
-    //ok
     using System.ComponentModel.DataAnnotations;
 
     public class SQAnswerInputModel

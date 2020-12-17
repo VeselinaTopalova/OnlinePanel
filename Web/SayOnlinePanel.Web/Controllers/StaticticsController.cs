@@ -2,50 +2,27 @@
 {
     using System.Linq;
 
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
-    using Newtonsoft.Json;
     using SayOnlinePanel.Data;
     using SayOnlinePanel.Data.Models;
     using SayOnlinePanel.Services.Data;
     using SayOnlinePanel.Web.ViewModels.Statictics;
 
-    using Formatting = Newtonsoft.Json.Formatting;
-
+    [Authorize(Roles = "Administrator")]
     public class StaticticsController : Controller
     {
-        private readonly IUsersService usersService;
         private readonly ISurveyService surveyService;
         private readonly UserManager<ApplicationUser> userManager;
         private readonly ApplicationDbContext db;
 
-        public StaticticsController(IUsersService usersService, ISurveyService surveyService, UserManager<ApplicationUser> userManager, ApplicationDbContext db)
+        public StaticticsController(ISurveyService surveyService, UserManager<ApplicationUser> userManager, ApplicationDbContext db)
         {
-            this.usersService = usersService;
             this.surveyService = surveyService;
             this.userManager = userManager;
             this.db = db;
         }
-
-        //public string ByIdStatistics(int id)
-        //{
-        //    var survey = this.db.UserAnswers.Where(x => x.SurveyId == id).Select(x => new SingleSurveyViewModel
-        //    {
-        //        Name = x.Survey.Name,
-        //        Questions = x.Survey.Questions.Select(s => new QuestionsViewModel
-        //        {
-        //            Name = s.Name,
-        //            QuestionType = s.QuestionType,
-        //            Answers = s.Answers.Select(a => new AnswersViewModel
-        //            {
-        //                Name = a.Name,
-        //                Count = a.UserAnswers.Count(),
-        //            }).ToList(),
-        //        }).ToList(),
-        //    }).FirstOrDefault();
-        //    var jsonResult = JsonConvert.SerializeObject(survey, Formatting.Indented);
-        //    return jsonResult;
-        //}
 
         public IActionResult ByIdStatistics(int id)
         {
@@ -67,7 +44,6 @@
             }).FirstOrDefault();
 
             return this.View(survey);
-
         }
 
         public IActionResult SampleComplete(int id)

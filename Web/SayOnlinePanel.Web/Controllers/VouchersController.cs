@@ -2,17 +2,24 @@
 {
     using System.Threading.Tasks;
 
+    using Microsoft.AspNetCore.Authorization;
+    using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
+    using SayOnlinePanel.Data.Models;
     using SayOnlinePanel.Services.Data;
     using SayOnlinePanel.Web.ViewModels.Vouchers;
 
     public class VouchersController : Controller
     {
         private readonly IVouchersService vouchersService;
+        private readonly UserManager<ApplicationUser> userManager;
+        private readonly IUserInfosService userInfosService;
 
-        public VouchersController(IVouchersService vouchersService)
+        public VouchersController(IVouchersService vouchersService, UserManager<ApplicationUser> userManager, IUserInfosService userInfosService)
         {
             this.vouchersService = vouchersService;
+            this.userManager = userManager;
+            this.userInfosService = userInfosService;
         }
 
         public IActionResult All()
@@ -25,12 +32,6 @@
             return this.View(viewModel);
         }
 
-        public IActionResult ByName(string name)
-        {
-            var viewModel = this.vouchersService.GetByName<VoucherViewModel>(name);
-            return this.View(viewModel);
-        }
-
         public IActionResult ById(int id)
         {
             var voucherViewModel = this.vouchersService.GetById<VoucherViewModel>(id);
@@ -39,15 +40,28 @@
                 return this.NotFound();
             }
 
+            var userid = this.userManager.GetUserId(this.User);
+            if (userid == null)
+            {
+                this.ViewData["userPoints"] = 0;
+            }
+            else
+            {
+                var userPoints = this.userInfosService.GetUsersPointsForVoucher(userid);
+                this.ViewData["userPoints"] = userPoints;
+            }
+
             return this.View(voucherViewModel);
         }
 
+        [Authorize(Roles = "Administrator")]
         public IActionResult Create()
         {
             var viewModel = new CreateVoucherInputModel();
             return this.View(viewModel);
         }
 
+        [Authorize(Roles = "Administrator")]
         [HttpPost]
         public async Task<IActionResult> Create(CreateVoucherInputModel input)
         {
@@ -58,8 +72,8 @@
 
             await this.vouchersService.CreateAsync(input);
 
-            // TODO: Redirect to ???
-            return this.Redirect("/");
+            this.TempData["Message"] = "Voucher added successfully.";
+            return this.Redirect("All");
         }
     }
 }

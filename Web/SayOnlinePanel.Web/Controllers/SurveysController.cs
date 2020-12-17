@@ -1,11 +1,15 @@
 ﻿namespace SayOnlinePanel.Web.Controllers
 {
+    using System;
     using System.Threading.Tasks;
+
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Mvc;
     using SayOnlinePanel.Services.Data;
     using SayOnlinePanel.Web.ViewModels.Surveys;
 
+    [Authorize(Roles = "Administrator")]
     public class SurveysController : Controller
     {
         private readonly ISurveyService surveyService;
@@ -31,8 +35,18 @@
                 return this.View(input);
             }
 
-            await this.surveyService.CreateAsync(input, id);
-            return this.Redirect("Surveys");
+            try
+            {
+                await this.surveyService.CreateAsync(input, id);
+            }
+            catch (Exception ex)
+            {
+                this.ModelState.AddModelError(string.Empty, ex.Message);
+                return this.View(input);
+            }
+
+            this.TempData["Message"] = "Survey added successfully.";
+            return this.Redirect("/Surveys/Surveys");
         }
 
         public IActionResult Surveys(int id = 1)
@@ -73,7 +87,16 @@
                 return this.View(input);
             }
 
-            await this.surveyService.UpdateAsync(id, input);
+            try
+            {
+                await this.surveyService.UpdateAsync(id, input);
+            }
+            catch (Exception ex)
+            {
+                this.ModelState.AddModelError(string.Empty, ex.Message);
+                return this.View(input);
+            }
+
             return this.RedirectToAction(nameof(this.ById), new { id });
         }
 

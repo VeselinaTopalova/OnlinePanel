@@ -36,7 +36,7 @@
                     SampleFemale = table.Column<int>(nullable: false),
                     SampleMale = table.Column<int>(nullable: false),
                     PointsStart = table.Column<int>(nullable: false),
-                    PointsTotal = table.Column<int>(nullable: false)
+                    PointsTotal = table.Column<int>(nullable: false),
                 },
                 constraints: table =>
                 {

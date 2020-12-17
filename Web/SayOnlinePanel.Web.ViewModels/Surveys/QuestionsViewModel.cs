@@ -12,6 +12,5 @@
         public QuestionType QuestionType { get; set; }
 
         public IEnumerable<AnswersViewModel> Answers { get; set; }
-
     }
 }

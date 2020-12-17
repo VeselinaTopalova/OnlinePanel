@@ -28,6 +28,7 @@
                               new RolesSeeder(),
                               new SettingsSeeder(),
                               new VouchersSeeder(),
+                              new SeedUserAndAddAdminRole(),
                           };
 
             foreach (var seeder in seeders)
