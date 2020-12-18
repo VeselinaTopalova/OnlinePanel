@@ -119,7 +119,7 @@
                     surveysForUser = this.surveysRepository.All()
                  .OrderByDescending(x => x.Id)
                  .Where(w => w.StartDate < DateTime.Now && w.EndDate > DateTime.Now
-                     && w.SampleMale > 0)
+                     && w.SampleMale > 0 && w.SampleMale > w.SampleMaleComplete)
                  .Include(x => x.TargetSurvey)
                  .ThenInclude(x => x.TargetSyrveyUserInfos)
                  .ToList();
@@ -129,7 +129,7 @@
                     surveysForUser = this.surveysRepository.All()
                 .OrderByDescending(x => x.Id)
                 .Where(w => w.StartDate < DateTime.Now && w.EndDate > DateTime.Now
-                    && w.SampleFemale > 0)
+                    && w.SampleFemale > 0 && w.SampleFemale > w.SampleFemaleComplete)
                 .Include(x => x.TargetSurvey)
                 .ThenInclude(x => x.TargetSyrveyUserInfos)
                 .ToList();
