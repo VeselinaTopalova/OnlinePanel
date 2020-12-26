@@ -8,6 +8,7 @@
 
   <PropertyGroup>
     <CodeAnalysisRuleSet>..\..\Rules.ruleset</CodeAnalysisRuleSet>
+    <ApplicationInsightsResourceId>/subscriptions/a00cedef-ed8a-47e1-8872-6507e5c9059d/resourceGroups/sayonlinepanel/providers/microsoft.insights/components/sayonlinepanel</ApplicationInsightsResourceId>
   </PropertyGroup>
 
   <ItemGroup>

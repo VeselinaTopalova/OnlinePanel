@@ -41,12 +41,9 @@
 
         public virtual ICollection<Question> Questions { get; set; }
 
-        //public virtual ICollection<Answer> Answers { get; set; }
-
         public virtual ICollection<ApplicationUser> Users { get; set; }
 
         public virtual ICollection<SurveyUserInfo> SurveyUserInfos { get; set; }
-
 
         public virtual ICollection<UserAnswer> UserAnswers { get; set; }
 

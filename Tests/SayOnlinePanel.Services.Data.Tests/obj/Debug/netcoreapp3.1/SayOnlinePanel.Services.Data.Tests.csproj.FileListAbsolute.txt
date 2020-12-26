@@ -13,6 +13,7 @@ C:\Users\Acer\Desktop\MyProjectNew\Tests\SayOnlinePanel.Services.Data.Tests\bin\
 C:\Users\Acer\Desktop\MyProjectNew\Tests\SayOnlinePanel.Services.Data.Tests\bin\Debug\netcoreapp3.1\Castle.Core.dll
 C:\Users\Acer\Desktop\MyProjectNew\Tests\SayOnlinePanel.Services.Data.Tests\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.Internal.dll
 C:\Users\Acer\Desktop\MyProjectNew\Tests\SayOnlinePanel.Services.Data.Tests\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\Acer\Desktop\MyProjectNew\Tests\SayOnlinePanel.Services.Data.Tests\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Http.Features.dll
 C:\Users\Acer\Desktop\MyProjectNew\Tests\SayOnlinePanel.Services.Data.Tests\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Users\Acer\Desktop\MyProjectNew\Tests\SayOnlinePanel.Services.Data.Tests\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\Acer\Desktop\MyProjectNew\Tests\SayOnlinePanel.Services.Data.Tests\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
@@ -62,6 +63,7 @@ C:\Users\Acer\Desktop\MyProjectNew\Tests\SayOnlinePanel.Services.Data.Tests\bin\
 C:\Users\Acer\Desktop\MyProjectNew\Tests\SayOnlinePanel.Services.Data.Tests\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
 C:\Users\Acer\Desktop\MyProjectNew\Tests\SayOnlinePanel.Services.Data.Tests\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
 C:\Users\Acer\Desktop\MyProjectNew\Tests\SayOnlinePanel.Services.Data.Tests\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Acer\Desktop\MyProjectNew\Tests\SayOnlinePanel.Services.Data.Tests\bin\Debug\netcoreapp3.1\System.IO.Pipelines.dll
 C:\Users\Acer\Desktop\MyProjectNew\Tests\SayOnlinePanel.Services.Data.Tests\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
 C:\Users\Acer\Desktop\MyProjectNew\Tests\SayOnlinePanel.Services.Data.Tests\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
 C:\Users\Acer\Desktop\MyProjectNew\Tests\SayOnlinePanel.Services.Data.Tests\bin\Debug\netcoreapp3.1\System.Security.Permissions.dll
@@ -164,5 +166,3 @@ C:\Users\Acer\Desktop\MyProjectNew\Tests\SayOnlinePanel.Services.Data.Tests\obj\
 C:\Users\Acer\Desktop\MyProjectNew\Tests\SayOnlinePanel.Services.Data.Tests\obj\Debug\netcoreapp3.1\SayOnlinePanel.Services.Data.Tests.dll
 C:\Users\Acer\Desktop\MyProjectNew\Tests\SayOnlinePanel.Services.Data.Tests\obj\Debug\netcoreapp3.1\SayOnlinePanel.Services.Data.Tests.pdb
 C:\Users\Acer\Desktop\MyProjectNew\Tests\SayOnlinePanel.Services.Data.Tests\obj\Debug\netcoreapp3.1\SayOnlinePanel.Services.Data.Tests.genruntimeconfig.cache
-C:\Users\Acer\Desktop\MyProjectNew\Tests\SayOnlinePanel.Services.Data.Tests\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Http.Features.dll
-C:\Users\Acer\Desktop\MyProjectNew\Tests\SayOnlinePanel.Services.Data.Tests\bin\Debug\netcoreapp3.1\System.IO.Pipelines.dll

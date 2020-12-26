@@ -5,6 +5,7 @@ C:\Users\Acer\Desktop\MyProjectNew\Tests\SayOnlinePanel.Web.Tests\bin\Debug\netc
 C:\Users\Acer\Desktop\MyProjectNew\Tests\SayOnlinePanel.Web.Tests\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Users\Acer\Desktop\MyProjectNew\Tests\SayOnlinePanel.Web.Tests\bin\Debug\netcoreapp3.1\bundleconfig.json
 C:\Users\Acer\Desktop\MyProjectNew\Tests\SayOnlinePanel.Web.Tests\bin\Debug\netcoreapp3.1\libman.json
+C:\Users\Acer\Desktop\MyProjectNew\Tests\SayOnlinePanel.Web.Tests\bin\Debug\netcoreapp3.1\SayOnlinePanel.Web.StaticWebAssets.xml
 C:\Users\Acer\Desktop\MyProjectNew\Tests\SayOnlinePanel.Web.Tests\bin\Debug\netcoreapp3.1\SayOnlinePanel.Web.exe
 C:\Users\Acer\Desktop\MyProjectNew\Tests\SayOnlinePanel.Web.Tests\bin\Debug\netcoreapp3.1\testhost.exe
 C:\Users\Acer\Desktop\MyProjectNew\Tests\SayOnlinePanel.Web.Tests\bin\Debug\netcoreapp3.1\SayOnlinePanel.Web.Tests.StaticWebAssets.xml
@@ -266,6 +267,7 @@ C:\Users\Acer\Desktop\MyProjectNew\Tests\SayOnlinePanel.Web.Tests\bin\Debug\netc
 C:\Users\Acer\Desktop\MyProjectNew\Tests\SayOnlinePanel.Web.Tests\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.Internal.dll
 C:\Users\Acer\Desktop\MyProjectNew\Tests\SayOnlinePanel.Web.Tests\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 C:\Users\Acer\Desktop\MyProjectNew\Tests\SayOnlinePanel.Web.Tests\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll
+C:\Users\Acer\Desktop\MyProjectNew\Tests\SayOnlinePanel.Web.Tests\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Http.Features.dll
 C:\Users\Acer\Desktop\MyProjectNew\Tests\SayOnlinePanel.Web.Tests\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Users\Acer\Desktop\MyProjectNew\Tests\SayOnlinePanel.Web.Tests\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.UI.Views.V3.dll
 C:\Users\Acer\Desktop\MyProjectNew\Tests\SayOnlinePanel.Web.Tests\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.UI.Views.V4.dll
@@ -524,5 +526,3 @@ C:\Users\Acer\Desktop\MyProjectNew\Tests\SayOnlinePanel.Web.Tests\obj\Debug\netc
 C:\Users\Acer\Desktop\MyProjectNew\Tests\SayOnlinePanel.Web.Tests\obj\Debug\netcoreapp3.1\SayOnlinePanel.Web.Tests.dll
 C:\Users\Acer\Desktop\MyProjectNew\Tests\SayOnlinePanel.Web.Tests\obj\Debug\netcoreapp3.1\SayOnlinePanel.Web.Tests.pdb
 C:\Users\Acer\Desktop\MyProjectNew\Tests\SayOnlinePanel.Web.Tests\obj\Debug\netcoreapp3.1\SayOnlinePanel.Web.Tests.genruntimeconfig.cache
-C:\Users\Acer\Desktop\MyProjectNew\Tests\SayOnlinePanel.Web.Tests\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Http.Features.dll
-C:\Users\Acer\Desktop\MyProjectNew\Tests\SayOnlinePanel.Web.Tests\bin\Debug\netcoreapp3.1\SayOnlinePanel.Web.StaticWebAssets.xml

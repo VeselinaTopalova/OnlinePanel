@@ -35,10 +35,6 @@
 
         public DbSet<UserInfo> UserInfos { get; set; }
 
-        public DbSet<ImageForQuestion> ImageForQuestions { get; set; }
-
-        public DbSet<ImageForAnswer> ImageForAnswers { get; set; }
-
         public DbSet<Voucher> Vouchers { get; set; }
 
         public DbSet<VoucherUser> VoucherUsers { get; set; }

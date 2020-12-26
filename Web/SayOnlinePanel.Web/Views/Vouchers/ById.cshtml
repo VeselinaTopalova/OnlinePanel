@@ -1,11 +1,15 @@
-﻿@using SayOnlinePanel.Web.Controllers
+﻿
+@using SayOnlinePanel.Common
+
+
 @model SayOnlinePanel.Web.ViewModels.Vouchers.VoucherViewModel
 
 @if ((int)ViewData["userPoints"] >= @Model.Points)
 {
-    <div>
-        <a asp-controller="UserInfos" asp-action="Buy" asp-route-id="@Model.Id" class="btn btn-secondary float-right">Поръчайте сега</a>
-    </div>
+<div>
+    @*<a asp-controller="UserInfos" asp-action="Buy" asp-route-id="@Model.Id" class="btn btn-secondary float-right">Поръчайте сега</a>*@
+    <a href="/UserInfos/Buy/@Model.Id" class="btn btn-secondary float-right">Поръчайте сега</a>
+</div>
 }
 <section class="py-5">
     <div class="container">

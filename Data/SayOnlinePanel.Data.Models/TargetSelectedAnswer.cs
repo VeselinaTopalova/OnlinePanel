@@ -1,23 +1,11 @@
-﻿using System.Collections.Generic;
-
-namespace SayOnlinePanel.Data.Models
+﻿namespace SayOnlinePanel.Data.Models
 {
-    public class TargetSelectedAnswer
+    using System.Collections.Generic;
+
+    using SayOnlinePanel.Data.Common.Models;
+
+    public class TargetSelectedAnswer //: BaseDeletableModel<int>
     {
-        //public int Id { get; set; }
-
-        //public int TargetAnswerId { get; set; }
-
-        //public virtual TargetAnswer TargetAnswer { get; set; }
-
-        //public int TargetQuestionId { get; set; }
-
-        //public virtual TargetQuestion TargetQuestion { get; set; }
-
-        //public int TargetSurveyId { get; set; }
-
-        //public virtual TargetSurvey TargetSurvey { get; set; }
-
         public TargetSelectedAnswer()
         {
             this.TargetAnswersHaveChecked = new HashSet<TargetAnswer>();
@@ -34,6 +22,5 @@ namespace SayOnlinePanel.Data.Models
         public int TargetSurveyId { get; set; }
 
         public virtual TargetSurvey TargetSurvey { get; set; }
-
     }
 }

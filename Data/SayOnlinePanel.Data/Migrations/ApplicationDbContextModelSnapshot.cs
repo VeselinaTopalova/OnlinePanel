@@ -297,55 +297,6 @@ namespace SayOnlinePanel.Data.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("SayOnlinePanel.Data.Models.ImageForAnswer", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<int>("AnswerId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Extension")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("ModifiedOn")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AnswerId");
-
-                    b.ToTable("ImageForAnswers");
-                });
-
-            modelBuilder.Entity("SayOnlinePanel.Data.Models.ImageForQuestion", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Extension")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("ModifiedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("QuestionId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("QuestionId")
-                        .IsUnique();
-
-                    b.ToTable("ImageForQuestions");
-                });
-
             modelBuilder.Entity("SayOnlinePanel.Data.Models.Question", b =>
                 {
                     b.Property<int>("Id")
@@ -584,6 +535,18 @@ namespace SayOnlinePanel.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ModifiedOn")
+                        .HasColumnType("datetime2");
+
                     b.Property<int>("TargetQuestionId")
                         .HasColumnType("int");
 
@@ -591,6 +554,8 @@ namespace SayOnlinePanel.Data.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("IsDeleted");
 
                     b.HasIndex("TargetQuestionId");
 
@@ -910,24 +875,6 @@ namespace SayOnlinePanel.Data.Migrations
                     b.HasOne("SayOnlinePanel.Data.Models.TargetSurvey", null)
                         .WithMany("Users")
                         .HasForeignKey("TargetSurveyId");
-                });
-
-            modelBuilder.Entity("SayOnlinePanel.Data.Models.ImageForAnswer", b =>
-                {
-                    b.HasOne("SayOnlinePanel.Data.Models.Answer", "Answer")
-                        .WithMany()
-                        .HasForeignKey("AnswerId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("SayOnlinePanel.Data.Models.ImageForQuestion", b =>
-                {
-                    b.HasOne("SayOnlinePanel.Data.Models.Question", "Question")
-                        .WithOne("Image")
-                        .HasForeignKey("SayOnlinePanel.Data.Models.ImageForQuestion", "QuestionId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("SayOnlinePanel.Data.Models.Question", b =>

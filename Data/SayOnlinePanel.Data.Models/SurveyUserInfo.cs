@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace SayOnlinePanel.Data.Models
+﻿namespace SayOnlinePanel.Data.Models
 {
     public class SurveyUserInfo
     {
@@ -10,6 +6,7 @@ namespace SayOnlinePanel.Data.Models
         {
             this.isComplete = false;
         }
+
         public int SurveyId { get; set; }
 
         public virtual Survey Survey { get; set; }

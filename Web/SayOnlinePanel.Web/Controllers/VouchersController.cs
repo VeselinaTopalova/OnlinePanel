@@ -1,10 +1,12 @@
 ﻿namespace SayOnlinePanel.Web.Controllers
 {
+    using System.Linq;
     using System.Threading.Tasks;
 
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
+    using SayOnlinePanel.Data;
     using SayOnlinePanel.Data.Models;
     using SayOnlinePanel.Services.Data;
     using SayOnlinePanel.Web.ViewModels.Vouchers;
@@ -14,12 +16,14 @@
         private readonly IVouchersService vouchersService;
         private readonly UserManager<ApplicationUser> userManager;
         private readonly IUserInfosService userInfosService;
+        private readonly ApplicationDbContext db;
 
-        public VouchersController(IVouchersService vouchersService, UserManager<ApplicationUser> userManager, IUserInfosService userInfosService)
+        public VouchersController(IVouchersService vouchersService, UserManager<ApplicationUser> userManager, IUserInfosService userInfosService, ApplicationDbContext db)
         {
             this.vouchersService = vouchersService;
             this.userManager = userManager;
             this.userInfosService = userInfosService;
+            this.db = db;
         }
 
         public IActionResult All()
@@ -47,7 +51,9 @@
             }
             else
             {
-                var userPoints = this.userInfosService.GetUsersPointsForVoucher(userid);
+                //var userPoints = this.userInfosService.GetUsersPointsForVoucher(userid);
+                var userPoints = this.db.UserInfos.FirstOrDefault(x => x.UserId == userid).Points;
+
                 this.ViewData["userPoints"] = userPoints;
             }
 

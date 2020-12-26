@@ -1,15 +1,19 @@
 ﻿@model SayOnlinePanel.Web.ViewModels.Statictics.CompleteModel
 
-<div>
-    <h6>Survey Name: @Model.Name</h6>
-    <p>Total Sample Completed: @Math.Round(Model.SampleTotalCompletePercent, 1) %</p>
-    <p>Male Sample Completed: @Math.Round(Model.SampleMaleCompletePercent, 1) %</p>
-    <p>Female Sample Completed: @Math.Round(Model.SampleFemaleCompletePercent, 1) %</p>
+@if (Model != null)
+{
 
-</div>
 
-@section Scripts {
-<script>
+    <div>
+        <h6>Survey Name: @Model.Name</h6>
+        <p>Total Sample Completed: @Math.Round(Model.SampleTotalCompletePercent, 1) %</p>
+        <p>Male Sample Completed: @Math.Round(Model.SampleMaleCompletePercent, 1) %</p>
+        <p>Female Sample Completed: @Math.Round(Model.SampleFemaleCompletePercent, 1) %</p>
+
+    </div>
+
+    @section Scripts {
+        <script>
         function AddChart(a, b, c) {
             const chart = Highcharts.chart('container', {
                 chart: {
@@ -42,7 +46,12 @@
             AddChart(a, b, c);
         }
     );
-</script>
+        </script>
 
-    <div id="container" style="width:100%; height:400px;"></div>
+        <div id="container" style="width:100%; height:400px;"></div>
+    }
+}
+else
+{
+    <h5>Анкетата все още не е попълнена от никой!</h5>
 }

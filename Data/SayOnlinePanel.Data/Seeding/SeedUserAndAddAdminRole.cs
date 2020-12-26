@@ -14,6 +14,11 @@
         {
             var roleManager = serviceProvider.GetRequiredService<RoleManager<ApplicationRole>>();
             var userManager = serviceProvider.GetRequiredService<UserManager<ApplicationUser>>();
+            if (dbContext.Users.Any(a => a.Email == "admin@email.com"))
+            {
+                return;
+            }
+
             var poweruser = new ApplicationUser
             {
                 UserName = "admin@email.com",

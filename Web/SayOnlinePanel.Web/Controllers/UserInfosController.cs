@@ -104,7 +104,7 @@
             return this.Redirect("MyPoints");
         }
 
-        public async Task<IActionResult> Buy(int id)
+        public IActionResult Buy(int id)
         {
             var userId = this.userManager.GetUserId(this.User);
             var userInfo = this.db.UserInfos.FirstOrDefault(x => x.UserId == userId);
@@ -116,7 +116,7 @@
                 UserInfoId = userInfo.Id,
             };
             userInfo.VoucherUsers.Add(voucherUser);
-            await this.db.SaveChangesAsync();
+            this.db.SaveChangesAsync();
 
             this.TempData["Message"] = "Успешно поръчахте този ваучер";
             return this.Redirect("/UserInfos/MyPoints");

@@ -142,7 +142,7 @@
             }
 
             await this.db.SaveChangesAsync();
-            return this.Redirect("/");
+            return this.RedirectToAction("TargetSurveys");
         }
     }
 }
